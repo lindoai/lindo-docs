@@ -1,0 +1,102 @@
+---
+title: "Webhook Integration Guide"
+description: "Receive real-time notifications from your Lindo.ai workspace"
+---
+
+Set up webhooks to receive instant notifications when events occur in your workspace.
+
+## What are Webhooks?
+
+Webhooks send HTTP POST requests to your server when events happen:
+
+- Website created or updated
+- Client added
+- Invoice paid
+- Workflow completed
+
+<Steps>
+  <Step title="Create Webhook Endpoint">
+    Set up an endpoint on your server to receive webhook events:
+
+    ```javascript
+    // Express.js example
+    app.post('/webhooks/lindo', (req, res) => {
+      const event = req.body;
+
+      console.log('Received event:', event.type);
+
+      // Process the event
+      switch(event.type) {
+        case 'website.created':
+          handleWebsiteCreated(event.data);
+          break;
+        case 'invoice.paid':
+          handleInvoicePaid(event.data);
+          break;
+      }
+
+      res.status(200).send('OK');
+    });
+    ```
+  </Step>
+  <Step title="Configure Webhook URL">
+    1. Open **Settings** in sidebar
+    2. Go to **API** tab
+    3. Find **Webhook** section
+    4. Enter your endpoint URL
+    5. Click **Save**
+  </Step>
+  <Step title="Test Your Webhook">
+    After saving, Lindo.ai sends a test event to verify your endpoint. Check your server logs to confirm receipt.
+  </Step>
+  <Step title="Handle Events">
+    Common webhook events:
+
+    #
+  </Step>
+  <Step title="Verify Webhook Signature">
+    Validate that webhooks come from Lindo.ai:
+
+    ```javascript
+    const crypto = require('crypto');
+
+    function verifySignature(payload, signature, secret) {
+      const expected = crypto
+        .createHmac('sha256', secret)
+        .update(payload)
+        .digest('hex');
+
+      return signature === expected;
+    }
+    ```
+  </Step>
+  <Step title="Respond Quickly">
+    Return a 200 status within 5 seconds. For long processing, acknowledge immediately and process asynchronously:
+
+    ```javascript
+    app.post('/webhooks/lindo', (req, res) => {
+      // Acknowledge immediately
+      res.status(200).send('OK');
+
+      // Process asynchronously
+      processEventAsync(req.body);
+    });
+    ```
+  </Step>
+</Steps>
+## Best Practices
+
+- Always return 200 for received events
+- Implement idempotency for duplicate events
+- Log all webhook events
+- Set up monitoring for failures
+- Use HTTPS endpoints only
+
+<CardGroup cols={2}>
+  <Card title="All Tutorials" icon="graduation-cap" href="/tutorials/build-saas-landing-page">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="building" href="/tutorials/white-label-setup">
+    Learn more
+  </Card>
+</CardGroup>

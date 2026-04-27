@@ -1,0 +1,91 @@
+---
+title: "Understanding DNS Records"
+description: "CNAME, TXT records for domain verification"
+---
+
+DNS records connect your custom domain to Lindo.ai.
+
+## What is DNS
+
+DNS (Domain Name System) translates domain names to server addresses. You need to add records to your domain's DNS settings.
+
+## Record Types
+
+### CNAME Record
+
+Points a subdomain to another domain:
+- Used for: app, sites subdomains
+- Points to: cname.lindo.ai
+- Purpose: Routes traffic to Lindo.ai
+
+### TXT Record
+
+Text record for verification:
+- Used for: Domain ownership verification
+- Contains: Verification code
+- Purpose: Proves you own the domain
+
+## Required Records
+
+For white label setup:
+
+| Type | Name | Value | Purpose |
+|------|------|-------|---------|
+| CNAME | app | cname.lindo.ai | WebApp access |
+| CNAME | sites | cname.lindo.ai | Website hosting |
+| TXT | _verify | [your-code] | Verification |
+
+## Adding Records
+
+### General Steps
+
+1. Log into your domain registrar
+2. Find DNS settings
+3. Add new record
+4. Enter type, name, value
+5. Save changes
+
+### Common Registrars
+
+- **GoDaddy**: DNS Management
+- **Namecheap**: Advanced DNS
+- **Cloudflare**: DNS settings
+- **Google Domains**: DNS
+
+## Propagation Time
+
+DNS changes take time to spread:
+- Usually 15 minutes to 4 hours
+- Can take up to 48 hours
+- Be patient after adding records
+
+## Troubleshooting
+
+### Record Not Working
+
+- Double-check values
+- Remove trailing dots
+- Wait for propagation
+- Check for typos
+
+### Verification Failing
+
+- Ensure TXT record is correct
+- Check record name format
+- Wait and retry
+
+## Tips
+
+- Copy values exactly
+- Don't add extra characters
+- Screenshot your settings
+- Keep old records until verified
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

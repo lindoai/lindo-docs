@@ -1,0 +1,93 @@
+---
+title: "Setting Up Client Billing"
+description: "Complete guide to Stripe, invoices, and subscriptions for client billing"
+---
+
+Learn how to set up billing for your agency clients, from connecting Stripe to creating recurring subscriptions.
+
+## Prerequisites
+
+- Elite or Reseller plan
+- Stripe account (free to create)
+- At least one client in your CRM
+
+<Steps>
+  <Step title="Connect Stripe">
+    1. Go to **Settings** → **White Label** → **Integrations**
+    2. Find the Stripe integration
+    3. Click **Connect**
+    4. Complete the Stripe OAuth flow
+    5. Verify your Stripe account if prompted
+  </Step>
+  <Step title="Complete Stripe Verification">
+    Stripe may require additional verification:
+
+    1. Business information
+    2. Bank account for payouts
+    3. Identity verification
+
+    Complete all requirements to enable payouts.
+  </Step>
+  <Step title="Create Your First Invoice">
+    1. Open **CRM** from the sidebar
+    2. Select a client
+    3. Go to the **Billing** tab
+    4. Click **Create Invoice**
+    5. Fill in the details:
+       - Service name (e.g., "Website Design")
+       - Price
+       - Currency
+       - Frequency (one-time, monthly, yearly, weekly)
+    6. Click **Send Invoice**
+  </Step>
+  <Step title="Set Up Recurring Billing">
+    For ongoing services:
+
+    1. When creating an invoice, select **Monthly**, **Yearly**, or **Weekly** frequency
+    2. This creates a subscription
+    3. The client is billed automatically on the schedule
+    4. View active subscriptions in the client's **Subscriptions** tab
+  </Step>
+</Steps>
+## Managing Invoices
+
+### View All Invoices
+Go to **CRM** → **Billing** tab to see all invoices across clients.
+
+### Invoice Status
+- **Open** - Awaiting payment
+- **Paid** - Payment received
+- **Refunded** - Payment returned
+
+### Copy Payment Link
+Click the copy icon on any invoice to get the payment link for your client.
+
+### Download Invoice
+Click the download icon to save the invoice as PDF.
+
+### Refund Invoice
+Click the refund button on a paid invoice to process a refund.
+
+## Managing Subscriptions
+
+### View Subscriptions
+Go to client details → **Subscriptions** tab.
+
+### Cancel Subscription
+Click **Cancel** on any active subscription to stop future billing.
+
+## Best Practices
+
+- Set clear service names that clients understand
+- Use subscriptions for ongoing services
+- Keep track of outstanding invoices
+- Send payment reminders for overdue invoices
+
+<CardGroup cols={2}>
+  <Card title="All Tutorials" icon="graduation-cap" href="/tutorials/build-saas-landing-page">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="building" href="/tutorials/white-label-setup">
+    Learn more
+  </Card>
+</CardGroup>

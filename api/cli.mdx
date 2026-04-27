@@ -1,0 +1,341 @@
+---
+title: "CLI"
+description: "Command-line interface for the Lindo API."
+---
+
+The `lindoai-cli` package provides a command-line interface for interacting with AI agents, workflows, workspace management, and analytics from your terminal.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npm install -g lindoai-cli
+```
+
+```bash yarn
+yarn global add lindoai-cli
+```
+
+```bash pnpm
+pnpm add -g lindoai-cli
+```
+</CodeGroup>
+
+## Quick Start
+
+```bash
+# Configure your API key
+lindoai config set apiKey your-api-key
+
+# Run an agent
+lindoai agents run my-agent --input '{"prompt": "Hello!"}'
+
+# Start a workflow
+lindoai workflows start publish-page --params '{"page_id": "page-123"}'
+
+# Get workflow status
+lindoai workflows status instance-123
+
+# Get workspace credits
+lindoai workspace credits
+
+# Get analytics
+lindoai analytics workspace --from 2024-01-01 --to 2024-01-31
+```
+
+## Configuration
+
+The CLI supports configuration via environment variables and a config file.
+
+### Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `LINDO_API_KEY` | Your Lindo API key |
+| `LINDO_BASE_URL` | API base URL (default: https://api.lindo.ai) |
+
+### Config File
+
+Configuration is stored in `~/.lindo/config.json`.
+
+```bash
+# Set API key
+lindoai config set apiKey your-api-key
+
+# Set custom base URL
+lindoai config set baseUrl https://custom-api.example.com
+
+# Get a config value
+lindoai config get apiKey
+
+# List all config values
+lindoai config list
+
+# Show config file path
+lindoai config path
+```
+
+### Configuration Precedence
+
+1. Environment variables (highest priority)
+2. Config file (`~/.lindo/config.json`)
+3. Default values (lowest priority)
+
+## Command Reference
+
+### Global Options
+
+| Option | Description |
+|--------|-------------|
+| `-v, --version` | Output the current version |
+| `-h, --help` | Display help for command |
+
+---
+
+### `lindoai config`
+
+Manage CLI configuration.
+
+```bash
+lindoai config set <key> <value>  # Set a configuration value
+lindoai config get <key>          # Get a configuration value
+lindoai config list               # List all configuration values
+lindoai config path               # Show config file path
+```
+
+Valid configuration keys: `apiKey`, `baseUrl`
+
+---
+
+### `lindoai agents`
+
+Run AI agents.
+
+```bash
+lindoai agents run <agent-id> [options]
+```
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-i, --input <json>` | Input data as JSON string | `{}` |
+| `-s, --stream` | Stream the response | `false` |
+| `-f, --format <format>` | Output format (`json`, `table`) | `table` |
+
+**Examples:**
+
+```bash
+# Run an agent with input
+lindoai agents run my-agent --input '{"prompt": "Hello!"}'
+
+# Run with streaming
+lindoai agents run my-agent --input '{"prompt": "Hello!"}' --stream
+
+# Output as JSON
+lindoai agents run my-agent --input '{"prompt": "Hello!"}' --format json
+```
+
+---
+
+### `lindoai workflows`
+
+Manage workflows.
+
+```bash
+lindoai workflows start <workflow-name> [options]     # Start a workflow
+lindoai workflows status <instance-id> [options]      # Get workflow status
+lindoai workflows pause <instance-id> [options]       # Pause a workflow
+lindoai workflows resume <instance-id> [options]      # Resume a workflow
+lindoai workflows terminate <instance-id> [options]   # Terminate a workflow
+```
+
+**Options for `start`:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-p, --params <json>` | Workflow parameters as JSON string | `{}` |
+| `-f, --format <format>` | Output format (`json`, `table`) | `table` |
+
+**Examples:**
+
+```bash
+# Start a workflow
+lindoai workflows start publish-page --params '{"page_id": "page-123"}'
+
+# Get workflow status
+lindoai workflows status instance-123
+
+# Pause a running workflow
+lindoai workflows pause instance-123
+
+# Resume a paused workflow
+lindoai workflows resume instance-123
+
+# Terminate a workflow
+lindoai workflows terminate instance-123
+
+# Output as JSON
+lindoai workflows status instance-123 --format json
+```
+
+---
+
+### `lindoai workspace`
+
+Workspace operations.
+
+```bash
+lindoai workspace credits [options]   # Get credit balance
+```
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-f, --format <format>` | Output format (`json`, `table`) | `table` |
+
+**Examples:**
+
+```bash
+# Get credits in table format
+lindoai workspace credits
+
+# Get credits as JSON
+lindoai workspace credits --format json
+```
+
+---
+
+### `lindoai analytics`
+
+Analytics operations.
+
+```bash
+lindoai analytics workspace [options]   # Get workspace analytics
+lindoai analytics website [options]     # Get website analytics
+```
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--from <date>` | Start date (ISO format) | - |
+| `--to <date>` | End date (ISO format) | - |
+| `-f, --format <format>` | Output format (`json`, `table`) | `table` |
+
+**Examples:**
+
+```bash
+# Get workspace analytics
+lindoai analytics workspace
+
+# Get analytics for a date range
+lindoai analytics workspace --from 2024-01-01 --to 2024-01-31
+
+# Get website analytics as JSON
+lindoai analytics website --format json
+```
+
+## Output Formats
+
+The CLI supports two output formats:
+
+### Table Format (default)
+
+Human-readable formatted output:
+
+```
+┌─────────────┬────────────┐
+│ workspace_id│ ws-123     │
+│ balance     │ 1000       │
+│ allocated   │ 5000       │
+│ used        │ 4000       │
+└─────────────┴────────────┘
+```
+
+### JSON Format
+
+Machine-readable JSON output:
+
+```json
+{
+  "workspace_id": "ws-123",
+  "balance": 1000,
+  "allocated": 5000,
+  "used": 4000
+}
+```
+
+Use `--format json` for scripting and automation.
+
+## Error Handling
+
+The CLI provides helpful error messages:
+
+```bash
+$ lindoai agents run my-agent
+✗ API key not configured
+ℹ Run: lindoai config set apiKey <your-api-key>
+ℹ Or set the LINDO_API_KEY environment variable
+```
+
+### Authentication Errors
+
+If authentication fails, the CLI will prompt you to configure your API key:
+
+```
+✗ Authentication failed
+ℹ Your API key may be invalid or expired.
+ℹ
+ℹ To configure your API key:
+ℹ   1. Run: lindoai config set apiKey <your-api-key>
+ℹ   2. Or set the LINDO_API_KEY environment variable
+ℹ
+ℹ To get an API key:
+ℹ   Visit https://app.lindo.ai/settings/api-keys
+```
+
+## Scripting Examples
+
+### Batch Processing
+
+```bash
+#!/bin/bash
+
+# Process multiple pages
+for page_id in page-1 page-2 page-3; do
+  lindoai workflows start publish-page \
+    --params "{\"page_id\": \"$page_id\"}" \
+    --format json
+done
+```
+
+### Check Credits Before Running
+
+```bash
+#!/bin/bash
+
+# Get credits as JSON and parse with jq
+credits=$(lindoai workspace credits --format json | jq '.balance')
+
+if [ "$credits" -lt 100 ]; then
+  echo "Low credits: $credits"
+  exit 1
+fi
+
+lindoai agents run my-agent --input '{"prompt": "Hello!"}'
+```
+
+### Monitor Workflow Status
+
+```bash
+#!/bin/bash
+
+instance_id=$1
+
+while true; do
+  status=$(lindoai workflows status "$instance_id" --format json | jq -r '.status')
+  echo "Status: $status"
+  
+  if [ "$status" = "completed" ] || [ "$status" = "failed" ]; then
+    break
+  fi
+  
+  sleep 5
+done
+```

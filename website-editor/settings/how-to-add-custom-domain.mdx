@@ -1,0 +1,68 @@
+---
+title: "How to Add Custom Domain"
+description: "Connecting your own domain name to your website"
+---
+
+Connect your own domain to your Lindo.ai website.
+
+## Prerequisites
+
+- Pro plan or higher
+- Access to your domain's DNS settings
+- Domain registered with a domain registrar
+
+## Adding Your Domain
+
+1. Go to **Settings** → **Domains**
+2. Find the **Custom Domain** section
+3. Enter your domain (e.g., example.com or www.example.com)
+4. Click **Add Domain**
+
+## Connection Options
+
+### Option A: Root Domain
+Connect your root domain (example.com):
+- Add a CNAME record pointing to Lindo.ai
+- Add a TXT record for verification
+
+### Option B: Subdomain
+Connect a subdomain (www.example.com or app.example.com):
+- Add a CNAME record for the subdomain
+- Add a TXT record for verification
+
+## DNS Records
+
+After adding your domain, you'll see the required DNS records:
+
+| Type | Name | Value |
+|------|------|-------|
+| CNAME | @ or www | [provided value] |
+| TXT | @ | [verification code] |
+
+## Adding DNS Records
+
+1. Log into your domain registrar (GoDaddy, Namecheap, Cloudflare, etc.)
+2. Find DNS settings
+3. Add the CNAME record
+4. Add the TXT record
+5. Save changes
+
+## Verification
+
+1. Return to Lindo.ai settings
+2. Click **Check Status**
+3. Wait for DNS propagation (can take up to 48 hours)
+4. Status shows "Connected" when complete
+
+## SSL Certificate
+
+SSL is automatically provisioned once your domain is connected. Your site will be accessible via HTTPS.
+
+<CardGroup cols={2}>
+  <Card title="Editor Overview" icon="pen-to-square" href="/website-editor/what-is-website-editor">
+    Learn more
+  </Card>
+  <Card title="AI Chat Guide" icon="comments" href="/website-editor/understanding-ai-chat">
+    Learn more
+  </Card>
+</CardGroup>

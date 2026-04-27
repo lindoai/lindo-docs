@@ -1,0 +1,88 @@
+---
+title: "DNS Records Reference"
+description: "CNAME, TXT record formats"
+---
+
+DNS record formats for domain setup.
+
+## Required Records
+
+### CNAME Records
+
+For subdomains (www, app, sites):
+
+| Field | Value |
+|-------|-------|
+| Type | CNAME |
+| Name | www (or subdomain) |
+| Value | cname.lindo.ai |
+| TTL | 3600 (or Auto) |
+
+### TXT Records
+
+For domain verification:
+
+| Field | Value |
+|-------|-------|
+| Type | TXT |
+| Name | _verify |
+| Value | [verification code] |
+| TTL | 3600 (or Auto) |
+
+## Record Examples
+
+### Root Domain Setup
+
+```
+Type: A
+Name: @
+Value: [IP address]
+TTL: 3600
+```
+
+### Subdomain Setup
+
+```
+Type: CNAME
+Name: www
+Value: cname.lindo.ai
+TTL: 3600
+```
+
+### Verification
+
+```
+Type: TXT
+Name: _verify
+Value: lindo-verify-abc123xyz
+TTL: 3600
+```
+
+## Common Providers
+
+### GoDaddy
+
+DNS Management → Add Record
+
+### Namecheap
+
+Advanced DNS → Add New Record
+
+### Cloudflare
+
+DNS → Add Record
+
+## Tips
+
+- Copy values exactly
+- Wait for propagation
+- Check status in Lindo
+
+<CardGroup cols={2}>
+  <Card title="Credit Costs" icon="coins" href="/reference/agent-credit-costs">
+    Learn more
+  </Card>
+  <Card title="Plan Comparison" icon="table" href="/reference/plan-comparison">
+    Learn more
+  </Card>
+</CardGroup>

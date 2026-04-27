@@ -1,0 +1,64 @@
+---
+title: "How to Setup WebApp Domain"
+description: "Configure a subdomain for your workspace"
+---
+
+Set up a custom subdomain for your workspace so clients access your branded dashboard.
+
+## What is WebApp Domain?
+
+The WebApp domain is where your workspace is accessed:
+
+```
+app.yourdomain.com
+```
+
+Instead of the default Lindo.ai URL.
+
+## Prerequisites
+
+- Business plan or higher
+- Custom domain configured
+- Access to DNS settings
+
+## Setup Steps
+
+1. Open **Settings** in sidebar
+2. Go to **Domain** tab
+3. Enter your main domain
+4. Configure the webapp subdomain (e.g., `app`)
+5. Add DNS records to your provider
+6. Wait for verification
+
+## DNS Configuration
+
+Add a CNAME record:
+
+| Type | Name | Value |
+|------|------|-------|
+| CNAME | app | webapp.lindo.ai |
+
+## Verification
+
+After adding DNS records:
+
+1. Return to Settings → Domain
+2. Click **Check Status**
+3. Wait for green checkmark
+
+DNS propagation can take up to 48 hours.
+
+## Tips
+
+- Use a clear subdomain like `app` or `dashboard`
+- Test access after verification
+- Inform clients of the new URL
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

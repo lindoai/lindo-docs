@@ -1,0 +1,129 @@
+---
+title: "Errors"
+description: "Troubleshoot problems with this comprehensive breakdown of all error codes."
+---
+
+## Error Schema
+
+We use standard HTTP response codes for success and failure notifications, and our errors are further classified by type.
+
+All error responses follow this format:
+
+```json
+{
+  "error": {
+    "code": "error_code",
+    "message": "A human-readable description of the error."
+  }
+}
+```
+
+## Error Codes
+
+### `validation_error`
+
+* **Status:** 400
+* **Message:** We found an error with one or more fields in the request.
+* **Suggested action:** The message will contain more details about what field and error were found. Check your request body and parameters.
+
+### `missing_api_key`
+
+* **Status:** 401
+* **Message:** Missing API key in the authorization header.
+* **Suggested action:** Include the following header in the request: `Authorization: Bearer YOUR_API_KEY`.
+
+### `invalid_api_key`
+
+* **Status:** 403
+* **Message:** API key is invalid.
+* **Suggested action:** Make sure the API key is correct or generate a new API key in your workspace settings.
+
+### `insufficient_permissions`
+
+* **Status:** 403
+* **Message:** The API key does not have permission to perform this action.
+* **Suggested action:** Ensure your API key has the required permissions for this endpoint.
+
+### `not_found`
+
+* **Status:** 404
+* **Message:** The requested resource does not exist.
+* **Suggested action:** Verify the resource ID or endpoint path is correct.
+
+### `method_not_allowed`
+
+* **Status:** 405
+* **Message:** Method is not allowed for the requested path.
+* **Suggested action:** Change your API request to use a valid HTTP method for this endpoint.
+
+### `conflict`
+
+* **Status:** 409
+* **Message:** The request conflicts with the current state of the resource.
+* **Suggested action:** Check if the resource has been modified or if there's a duplicate entry.
+
+### `unprocessable_entity`
+
+* **Status:** 422
+* **Message:** The request was well-formed but contains invalid data.
+* **Suggested action:** Review the field values in your request body and ensure they meet the API requirements.
+
+### `rate_limit_exceeded`
+
+* **Status:** 429
+* **Message:** Too many requests. Please reduce the rate of your requests.
+* **Suggested action:** Implement a queue mechanism or add delays between requests. Check the `Retry-After` header for timing guidance.
+
+### `internal_server_error`
+
+* **Status:** 500
+* **Message:** An unexpected error occurred.
+* **Suggested action:** Try the request again later. If the error persists, contact support.
+
+### `service_unavailable`
+
+* **Status:** 503
+* **Message:** The service is temporarily unavailable.
+* **Suggested action:** Try the request again later. The service may be undergoing maintenance.
+
+## Handling Errors
+
+When integrating with the Lindo AI API, we recommend implementing error handling that:
+
+1. **Logs errors** for debugging purposes
+2. **Retries on transient failures** (5xx errors) with exponential backoff
+3. **Respects rate limits** by checking response headers
+4. **Provides user feedback** with meaningful error messages
+
+### Example Error Handling
+
+```javascript
+async function makeApiRequest(endpoint, options) {
+  try {
+    const response = await fetch(`https://api.lindo.ai${endpoint}`, {
+      ...options,
+      headers: {
+        'Authorization': 'Bearer YOUR_API_KEY',
+        'Content-Type': 'application/json',
+        ...options.headers
+      }
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+
+      if (response.status === 429) {
+        const retryAfter = response.headers.get('Retry-After');
+        console.log(`Rate limited. Retry after ${retryAfter} seconds`);
+      }
+
+      throw new Error(error.error?.message || 'API request failed');
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('API Error:', error);
+    throw error;
+  }
+}
+```

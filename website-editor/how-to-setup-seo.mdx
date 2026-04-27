@@ -1,0 +1,133 @@
+---
+title: "How to Edit Page SEO"
+description: "Configuring SEO settings for pages"
+---
+
+Optimize your pages for search engines.
+
+## Accessing SEO Settings
+
+### Per-Page SEO
+
+1. Open your website in the editor
+2. Click the **Page Settings** icon in preview toolbar
+3. Find SEO section
+
+### Site-Wide SEO
+
+1. Go to **Settings** tab
+2. Click **SEO** section
+
+## Page SEO Settings
+
+### Meta Title
+
+The title shown in search results and browser tabs.
+
+**Best practices:**
+- 50-60 characters
+- Include primary keyword
+- Brand name at end
+
+**Example:**
+```
+Project Management Software | TaskFlow
+```
+
+### Meta Description
+
+The description shown in search results.
+
+**Best practices:**
+- 150-160 characters
+- Include keywords naturally
+- Compelling call-to-action
+
+**Example:**
+```
+Manage projects smarter with TaskFlow. Track tasks, collaborate
+with your team, and hit deadlines. Start your free trial today.
+```
+
+### Social Image (OG Image)
+
+Image shown when shared on social media.
+
+**Best practices:**
+- 1200x630px recommended
+- Include branding
+- Clear, eye-catching
+
+### Page URL
+
+The path portion of the URL.
+
+**Best practices:**
+- Use keywords
+- Keep short
+- Use hyphens, not underscores
+
+**Example:**
+```
+/project-management-software
+```
+
+## Site-Wide SEO Settings
+
+### Sitemap
+
+Auto-generated at `/sitemap.xml`
+
+- Lists all published pages
+- Submit to Google Search Console
+- Updates automatically
+
+### Robots.txt
+
+Controls search engine crawling.
+
+**Default:** Allow all crawling
+
+**Custom:** Enable manual mode to edit rules
+
+### Schema Markup
+
+Add JSON-LD structured data:
+
+1. Go to Settings → SEO
+2. Find Schema Markup section
+3. Add your JSON-LD code
+
+**Example:**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TaskFlow",
+  "url": "https://taskflow.com"
+}
+```
+
+## Blog SEO
+
+Configure blog-specific settings:
+
+- **Blog Path** - URL for blog list page
+- **Blog Heading** - Title on blog page
+- **Canonical URL** - Prevent duplicate content
+
+## Tips
+
+1. **Unique titles** - Each page needs unique meta title
+2. **Keywords first** - Put important words early
+3. **Test previews** - Use social preview tools
+4. **Submit sitemap** - To Google Search Console
+
+<CardGroup cols={2}>
+  <Card title="Editor Overview" icon="pen-to-square" href="/website-editor/what-is-website-editor">
+    Learn more
+  </Card>
+  <Card title="AI Chat Guide" icon="comments" href="/website-editor/understanding-ai-chat">
+    Learn more
+  </Card>
+</CardGroup>

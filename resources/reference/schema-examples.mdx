@@ -1,0 +1,194 @@
+---
+title: "Schema Markup Examples"
+description: "JSON-LD templates for common schema types"
+---
+
+Ready-to-use schema markup templates for different website types.
+
+## Organization Schema
+
+For company/business websites:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Your Company Name",
+  "url": "https://yoursite.com",
+  "logo": "https://yoursite.com/logo.png",
+  "description": "Brief company description",
+  "foundingDate": "2020",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-555-5555",
+    "contactType": "customer service",
+    "email": "contact@yoursite.com"
+  },
+  "sameAs": [
+    "https://facebook.com/yourcompany",
+    "https://twitter.com/yourcompany",
+    "https://linkedin.com/company/yourcompany"
+  ]
+}
+```
+
+## Local Business Schema
+
+For businesses with physical locations:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Your Business Name",
+  "image": "https://yoursite.com/storefront.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Main Street",
+    "addressLocality": "City",
+    "addressRegion": "State",
+    "postalCode": "12345",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "40.7128",
+    "longitude": "-74.0060"
+  },
+  "telephone": "+1-555-555-5555",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ]
+}
+```
+
+## Product Schema
+
+For e-commerce products:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Product Name",
+  "image": "https://yoursite.com/product.jpg",
+  "description": "Product description",
+  "brand": {
+    "@type": "Brand",
+    "name": "Brand Name"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "99.99",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://yoursite.com/product"
+  }
+}
+```
+
+## Service Schema
+
+For service-based businesses:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Web Design Services",
+  "description": "Professional web design and development",
+  "provider": {
+    "@type": "Organization",
+    "name": "Your Agency"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "serviceType": "Web Design"
+}
+```
+
+## FAQ Schema
+
+For FAQ pages:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is your return policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer 30-day returns on all products."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does shipping take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard shipping takes 5-7 business days."
+      }
+    }
+  ]
+}
+```
+
+## Article Schema
+
+For blog posts:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Article Title",
+  "image": "https://yoursite.com/article-image.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Author Name"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Your Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://yoursite.com/logo.png"
+    }
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-01-20"
+}
+```
+
+## Adding Schema in Lindo.ai
+
+1. Open website editor
+2. Go to Settings → SEO
+3. Find Schema Markup section
+4. Paste your JSON-LD code
+5. Save changes
+
+## Validation
+
+Test your schema at:
+- search.google.com/test/rich-results
+- validator.schema.org
+
+<CardGroup cols={2}>
+  <Card title="Credit Costs" icon="coins" href="/reference/agent-credit-costs">
+    Learn more
+  </Card>
+  <Card title="Plan Comparison" icon="table" href="/reference/plan-comparison">
+    Learn more
+  </Card>
+</CardGroup>

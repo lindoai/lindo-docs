@@ -1,0 +1,86 @@
+---
+title: "Understanding Member Roles"
+description: "Team member permissions and access"
+---
+
+Different roles have different permissions in your workspace.
+
+## Role Hierarchy
+
+From most to least access:
+1. Owner
+2. Admin
+3. Editor
+4. Viewer
+
+## Permission Matrix
+
+| Permission | Owner | Admin | Editor | Viewer |
+|------------|-------|-------|--------|--------|
+| View websites | ✓ | ✓ | ✓ | ✓ |
+| Edit websites | ✓ | ✓ | ✓ | - |
+| Create websites | ✓ | ✓ | ✓ | - |
+| Delete websites | ✓ | ✓ | - | - |
+| Manage team | ✓ | ✓ | - | - |
+| Access settings | ✓ | ✓ | - | - |
+| Billing access | ✓ | - | - | - |
+| Delete workspace | ✓ | - | - | - |
+
+## Role Details
+
+### Owner
+
+The workspace creator:
+- Full control
+- Billing management
+- Cannot be removed
+- Only one per workspace
+
+### Admin
+
+Trusted team members:
+- Manage other members
+- Access all settings
+- Cannot access billing
+- Cannot delete workspace
+
+### Editor
+
+Content creators:
+- Create and edit websites
+- Use AI features
+- No admin access
+- No settings access
+
+### Viewer
+
+Read-only access:
+- View websites
+- Cannot edit
+- Cannot create
+- Observation only
+
+## Choosing Roles
+
+| Use Case | Recommended Role |
+|----------|------------------|
+| Business partner | Admin |
+| Designer/developer | Editor |
+| Client preview | Viewer |
+| Contractor | Editor |
+
+## Tips
+
+- Use least privilege principle
+- Review roles regularly
+- Limit admin access
+- Use viewer for clients
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

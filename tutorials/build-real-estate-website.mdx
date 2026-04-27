@@ -1,0 +1,112 @@
+---
+title: "Build a Real Estate Website"
+description: "Create a professional property listing website with Lindo.ai"
+---
+
+Build a complete real estate website with property listings, search functionality, and contact forms.
+
+## What You'll Create
+
+A professional real estate website featuring:
+- Hero section with property search
+- Featured listings grid
+- Property detail pages
+- Agent profiles
+- Contact and inquiry forms
+
+<Steps>
+  <Step title="Generate the Website">
+    Open your workspace and enter this prompt:
+
+    ```
+    Create a modern real estate website for "Prime Properties" with:
+    - Hero section with property search bar
+    - Featured listings grid showing 6 properties with images, price, beds, baths, sqft
+    - About section highlighting 15 years experience
+    - Services: buying, selling, rentals, property management
+    - Agent team section with 4 agents
+    - Testimonials from happy clients
+    - Contact form with phone and email
+    - Footer with office address and social links
+    ```
+
+    Select **Multi-Page** mode to generate multiple pages.
+  </Step>
+  <Step title="Customize Property Listings">
+    Use the Block Creator agent to add more listing cards:
+
+    ```
+    Add a property listing section with 9 properties in a 3-column grid. Each card shows:
+    - Property image
+    - Price badge overlay
+    - Address
+    - Beds, baths, square footage icons
+    - "View Details" button
+    ```
+  </Step>
+  <Step title="Create Property Detail Template">
+    Navigate to Pages tab and create a new page for property details:
+
+    ```
+    Create a property detail page with:
+    - Large image gallery (main image + 4 thumbnails)
+    - Property title and price
+    - Key details: beds, baths, sqft, year built, lot size
+    - Description paragraph
+    - Features list in 2 columns
+    - Location map placeholder
+    - Agent contact card with photo and phone
+    - Schedule viewing form
+    ```
+  </Step>
+  <Step title="Add Search Functionality">
+    Use the Element Editor to enhance the search bar:
+
+    ```
+    Style the property search with:
+    - Location dropdown
+    - Property type selector (house, condo, land)
+    - Price range slider
+    - Beds/baths dropdowns
+    - Search button
+    ```
+  </Step>
+  <Step title="Configure SEO">
+    Open Settings → SEO and add schema markup:
+
+    ```json
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Prime Properties",
+      "description": "Professional real estate services",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main Street",
+        "addressLocality": "Your City",
+        "addressRegion": "State",
+        "postalCode": "12345"
+      }
+    }
+    ```
+  </Step>
+  <Step title="Connect Domain">
+    In Settings → Domains, connect your custom domain like `primeproperties.com` for a professional presence.
+  </Step>
+</Steps>
+## Tips for Real Estate Websites
+
+- Use high-quality property photos
+- Include virtual tour links when available
+- Add neighborhood information
+- Display recent sales for credibility
+- Make contact information prominent
+
+<CardGroup cols={2}>
+  <Card title="All Tutorials" icon="graduation-cap" href="/tutorials/build-saas-landing-page">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="building" href="/tutorials/white-label-setup">
+    Learn more
+  </Card>
+</CardGroup>

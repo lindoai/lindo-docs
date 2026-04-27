@@ -1,0 +1,69 @@
+---
+title: "Understanding the Domain Tab"
+description: "Custom domain setup wizard"
+---
+
+The Domain tab guides you through connecting a custom domain to your workspace.
+
+## Accessing
+
+1. Click **Settings** in sidebar
+2. Select **White Label**
+3. Click **Domain** tab
+
+## Domain Setup Wizard
+
+The wizard walks you through:
+
+<Steps>
+  <Step title="Enter Domain">
+    Enter your main domain:
+    - Example: youragency.com
+    - Don't include www or https
+  </Step>
+  <Step title="Configure Subdomains">
+    Set up three subdomains:
+    - **WebApp**: app.youragency.com (where clients log in)
+    - **Websites**: sites.youragency.com (where websites are hosted)
+    - **Email**: mail.youragency.com (for email sending)
+  </Step>
+  <Step title="Add DNS Records">
+    Add required records to your DNS provider:
+    - CNAME records for subdomains
+    - TXT record for verification
+  </Step>
+  <Step title="Verify Connection">
+    Check that DNS is properly configured:
+    - Status shows connected/not connected
+    - May take up to 48 hours to propagate
+  </Step>
+</Steps>
+## DNS Records Required
+
+| Type | Name | Value |
+|------|------|-------|
+| CNAME | app | cname.lindo.ai |
+| CNAME | sites | cname.lindo.ai |
+| TXT | _verify | verification-code |
+
+## Status Indicators
+
+- **Connected** - Domain is working
+- **Pending** - Waiting for DNS propagation
+- **Not Connected** - DNS not configured correctly
+
+## Tips
+
+- Use a domain you own
+- DNS changes take time
+- Keep default subdomains if unsure
+- Contact support if stuck
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

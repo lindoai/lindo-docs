@@ -1,0 +1,42 @@
+---
+title: "How to Batch Upload Media"
+description: "Upload multiple images, videos, and audio files at once in the Media Library"
+---
+
+The Media Library supports batch uploads, letting you upload multiple files in a single action.
+
+## How to Batch Upload
+
+1. Open the Media Library
+2. Go to the Upload tab
+3. Click "Upload Asset"
+4. In the file picker, select multiple files (hold Cmd/Ctrl to select more than one)
+5. All selected files upload simultaneously
+6. Uploaded files appear in your media library immediately
+
+## Limits
+
+- Maximum 20MB total per batch
+- Up to 20 files per upload
+- Supported formats: images (JPG, PNG, GIF, WebP, SVG, AVIF), videos (MP4, WebM, OGG, MOV), audio (MP3, WAV, OGG, AAC, FLAC), and Lottie animations (JSON)
+
+## Error Handling
+
+- If one file fails, the rest still upload successfully
+- Invalid file types are caught before upload starts
+- You'll see a toast notification for each error
+
+## Tips
+
+- Prepare all your assets in a folder before uploading
+- Keep individual files reasonable in size for faster uploads
+- All uploads run in parallel so batch uploads are fast
+
+<CardGroup cols={2}>
+  <Card title="Asset Library" icon="images" href="/website-editor/what-is-asset-library-panel">
+    Learn more
+  </Card>
+  <Card title="Editor Overview" icon="pen-to-square" href="/website-editor/what-is-website-editor">
+    Learn more
+  </Card>
+</CardGroup>

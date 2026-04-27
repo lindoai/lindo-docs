@@ -1,0 +1,86 @@
+---
+title: "How to Create an Invoice"
+description: "Sending one-time invoice to client"
+---
+
+Bill a client through Workspace CRM.
+
+## Prerequisites
+
+- Stripe connected (Settings → White Label → Integrations)
+- Client added to CRM
+
+<Steps>
+  <Step title="Open Workspace CRM">
+    Click **CRM** in the sidebar.
+  </Step>
+  <Step title="Select the Client">
+    Click the client you want to invoice from the list.
+  </Step>
+  <Step title="Go to Billing Tab">
+    Click the **Billing** tab in the client details.
+  </Step>
+  <Step title="Click Create Invoice">
+    Click the **Create Invoice** button.
+  </Step>
+  <Step title="Configure Invoice">
+    Fill in the invoice details:
+
+    | Field | Description |
+    |-------|-------------|
+    | Service Name | What you're billing for (e.g., "Website Design") |
+    | Price | Amount to charge |
+    | Currency | USD, EUR, GBP, etc. |
+    | Frequency | One-time, Monthly, Yearly, Weekly |
+  </Step>
+  <Step title="Send Invoice">
+    Click **Send Invoice**.
+
+    The client receives an email with a payment link.
+  </Step>
+</Steps>
+## Invoice Flow
+
+1. **You create invoice** - Set amount and details
+2. **Client receives email** - With payment link
+3. **Client pays** - Via Stripe checkout
+4. **You get paid** - Funds in your Stripe account
+5. **Status updates** - Invoice shows as "Paid"
+
+## Invoice Status
+
+| Status | Meaning |
+|--------|---------|
+| Open | Sent, awaiting payment |
+| Paid | Payment received |
+| Refunded | Payment returned to client |
+
+## Viewing Invoices
+
+**For one client:**
+- CRM → Select client → Billing tab
+
+**All invoices:**
+- CRM → Billing tab (main)
+
+## Invoice Actions
+
+After creating an invoice:
+- **Copy Payment Link** - Share link directly
+- **Download PDF** - Save invoice document
+- **Refund** - Return payment to client
+
+## Tips
+
+- **Clear service names** - Client knows what they're paying for
+- **Consistent pricing** - Use standard rates
+- **Timely invoicing** - Bill promptly after work
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

@@ -1,0 +1,118 @@
+---
+title: "Rate Limits"
+description: "Learn about API rate limits and how to handle them."
+---
+
+The Lindo AI API enforces rate limits to ensure fair usage and maintain system stability for all users.
+
+## Rate Limits
+
+| Limit Type | Value |
+| ---------- | ----- |
+| Per minute | 100 requests |
+| Per hour   | 1,000 requests |
+
+After exceeding these limits, you'll receive a `429` response error code.
+
+## Response Headers
+
+The response headers describe your current rate limit status following every request:
+
+| Header name           | Description                                                         |
+| --------------------- | ------------------------------------------------------------------- |
+| `X-RateLimit-Limit`   | Maximum number of requests allowed within a window.                 |
+| `X-RateLimit-Remaining` | How many requests you have left within the current window.        |
+| `X-RateLimit-Reset`   | Unix timestamp when the rate limit window resets.                   |
+| `Retry-After`         | How many seconds you should wait before making a follow-up request (only included when rate limited). |
+
+## Handling Rate Limits
+
+When you hit the rate limit, the API returns a `429 Too Many Requests` response:
+
+```json
+{
+  "error": {
+    "code": "rate_limit_exceeded",
+    "message": "Too many requests. Please reduce the rate of your requests."
+  }
+}
+```
+
+### Best Practices
+
+<AccordionGroup>
+  <Accordion title="Implement exponential backoff">
+    When you receive a `429` response, wait before retrying. Start with a short delay and double it with each subsequent retry. This prevents overwhelming the API during high-traffic periods.
+  </Accordion>
+
+  <Accordion title="Use a request queue">
+    Implement a queue mechanism to control the rate at which requests are sent. This ensures you stay within limits even during burst operations.
+  </Accordion>
+
+  <Accordion title="Monitor rate limit headers">
+    Check the `X-RateLimit-Remaining` header to proactively slow down requests before hitting the limit.
+  </Accordion>
+
+  <Accordion title="Cache responses when possible">
+    For data that doesn't change frequently, cache API responses locally to reduce the number of requests needed.
+  </Accordion>
+</AccordionGroup>
+
+## Example Implementation
+
+```javascript
+class RateLimitedClient {
+  constructor(apiKey) {
+    this.apiKey = apiKey;
+    this.queue = [];
+    this.processing = false;
+  }
+
+  async request(endpoint, options = {}) {
+    return new Promise((resolve, reject) => {
+      this.queue.push({ endpoint, options, resolve, reject });
+      this.processQueue();
+    });
+  }
+
+  async processQueue() {
+    if (this.processing || this.queue.length === 0) return;
+
+    this.processing = true;
+    const { endpoint, options, resolve, reject } = this.queue.shift();
+
+    try {
+      const response = await fetch(`https://api.lindo.ai${endpoint}`, {
+        ...options,
+        headers: {
+          'Authorization': `Bearer ${this.apiKey}`,
+          'Content-Type': 'application/json',
+          ...options.headers
+        }
+      });
+
+      if (response.status === 429) {
+        const retryAfter = parseInt(response.headers.get('Retry-After') || '1', 10);
+        this.queue.unshift({ endpoint, options, resolve, reject });
+        await this.delay(retryAfter * 1000);
+      } else {
+        const data = await response.json();
+        resolve(data);
+      }
+    } catch (error) {
+      reject(error);
+    }
+
+    this.processing = false;
+    this.processQueue();
+  }
+
+  delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+}
+```
+
+## Need Higher Limits?
+
+If your use case requires higher rate limits, please [contact support](mailto:support@lindo.ai) to discuss your requirements.

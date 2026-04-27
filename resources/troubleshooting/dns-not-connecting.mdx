@@ -1,0 +1,102 @@
+---
+title: "DNS Not Connecting"
+description: "Fix domain setup issues"
+---
+
+Your custom domain shows "Not Connected" after adding DNS records. Here's how to diagnose and fix the issue.
+
+## Symptoms
+
+- Domain status shows red indicator
+- "Check Status" doesn't turn green
+- Website doesn't load on custom domain
+
+## Common Causes & Solutions
+
+### DNS Propagation Delay
+
+DNS changes take time to propagate globally. Wait 15-30 minutes for initial propagation. Full propagation can take up to 48 hours. Check status periodically.
+
+### Incorrect Record Values
+
+<Steps>
+  <Step title="Check your Lindo.ai settings">
+    Go to your domain settings and copy the exact values shown.
+  </Step>
+  <Step title="Verify in your DNS provider">
+    Confirm CNAME points to `cname.lindo.ai` (no trailing dot) and TXT value matches exactly.
+  </Step>
+  <Step title="Save and wait">
+    Save changes and wait 15-30 minutes before checking again.
+  </Step>
+</Steps>
+
+### Conflicting DNS Records
+
+CNAME records cannot coexist with A or AAAA records on the same subdomain. Check for existing records and delete any A or AAAA records for that subdomain. Keep only the CNAME record.
+
+### Wrong Subdomain Name
+
+Enter just the subdomain name: `app` not `app.yourdomain.com`. Some providers auto-append the domain. Check that the "Name" field matches exactly what Lindo.ai shows.
+
+### Cloudflare Proxy Enabled
+
+Cloudflare's proxy can interfere with verification.
+
+<Steps>
+  <Step title="Open Cloudflare DNS settings">
+    Find your CNAME record in the DNS management panel.
+  </Step>
+  <Step title="Disable proxy">
+    Click the orange cloud icon to turn it gray (DNS only mode).
+  </Step>
+  <Step title="Wait and verify">
+    Wait for propagation, then check status in Lindo.ai. You can re-enable the proxy after verification if needed.
+  </Step>
+</Steps>
+
+### DNS Provider Caching
+
+Old records may be cached. Clear your local DNS cache:
+
+**Mac:**
+```bash
+sudo dscacheutil -flushcache
+```
+
+**Windows:**
+```bash
+ipconfig /flushdns
+```
+
+Try checking from a different network or device.
+
+## Verification Tools
+
+Check your DNS externally using [whatsmydns.net](https://whatsmydns.net):
+
+1. Enter full subdomain (app.yourdomain.com)
+2. Select CNAME record type
+3. Verify it shows `cname.lindo.ai` globally
+
+Or use terminal:
+```bash
+dig app.yourdomain.com CNAME
+```
+
+## Still Not Working?
+
+If DNS won't connect after 48 hours, contact support with:
+- Your domain name
+- DNS provider name
+- Screenshots of current records
+- How long you've waited
+
+<CardGroup cols={2}>
+  <Card title="White Label Domain Setup" icon="globe" href="/workspace/how-to-setup-white-label-domain">
+    Complete setup guide
+  </Card>
+  <Card title="Custom Domain" icon="link" href="/website-editor/how-to-connect-custom-domain">
+    Website domain setup
+  </Card>
+</CardGroup>

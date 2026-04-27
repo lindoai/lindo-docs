@@ -1,0 +1,147 @@
+---
+title: "Schema Markup Best Practices"
+description: "Implement structured data for better search visibility"
+---
+
+Schema markup helps search engines understand your content, potentially improving search result appearance.
+
+## What is Schema Markup?
+
+Schema markup is structured data that tells search engines:
+
+- What your content is about
+- Key information to display
+- Relationships between content
+
+## Common Schema Types
+
+### Organization
+
+For business websites:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Your Company",
+  "url": "https://yoursite.com",
+  "logo": "https://yoursite.com/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-555-5555",
+    "contactType": "customer service"
+  }
+}
+```
+
+### Local Business
+
+For businesses with physical locations:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Your Business",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Main St",
+    "addressLocality": "City",
+    "addressRegion": "State",
+    "postalCode": "12345"
+  },
+  "openingHours": "Mo-Fr 09:00-17:00"
+}
+```
+
+### Product
+
+For e-commerce:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Product Name",
+  "description": "Product description",
+  "offers": {
+    "@type": "Offer",
+    "price": "99.99",
+    "priceCurrency": "USD"
+  }
+}
+```
+
+### Article
+
+For blog posts:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Article Title",
+  "author": {
+    "@type": "Person",
+    "name": "Author Name"
+  },
+  "datePublished": "2024-01-15"
+}
+```
+
+## Adding Schema in Lindo.ai
+
+1. Open website editor
+2. Go to Settings → SEO
+3. Find Schema Markup section
+4. Add your JSON-LD code
+5. Save changes
+
+## Best Practices
+
+### Be Accurate
+
+- Only mark up visible content
+- Use accurate information
+- Keep data up to date
+
+### Be Specific
+
+- Use most specific type available
+- Include all relevant properties
+- Provide complete information
+
+### Test Your Markup
+
+Use Google's Rich Results Test:
+
+1. Go to search.google.com/test/rich-results
+2. Enter your URL
+3. Review any errors or warnings
+4. Fix issues and retest
+
+## Common Mistakes
+
+- Marking up hidden content
+- Using incorrect schema types
+- Missing required properties
+- Outdated information
+- Duplicate schema on same page
+
+## Schema Types by Industry
+
+- **Restaurants**: Restaurant, Menu
+- **Events**: Event
+- **Courses**: Course
+- **Services**: Service
+- **FAQ**: FAQPage
+- **How-to**: HowTo
+
+<CardGroup cols={2}>
+  <Card title="Effective Prompts" icon="wand-magic-sparkles" href="/best-practices/effective-prompts">
+    Learn more
+  </Card>
+  <Card title="SEO Fundamentals" icon="magnifying-glass" href="/best-practices/seo-fundamentals">
+    Learn more
+  </Card>
+</CardGroup>

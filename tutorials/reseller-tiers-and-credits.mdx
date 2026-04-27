@@ -1,0 +1,154 @@
+---
+title: "Reseller Tiers and Credit Packages"
+description: "Create product tiers with website limits, sell credit packages, and configure default client credits"
+---
+
+Learn how to structure your reseller business with product tiers, credit packages, and free trials so clients can self-serve and scale on your platform.
+
+## Prerequisites
+
+- Reseller plan
+- Stripe account connected
+- At least one reseller website created
+
+<Note>
+Product tiers and credit packages are only available on reseller websites. Standard websites do not show these options.
+</Note>
+
+## Part 1: Creating Product Tiers with Website Limits
+
+Product tiers let you offer different service levels to clients. Each tier controls how many websites a client can create.
+
+<Steps>
+  <Step title="Open your reseller website">
+    1. Open your reseller website in the editor
+    2. Navigate to the **Pages** tab
+    3. Click **Products**
+  </Step>
+  <Step title="Create a tier product">
+    1. Click **Create Product**
+    2. Enter the tier name (e.g., "Starter", "Professional", "Enterprise")
+    3. Set the price and billing frequency (monthly or yearly)
+  </Step>
+  <Step title="Set the website limit">
+    In the product settings, find the **Website Limit** field. This controls how many websites the client can create on this tier.
+
+    Example tiers:
+
+    | Tier | Price | Website Limit |
+    |------|-------|---------------|
+    | Starter | $29/mo | 1 |
+    | Professional | $79/mo | 5 |
+    | Enterprise | $199/mo | 20 |
+
+    The website limit is stored as `client_limit` in the product metadata and applied automatically when a client purchases the product.
+  </Step>
+  <Step title="Save and publish">
+    Click **Save** to store the product. Repeat for each tier you want to offer.
+  </Step>
+</Steps>
+
+## Part 2: Creating Credit Packages
+
+Credit packages let you sell AI credits to clients as one-time purchases or recurring subscriptions.
+
+<Steps>
+  <Step title="Create a credit product">
+    1. In your reseller website's **Products** section, click **Create Product**
+    2. Enter a name (e.g., "100 AI Credits", "500 Credit Pack")
+    3. Set the price and frequency
+  </Step>
+  <Step title="Set the credit allocation">
+    In the product settings, find the **Client Credit Allocation** field. Enter the number of credits the client receives when they purchase this product.
+
+    Example packages:
+
+    | Package | Price | Credits |
+    |---------|-------|---------|
+    | Starter Pack | $10 | 100 |
+    | Growth Pack | $40 | 500 |
+    | Agency Pack | $150 | 2,000 |
+
+    The credit allocation is stored as `client_credit_allocation` in the product metadata. When a client purchases the product, the specified credits are automatically added to their purchased credit balance.
+  </Step>
+  <Step title="Combine tiers with credits">
+    You can set both a website limit and a credit allocation on the same product. This lets you create all-in-one plans:
+
+    - **Website Limit**: Controls how many sites the client can build
+    - **Client Credit Allocation**: Grants credits on purchase
+
+    For example, a "Professional" plan at $79/mo could include 5 websites and 500 credits.
+  </Step>
+</Steps>
+
+## Part 3: Setting Up Free Trials
+
+Free trials let potential clients try your platform before committing to a paid plan.
+
+<Steps>
+  <Step title="Create a subscription product">
+    Free trials only work with subscription products (monthly, yearly, or weekly frequency). Create a product or edit an existing tier.
+  </Step>
+  <Step title="Set the trial period">
+    In the product settings, find the **Trial Period (days)** field. Enter the number of days for the free trial.
+
+    Common trial lengths:
+
+    - **7 days** — Quick evaluation
+    - **14 days** — Standard trial
+    - **30 days** — Extended trial for complex use cases
+  </Step>
+  <Step title="Configure trial limits">
+    Set the **Website Limit** and **Client Credit Allocation** for the trial product. Clients get full access to these resources during the trial period.
+
+    After the trial ends, the client is billed automatically at the product price. If they cancel before the trial ends, they are not charged.
+  </Step>
+</Steps>
+
+## Part 4: Configuring Default Client Credits
+
+Default client credits set a baseline monthly credit allocation for all new clients in your workspace, even if they haven't purchased a specific credit package.
+
+<Steps>
+  <Step title="Open the Reseller Config tab">
+    1. Click **Settings** in the sidebar
+    2. Select the **Reseller** tab
+    3. Click the **Config** tab
+  </Step>
+  <Step title="Set default credits">
+    Enter a value in the **Default Client Credits** field. This is the number of monthly credits every new client receives by default.
+
+    This value is used as a fallback when a client does not have an individual credit limit set. If a client has a specific credit limit configured in the CRM, that value takes priority over the workspace default.
+  </Step>
+  <Step title="Save changes">
+    Click **Save Changes** to persist the default credit value to your workspace.
+  </Step>
+</Steps>
+
+### How Credit Precedence Works
+
+When a new client is created, the system determines their monthly credits in this order:
+
+1. **Individual credit limit** — If set on the client record in the CRM, this value is used
+2. **Workspace default** — If no individual limit is set, the Default Client Credits value from the Config tab is used
+3. **Zero** — If neither is configured, the client starts with zero monthly credits
+
+## Putting It All Together
+
+A typical reseller setup might look like this:
+
+1. **Set a workspace default** of 50 credits so every client gets a baseline allocation
+2. **Create 2-3 product tiers** with increasing website limits and credit allocations
+3. **Add a free trial** to your entry-level tier to attract new clients
+4. **Offer standalone credit packs** for clients who need additional credits beyond their plan
+
+This gives clients flexibility to choose a plan that fits their needs while ensuring everyone has access to credits from day one.
+
+<CardGroup cols={2}>
+  <Card title="Managing Multiple Clients" icon="users" href="/tutorials/managing-multiple-clients">
+    Organize and manage agency clients
+  </Card>
+  <Card title="Client Billing Setup" icon="file-invoice-dollar" href="/tutorials/setting-up-client-billing">
+    Configure invoicing and subscriptions
+  </Card>
+</CardGroup>

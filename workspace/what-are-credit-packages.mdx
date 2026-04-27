@@ -1,0 +1,61 @@
+---
+title: "What are Credit Packages"
+description: "Sell one-time credit packages to your clients so they can purchase additional AI credits"
+---
+
+Credit Packages let you sell one-time bundles of AI credits to your clients. Unlike tier subscriptions that provide monthly credits, credit packages are purchased credits that don't expire.
+
+## What It Is
+
+Credit packages are one-time purchasable bundles you define in your workspace settings. Clients can buy them to top up their credit balance beyond what their tier provides.
+
+## How Credit Packages Work
+
+### Creating Packages
+
+1. Go to **Settings → Tiers** tab (below the tiers section)
+2. Click **Add Package** (up to 4 packages)
+3. Set the package name, credit amount, price, and currency
+4. Click **Save**
+
+Packages are automatically assigned IDs based on their order: `pkg1`, `pkg2`, `pkg3`, `pkg4`.
+
+### Client Purchase Flow
+
+1. Client opens the **Plans & Billing** modal
+2. Clicks the **Buy Credits** button
+3. A modal shows available credit packages as cards
+4. Client selects a package and clicks **Buy**
+5. They're redirected to Stripe Checkout for one-time payment
+6. After payment, purchased credits are added to their balance
+
+### Credit Types
+
+Clients have two types of credits:
+- **Monthly credits** — from their tier subscription, reset each month
+- **Purchased credits** — from credit packages, don't expire
+
+Both types count toward the client's total available credits.
+
+## Example Setup
+
+| Package | Credits | Price |
+|---------|---------|-------|
+| Starter Pack | 500 | $10 |
+| Growth Pack | 2,000 | $35 |
+| Pro Pack | 5,000 | $75 |
+| Enterprise Pack | 15,000 | $199 |
+
+## Requirements
+
+- Reseller (Whitelabel) plan
+- Stripe connected in workspace integrations
+
+<CardGroup cols={2}>
+  <Card title="Reseller Tiers" icon="layer-group" href="/workspace/what-are-reseller-tiers">
+    Subscription plans
+  </Card>
+  <Card title="Client Credits" icon="bolt" href="/workspace/understanding-client-credits">
+    Credit system overview
+  </Card>
+</CardGroup>
