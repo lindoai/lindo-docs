@@ -1,0 +1,83 @@
+---
+title: "API Endpoints Reference"
+description: "Overview of available API endpoints"
+---
+
+Reference guide for Lindo.ai API endpoints.
+
+## Authentication
+
+All requests require Bearer token:
+
+```
+Authorization: Bearer YOUR_API_KEY
+```
+
+## Base URL
+
+```
+https://api.lindo.ai/v1
+```
+
+## Endpoints
+
+### Websites
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /websites | List all websites |
+| GET | /websites/:id | Get website details |
+| POST | /websites | Create website |
+| DELETE | /websites/:id | Delete website |
+
+### Clients
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /clients | List all clients |
+| GET | /clients/:id | Get client details |
+| POST | /clients | Create client |
+| PUT | /clients/:id | Update client |
+| DELETE | /clients/:id | Delete client |
+
+## Response Format
+
+Successful responses:
+
+```json
+{
+  "success": true,
+  "data": { ... }
+}
+```
+
+Error responses:
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Error description"
+  }
+}
+```
+
+## Rate Limits
+
+- 100 requests per minute
+- 429 status when exceeded
+- Implement exponential backoff
+
+## Full Documentation
+
+For complete API documentation, visit the API Docs link in Settings → API.
+
+<CardGroup cols={2}>
+  <Card title="Credit Costs" icon="coins" href="/reference/agent-credit-costs">
+    Learn more
+  </Card>
+  <Card title="Plan Comparison" icon="table" href="/reference/plan-comparison">
+    Learn more
+  </Card>
+</CardGroup>

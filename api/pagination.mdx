@@ -1,0 +1,183 @@
+---
+title: "Pagination"
+description: "Learn how pagination works in the Lindo AI API."
+---
+
+## Overview
+
+Several Lindo AI API endpoints support **cursor-based pagination** to help you efficiently browse through large datasets. You can safely navigate lists with guaranteed stability, even if new objects are created or deleted while you're still requesting pages.
+
+Paginated endpoint responses include:
+
+* `data`: the list of returned items.
+* `has_more`: indicates whether there are more elements available.
+* `next_cursor`: the cursor to use for fetching the next page (only present when `has_more` is true).
+
+## Parameters
+
+All paginated endpoints support the following query parameters:
+
+<ParamField query="limit" type="number">
+  The number of items to return per page. Default is `20`, maximum is `100`, and minimum is `1`.
+</ParamField>
+
+<ParamField query="cursor" type="string">
+  The cursor from which to start retrieving items. Use the `next_cursor` value from the previous response to get the next page.
+</ParamField>
+
+## Response Format
+
+Paginated endpoints return responses in the following format:
+
+```json
+{
+  "data": [
+    /* Array of resources */
+  ],
+  "has_more": true,
+  "next_cursor": "cursor_abc123"
+}
+```
+
+<ResponseField name="data" type="array">
+  An array containing the actual resources for the current page.
+</ResponseField>
+
+<ResponseField name="has_more" type="boolean">
+  Indicates whether there are more items available beyond the current page.
+</ResponseField>
+
+<ResponseField name="next_cursor" type="string">
+  The cursor to use for fetching the next page. Only present when `has_more` is `true`.
+</ResponseField>
+
+## Example Usage
+
+### First Page
+
+```bash
+curl -X GET 'https://api.lindo.ai/websites?limit=20' \
+     -H 'Authorization: Bearer YOUR_API_KEY'
+```
+
+Response:
+
+```json
+{
+  "data": [
+    { "id": "web_123", "name": "My Website" },
+    { "id": "web_456", "name": "Another Site" }
+  ],
+  "has_more": true,
+  "next_cursor": "cursor_xyz789"
+}
+```
+
+### Next Page
+
+```bash
+curl -X GET 'https://api.lindo.ai/websites?limit=20&cursor=cursor_xyz789' \
+     -H 'Authorization: Bearer YOUR_API_KEY'
+```
+
+## Code Examples
+
+### JavaScript
+
+```javascript
+async function getAllWebsites(apiKey) {
+  const websites = [];
+  let cursor = null;
+
+  do {
+    const url = new URL('https://api.lindo.ai/websites');
+    url.searchParams.set('limit', '100');
+    if (cursor) {
+      url.searchParams.set('cursor', cursor);
+    }
+
+    const response = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`
+      }
+    });
+
+    const result = await response.json();
+    websites.push(...result.data);
+
+    cursor = result.has_more ? result.next_cursor : null;
+  } while (cursor);
+
+  return websites;
+}
+```
+
+### Python
+
+```python
+import requests
+
+def get_all_websites(api_key):
+    websites = []
+    cursor = None
+
+    while True:
+        params = {'limit': 100}
+        if cursor:
+            params['cursor'] = cursor
+
+        response = requests.get(
+            'https://api.lindo.ai/websites',
+            headers={'Authorization': f'Bearer {api_key}'},
+            params=params
+        )
+        result = response.json()
+
+        websites.extend(result['data'])
+
+        if result['has_more']:
+            cursor = result['next_cursor']
+        else:
+            break
+
+    return websites
+```
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Use appropriate page sizes">
+    Choose a `limit` that balances performance and usability. Smaller pages (20-50 items) are good for real-time applications, while larger pages (100 items) work better for bulk processing.
+  </Accordion>
+
+  <Accordion title="Handle pagination gracefully">
+    Always check the `has_more` field before attempting to fetch additional pages. This prevents unnecessary API calls when you've reached the end of the dataset.
+  </Accordion>
+
+  <Accordion title="Consider rate limits">
+    Be mindful of API rate limits when paginating through large datasets. Implement appropriate delays between page requests if processing many pages.
+  </Accordion>
+
+  <Accordion title="Don't store cursors long-term">
+    Cursors are designed for immediate pagination use. Don't store them for later use as they may expire or become invalid.
+  </Accordion>
+</AccordionGroup>
+
+## Error Handling
+
+Pagination requests may return the following validation errors:
+
+| Error              | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| `validation_error` | Invalid cursor format or limit out of range (1-100) |
+
+Example error response:
+
+```json
+{
+  "error": {
+    "code": "validation_error",
+    "message": "The pagination limit must be a number between 1 and 100."
+  }
+}
+```

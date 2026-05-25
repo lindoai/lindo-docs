@@ -1,0 +1,186 @@
+---
+title: "Custom Code Examples"
+description: "Common header and body code snippets"
+---
+
+Ready-to-use code snippets for custom code injection.
+
+## Analytics & Tracking
+
+### Google Analytics 4
+
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
+
+### Facebook Pixel
+
+```html
+<!-- Facebook Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'YOUR_PIXEL_ID');
+  fbq('track', 'PageView');
+</script>
+```
+
+### LinkedIn Insight Tag
+
+```html
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+  _linkedin_partner_id = "YOUR_PARTNER_ID";
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+  (function(l) {
+    if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+    window.lintrk.q=[]}
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+```
+
+## Chat Widgets
+
+### Tawk.to
+
+```html
+<!-- Tawk.to -->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+  })();
+</script>
+```
+
+### Drift
+
+```html
+<!-- Drift -->
+<script>
+  "use strict";
+  !function() {
+    var t = window.driftt = window.drift = window.driftt || [];
+    if (!t.init) {
+      if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+      t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n = Array.prototype.slice.call(arguments);
+          return n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+        var i = document.getElementsByTagName("script")[0];
+        i.parentNode.insertBefore(o, i);
+      };
+    }
+  }();
+  drift.SNIPPET_VERSION = '0.3.1';
+  drift.load('YOUR_DRIFT_ID');
+</script>
+```
+
+## Custom Styling
+
+### Custom CSS
+
+```html
+<style>
+  /* Custom button styles */
+  .custom-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: 600;
+  }
+
+  /* Custom section background */
+  .gradient-bg {
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  }
+</style>
+```
+
+### Hide Elements
+
+```html
+<style>
+  /* Hide specific element */
+  .element-to-hide {
+    display: none !important;
+  }
+</style>
+```
+
+## Utility Scripts
+
+### Smooth Scroll
+
+```html
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+```
+
+### Current Year
+
+```html
+<script>
+  document.querySelectorAll('.current-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+</script>
+```
+
+## Adding Custom Code
+
+1. Open Settings in sidebar
+2. Go to Custom Code tab
+3. Add code to Header or Body section
+4. Save changes
+
+<CardGroup cols={2}>
+  <Card title="Credit Costs" icon="coins" href="/reference/agent-credit-costs">
+    Learn more
+  </Card>
+  <Card title="Plan Comparison" icon="table" href="/reference/plan-comparison">
+    Learn more
+  </Card>
+</CardGroup>

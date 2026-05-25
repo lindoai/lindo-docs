@@ -1,0 +1,100 @@
+---
+title: "How to Upload CSV for Batch Import"
+description: "Importing multiple workflows from CSV"
+---
+
+Create multiple websites at once by uploading a CSV file.
+
+<Steps>
+  <Step title="Open Workflows">
+    Click **Workflows** in the sidebar.
+  </Step>
+  <Step title="Download Sample CSV">
+    Click **Download Sample CSV** to get the template.
+  </Step>
+  <Step title="Prepare Your CSV">
+    Open the sample and fill in your data:
+
+    ```csv
+    prompt,language,mode,color
+    "Landing page for Coffee Shop in Seattle",en,light,brown
+    "SaaS website for project management tool",en,dark,blue
+    "Restaurant website for Italian bistro",en,light,red
+    ```
+  </Step>
+  <Step title="Save as CSV">
+    Save your file as CSV (UTF-8 encoding).
+  </Step>
+  <Step title="Upload CSV">
+    1. Click **Batch Import** or **Upload CSV**
+    2. Select your CSV file
+    3. Or drag and drop
+  </Step>
+  <Step title="Review and Start">
+    Review the imported rows and click **Start All**.
+  </Step>
+</Steps>
+## CSV Format
+
+### Required Columns
+
+| Column | Description |
+|--------|-------------|
+| prompt | Website description |
+
+### Optional Columns
+
+| Column | Description | Values |
+|--------|-------------|--------|
+| language | Content language | en, es, fr, etc. |
+| mode | Theme mode | light, dark |
+| color | Color palette | blue, green, purple, etc. |
+
+### Example CSV
+
+```csv
+prompt,language,mode,color
+"Modern agency website with portfolio and contact",en,dark,purple
+"E-commerce site for handmade jewelry",en,light,pink
+"Tech startup landing page with pricing",en,dark,blue
+"Restaurant website with menu and reservations",es,light,red
+"Photography portfolio with gallery",en,dark,gray
+```
+
+## Tips
+
+### CSV Best Practices
+
+- **UTF-8 encoding** - Avoid character issues
+- **Quote prompts** - Wrap in quotes if they contain commas
+- **No empty rows** - Remove blank lines
+- **Headers required** - First row must be column names
+
+### Batch Size
+
+- Start with 5-10 websites to test
+- Scale up after confirming results
+- Large batches may take longer
+
+### Error Handling
+
+If some rows fail:
+- Check the error message
+- Fix the problematic rows
+- Re-upload just the failed ones
+
+## Monitoring Batch Progress
+
+After upload:
+1. Each row becomes a workflow
+2. Track progress in the workflows list
+3. Status updates as each completes
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

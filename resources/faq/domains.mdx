@@ -1,0 +1,86 @@
+---
+title: "Domain & Hosting FAQ"
+description: "Common questions about domains and hosting"
+---
+
+<AccordionGroup>
+  <Accordion title="What domain do my websites use by default?">
+    Websites are published to `yoursite.lindo.site`. The subdomain is based on your website name and can be customized.
+  </Accordion>
+
+  <Accordion title="Can I use my own domain?">
+    Yes, on Pro plan and above. Connect a custom domain in website Settings → Domains. Add the required DNS records to your domain provider, and your site goes live on your domain.
+  </Accordion>
+
+  <Accordion title="How long does DNS take to connect?">
+    - **Initial propagation**: 15-30 minutes
+    - **Full global propagation**: Up to 48 hours
+    - **Most domains**: Connect within 1 hour
+  </Accordion>
+
+  <Accordion title="Is SSL/HTTPS included?">
+    Yes, all websites get automatic SSL certificates—both lindo.site subdomains and custom domains. HTTPS is enabled by default with no additional setup.
+  </Accordion>
+
+  <Accordion title="Can multiple websites share a domain?">
+    No, each website needs its own domain or subdomain:
+    - `www.yourdomain.com` — Website 1
+    - `blog.yourdomain.com` — Website 2
+    - `shop.yourdomain.com` — Website 3
+  </Accordion>
+
+  <Accordion title="What's the difference between website domain and white label domain?">
+    | Website Domain | White Label Domain |
+    |----------------|-------------------|
+    | For one website | For entire workspace |
+    | In website settings | In workspace settings |
+    | www.client.com | app.agency.com |
+    | Visitors see | Clients log in to |
+  </Accordion>
+
+  <Accordion title="Can I change my subdomain?">
+    Yes, edit the subdomain in website Settings → Domains. The change takes effect immediately.
+  </Accordion>
+
+  <Accordion title="Do you provide domain registration?">
+    No, register domains through a registrar (GoDaddy, Namecheap, Cloudflare, etc.) and then connect them to Lindo.ai.
+  </Accordion>
+
+  <Accordion title="What DNS records do I need?">
+    For custom domains, use either method:
+
+    **CNAME method** (for subdomains like www):
+    | Type | Name | Value |
+    |------|------|-------|
+    | CNAME | www | cname.lindo.ai |
+
+    **A Record method** (for root domains):
+    | Type | Name | Value |
+    |------|------|-------|
+    | A | @ | (IP shown in settings) |
+    | TXT | _lindo | (verification code) |
+  </Accordion>
+
+  <Accordion title="Can I use a root domain (no www)?">
+    Yes, using the A Record method. CNAME records only work with subdomains like www or blog.
+  </Accordion>
+
+  <Accordion title="What if my domain won't connect?">
+    Common fixes:
+    1. Wait longer (DNS propagation takes time)
+    2. Check record values match exactly
+    3. Remove conflicting A/AAAA records
+    4. Disable Cloudflare proxy temporarily
+    
+    See the DNS troubleshooting guide for detailed help.
+  </Accordion>
+</AccordionGroup>
+
+<CardGroup cols={2}>
+  <Card title="Connect Custom Domain" icon="globe" href="/website-editor/how-to-connect-custom-domain">
+    Step-by-step guide
+  </Card>
+  <Card title="DNS Troubleshooting" icon="wrench" href="/troubleshooting/dns-not-connecting">
+    Fix connection issues
+  </Card>
+</CardGroup>

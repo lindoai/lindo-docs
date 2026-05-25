@@ -1,0 +1,156 @@
+---
+title: "Webhook Not Firing"
+description: "Troubleshoot webhook delivery issues"
+---
+
+If your webhooks aren't being received, follow these troubleshooting steps.
+
+## Verify Webhook Configuration
+
+### Check URL is Saved
+
+1. Open Settings → API
+2. Verify webhook URL is entered
+3. Ensure it's saved (click Save if needed)
+
+### URL Requirements
+
+- Must be HTTPS
+- Must be publicly accessible
+- Must respond within 5 seconds
+
+## Test Your Endpoint
+
+### Manual Test
+
+Test your endpoint directly:
+
+```bash
+curl -X POST https://your-endpoint.com/webhook \
+  -H "Content-Type: application/json" \
+  -d '{"test": true}'
+```
+
+### Check Response
+
+Your endpoint should:
+- Return 200 status code
+- Respond within 5 seconds
+- Accept POST requests
+
+## Common Issues
+
+### Endpoint Not Accessible
+
+**Symptoms:**
+- Webhook never arrives
+- No logs on your server
+
+**Solutions:**
+
+1. **Check firewall rules**
+   - Allow incoming POST requests
+   - Whitelist Lindo.ai IPs if needed
+
+2. **Verify URL is public**
+   - Not localhost
+   - Not behind VPN
+   - Accessible from internet
+
+3. **Check SSL certificate**
+   - Must be valid
+   - Not self-signed
+   - Not expired
+
+### Endpoint Timing Out
+
+**Symptoms:**
+- Partial data received
+- Connection reset errors
+
+**Solutions:**
+
+1. **Respond quickly**
+   - Return 200 immediately
+   - Process asynchronously
+
+```javascript
+app.post('/webhook', (req, res) => {
+  // Respond immediately
+  res.status(200).send('OK');
+
+  // Process in background
+  processWebhookAsync(req.body);
+});
+```
+
+### Wrong Response Code
+
+**Symptoms:**
+- Webhook retries repeatedly
+- Duplicate events
+
+**Solutions:**
+
+1. Always return 200 for received events
+2. Even if processing fails, acknowledge receipt
+3. Handle errors internally
+
+## Debugging Webhooks
+
+### Use Request Bin
+
+Test with a service like webhook.site:
+
+1. Go to webhook.site
+2. Copy your unique URL
+3. Set as webhook URL in Lindo.ai
+4. Trigger an event
+5. View received data
+
+### Check Server Logs
+
+Review your server logs for:
+- Incoming requests
+- Error messages
+- Response codes
+
+### Verify Event Triggers
+
+Ensure you're triggering the right events:
+- Create a website
+- Update a client
+- Complete a workflow
+
+## Webhook Payload
+
+Expected payload format:
+
+```json
+{
+  "event": "website.created",
+  "timestamp": "2024-01-15T10:30:00Z",
+  "data": {
+    "id": "web_123",
+    "name": "My Website"
+  }
+}
+```
+
+## Still Not Working?
+
+If issues persist:
+
+1. Confirm URL is correct
+2. Test endpoint manually
+3. Check server logs
+4. Contact support with details
+
+<CardGroup cols={2}>
+  <Card title="DNS Issues" icon="globe" href="/troubleshooting/dns-not-connecting">
+    Learn more
+  </Card>
+  <Card title="Editor Issues" icon="pen-to-square" href="/troubleshooting/preview-not-loading">
+    Learn more
+  </Card>
+</CardGroup>

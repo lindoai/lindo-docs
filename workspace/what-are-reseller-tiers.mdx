@@ -1,0 +1,75 @@
+---
+title: "What are Reseller Tiers"
+description: "Create subscription plans for your clients with custom pricing, website limits, and monthly credits"
+---
+
+Reseller Tiers let you create subscription plans that your clients can subscribe to. Each tier defines what your clients get — website limits, monthly credits, and pricing.
+
+## What It Is
+
+Tiers are subscription plans you define in your workspace settings. When a client subscribes to a tier, they get:
+
+- A set number of websites they can create
+- Monthly AI credits that reset each billing cycle
+- An active subscription managed through Stripe
+
+## How Tiers Work
+
+### Creating Tiers
+
+1. Go to **Settings → Tiers** tab
+2. Click **Add Tier** (up to 4 tiers)
+3. Set the tier name, website limit, monthly credits, price, and currency
+4. Click **Save**
+
+Tiers are automatically assigned IDs based on their order: `tier1`, `tier2`, `tier3`, `tier4`.
+
+### Supported Currencies
+
+You can price tiers in:
+- USD ($)
+- EUR (€)
+- GBP (£)
+- AUD (A$)
+- CAD (C$)
+
+### Client Subscription Flow
+
+1. Client opens the **Plans & Billing** modal
+2. Available tiers are displayed as cards
+3. Client clicks **Subscribe** on their chosen tier
+4. They're redirected to a Stripe Checkout page
+5. After payment, the subscription is activated
+6. Monthly credits are allocated automatically
+
+### Upgrade & Downgrade
+
+Clients with an active subscription can:
+- **Upgrade** to a higher tier — prorated charges apply
+- **Downgrade** to a lower tier — prorated credit applied
+- **Cancel** their current subscription
+
+The tier cards show contextual buttons based on the client's current plan.
+
+## Example Setup
+
+| Tier | Websites | Credits/mo | Price |
+|------|----------|------------|-------|
+| Starter | 1 | 500 | $29/mo |
+| Pro | 5 | 1,300 | $50/mo |
+| Business | 15 | 5,000 | $99/mo |
+| Enterprise | 50 | 20,000 | $199/mo |
+
+## Requirements
+
+- Reseller (Whitelabel) plan
+- Stripe connected in workspace integrations
+
+<CardGroup cols={2}>
+  <Card title="Credit Packages" icon="coins" href="/workspace/what-are-credit-packages">
+    Sell additional credits
+  </Card>
+  <Card title="Reseller Program" icon="store" href="/workspace/what-is-reseller-program">
+    Overview
+  </Card>
+</CardGroup>

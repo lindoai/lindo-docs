@@ -1,0 +1,57 @@
+---
+title: "How to Set Up Credit Packages"
+description: "Step-by-step guide to creating one-time credit packages for your clients"
+---
+
+Set up credit packages so your clients can purchase additional AI credits as one-time payments.
+
+## Prerequisites
+
+- Reseller (Whitelabel) plan active
+- Stripe connected in **Settings → Integrations**
+
+## Steps
+
+### 1. Open Tiers Settings
+
+Navigate to **Settings → Tiers** tab. The credit packages section is below the tiers section.
+
+### 2. Add a Package
+
+Click the **Add Package** button. A new row appears with fields for:
+
+- **Name** — Display name (e.g., "Starter Pack", "Pro Pack")
+- **Credits** — Number of AI credits in the package
+- **Price** — One-time purchase price
+- **Currency** — USD, EUR, GBP, AUD, or CAD
+
+### 3. Configure Multiple Packages
+
+Add up to 4 packages. They'll be displayed as cards in the client's purchase modal.
+
+### 4. Save
+
+Click **Save Packages**. The packages are now available for your clients.
+
+### 5. Client Experience
+
+When a client opens their **Plans & Billing** modal:
+1. They see a **Buy Credits** button
+2. Clicking it opens a modal with available packages
+3. They select a package and complete payment via Stripe Checkout
+4. Purchased credits are immediately added to their balance
+
+## Purchased vs Monthly Credits
+
+- **Monthly credits** come from tier subscriptions and reset each billing cycle
+- **Purchased credits** come from credit packages and don't expire
+- Both count toward the client's total available balance
+
+<CardGroup cols={2}>
+  <Card title="What are Credit Packages" icon="coins" href="/workspace/what-are-credit-packages">
+    Learn more
+  </Card>
+  <Card title="Reseller Tiers" icon="layer-group" href="/workspace/how-to-setup-reseller-tiers">
+    Set up tiers
+  </Card>
+</CardGroup>

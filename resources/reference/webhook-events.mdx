@@ -1,0 +1,63 @@
+---
+title: "Webhook Events Reference"
+description: "All webhook event types"
+---
+
+Events you can receive via webhooks.
+
+## Available Events
+
+### Website Events
+
+| Event | Description |
+|-------|-------------|
+| website.created | New website created |
+| website.published | Website published |
+| website.updated | Website modified |
+| website.deleted | Website removed |
+
+### Client Events
+
+| Event | Description |
+|-------|-------------|
+| client.created | New client added |
+| client.updated | Client info changed |
+| client.deleted | Client removed |
+
+### Invoice Events
+
+| Event | Description |
+|-------|-------------|
+| invoice.created | Invoice sent |
+| invoice.paid | Payment received |
+| invoice.refunded | Refund processed |
+
+## Payload Format
+
+```json
+{
+  "event": "website.published",
+  "timestamp": "2024-01-15T10:30:00Z",
+  "data": {
+    "id": "abc123",
+    "name": "My Website",
+    "url": "https://example.com"
+  }
+}
+```
+
+## Tips
+
+- Handle all event types
+- Verify webhook signatures
+- Log events for debugging
+- Respond with 200 OK
+
+<CardGroup cols={2}>
+  <Card title="Credit Costs" icon="coins" href="/reference/agent-credit-costs">
+    Learn more
+  </Card>
+  <Card title="Plan Comparison" icon="table" href="/reference/plan-comparison">
+    Learn more
+  </Card>
+</CardGroup>

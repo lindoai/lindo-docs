@@ -1,0 +1,83 @@
+---
+title: "Understanding API Authorization"
+description: "Bearer token authentication"
+---
+
+Learn how to authenticate API requests.
+
+## Authentication Method
+
+Lindo.ai API uses Bearer token authentication.
+
+## How It Works
+
+Include your API key in the Authorization header:
+
+```
+Authorization: Bearer your-api-key-here
+```
+
+## Example Request
+
+```bash
+curl -X GET "https://api.lindo.ai/v1/websites" \
+  -H "Authorization: Bearer your-api-key-here" \
+  -H "Content-Type: application/json"
+```
+
+## In Code
+
+### JavaScript
+
+```javascript
+fetch('https://api.lindo.ai/v1/websites', {
+  headers: {
+    'Authorization': 'Bearer your-api-key-here',
+    'Content-Type': 'application/json'
+  }
+});
+```
+
+### Python
+
+```python
+import requests
+
+headers = {
+    'Authorization': 'Bearer your-api-key-here',
+    'Content-Type': 'application/json'
+}
+
+response = requests.get('https://api.lindo.ai/v1/websites', headers=headers)
+```
+
+## Security Best Practices
+
+- Never expose keys in client-side code
+- Use environment variables
+- Rotate keys regularly
+- Use separate keys for different environments
+
+## Error Responses
+
+| Code | Meaning |
+|------|---------|
+| 401 | Invalid or missing API key |
+| 403 | Key doesn't have permission |
+| 429 | Rate limit exceeded |
+
+## Tips
+
+- Store keys securely
+- Use server-side requests
+- Handle errors gracefully
+- Monitor API usage
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

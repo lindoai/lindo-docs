@@ -1,0 +1,128 @@
+---
+title: "CSV Import Format"
+description: "Template and format specifications for batch imports"
+---
+
+Reference guide for CSV file formats used in batch imports.
+
+## Website Batch Import
+
+### Required Columns
+
+| Column | Description | Required |
+|--------|-------------|----------|
+| name | Website name | Yes |
+| prompt | AI generation prompt | Yes |
+
+### Optional Columns
+
+| Column | Description | Default |
+|--------|-------------|---------|
+| language | Content language code | en |
+| mode | Theme mode (light/dark) | light |
+
+### Example CSV
+
+```csv
+name,prompt,language,mode
+"Agency Site","Create a digital marketing agency website with hero, services, portfolio, team, and contact sections",en,dark
+"Restaurant","Create a restaurant website with menu, reservations, about, and location",en,light
+"Portfolio","Create a photographer portfolio with gallery, about, and booking",en,dark
+```
+
+## Client Batch Import
+
+### Required Columns
+
+| Column | Description | Required |
+|--------|-------------|----------|
+| name | Client full name | Yes |
+| email | Client email address | Yes |
+
+### Optional Columns
+
+| Column | Description | Default |
+|--------|-------------|---------|
+| company | Company name | Empty |
+| notes | Additional notes | Empty |
+| website_limit | Max websites | 1 |
+| monthly_credits | Credit allocation | 0 |
+
+### Example CSV
+
+```csv
+name,email,company,website_limit,monthly_credits
+"John Smith","john@example.com","Smith Co",5,100
+"Jane Doe","jane@example.com","Doe Inc",3,50
+```
+
+## Blog Pipeline Import
+
+### Required Columns
+
+| Column | Description | Required |
+|--------|-------------|----------|
+| title | Blog post title/topic | Yes |
+
+### Optional Columns
+
+| Column | Description | Default |
+|--------|-------------|---------|
+| keywords | Target keywords | Empty |
+| tone | Writing tone | Professional |
+
+### Example CSV
+
+```csv
+title,keywords,tone
+"10 Tips for Better Sleep","sleep, health, wellness",friendly
+"How to Start Meditation","meditation, mindfulness",calm
+"Productivity Hacks for Remote Work","productivity, remote work",professional
+```
+
+## CSV Formatting Rules
+
+### Encoding
+
+- Use UTF-8 encoding
+- Save as .csv file
+
+### Text with Commas
+
+Wrap text containing commas in quotes:
+
+```csv
+name,prompt
+"My Site","Create a website with hero, features, and contact"
+```
+
+### Special Characters
+
+- Escape quotes with double quotes: `""`
+- Avoid line breaks in cells
+- Remove trailing spaces
+
+### Common Errors
+
+| Error | Cause | Solution |
+|-------|-------|----------|
+| Parse error | Unescaped commas | Wrap in quotes |
+| Encoding error | Wrong encoding | Save as UTF-8 |
+| Missing data | Empty required field | Fill all required columns |
+| Invalid format | Wrong file type | Export as CSV |
+
+## Downloading Templates
+
+1. Open Workflows
+2. Click Batch Import
+3. Click "Download Sample CSV"
+4. Use template as starting point
+
+<CardGroup cols={2}>
+  <Card title="Credit Costs" icon="coins" href="/reference/agent-credit-costs">
+    Learn more
+  </Card>
+  <Card title="Plan Comparison" icon="table" href="/reference/plan-comparison">
+    Learn more
+  </Card>
+</CardGroup>

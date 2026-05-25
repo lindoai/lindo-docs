@@ -1,0 +1,128 @@
+---
+title: "Robots.txt Examples"
+description: "Common robots.txt configurations for different use cases"
+---
+
+Reference guide for robots.txt configurations in Lindo.ai websites.
+
+## What is Robots.txt?
+
+Robots.txt tells search engine crawlers which pages to access or avoid. It's located at `yoursite.com/robots.txt`.
+
+## Default Configuration
+
+Lindo.ai generates a default robots.txt:
+
+```
+User-agent: *
+Allow: /
+Sitemap: https://yoursite.com/sitemap.xml
+```
+
+This allows all crawlers to access all pages.
+
+## Common Configurations
+
+### Allow All (Default)
+
+```
+User-agent: *
+Allow: /
+Sitemap: https://yoursite.com/sitemap.xml
+```
+
+### Block Specific Pages
+
+```
+User-agent: *
+Allow: /
+Disallow: /thank-you
+Disallow: /private
+Sitemap: https://yoursite.com/sitemap.xml
+```
+
+### Block All Crawlers
+
+```
+User-agent: *
+Disallow: /
+```
+
+Use for staging sites or private websites.
+
+### Block Specific Bots
+
+```
+User-agent: *
+Allow: /
+
+User-agent: BadBot
+Disallow: /
+```
+
+### Allow Only Google
+
+```
+User-agent: Googlebot
+Allow: /
+
+User-agent: *
+Disallow: /
+```
+
+## Configuring in Lindo.ai
+
+### Enable Manual Control
+
+1. Open website editor
+2. Go to Settings → SEO
+3. Find Robots.txt section
+4. Toggle "Manual Robots.txt"
+5. Edit the content
+6. Save changes
+
+### Best Practices
+
+- Always include sitemap reference
+- Test changes before publishing
+- Don't block CSS/JS files
+- Use specific paths, not wildcards
+
+## Common Directives
+
+| Directive | Purpose |
+|-----------|---------|
+| User-agent | Specifies which crawler |
+| Allow | Permits access to path |
+| Disallow | Blocks access to path |
+| Sitemap | Points to sitemap location |
+| Crawl-delay | Slows crawler (not all support) |
+
+## Testing Robots.txt
+
+### Google Search Console
+
+1. Go to Search Console
+2. Select your property
+3. Use robots.txt Tester
+4. Check for errors
+
+### Manual Testing
+
+Visit `yoursite.com/robots.txt` to verify content.
+
+## Important Notes
+
+- Robots.txt is advisory, not enforced
+- Sensitive content needs authentication
+- Changes may take time to reflect
+- Don't use for security purposes
+
+<CardGroup cols={2}>
+  <Card title="Credit Costs" icon="coins" href="/reference/agent-credit-costs">
+    Learn more
+  </Card>
+  <Card title="Plan Comparison" icon="table" href="/reference/plan-comparison">
+    Learn more
+  </Card>
+</CardGroup>

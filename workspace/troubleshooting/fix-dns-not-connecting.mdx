@@ -1,0 +1,59 @@
+---
+title: "How to Fix DNS Not Connecting"
+description: "Troubleshoot domain setup issues"
+---
+
+If your domain isn't connecting, follow these troubleshooting steps.
+
+## Common Issues
+
+### DNS Records Not Added
+
+**Solution:**
+1. Log into your domain registrar
+2. Go to DNS settings
+3. Add the required CNAME and TXT records
+4. Save changes
+
+### Wrong Record Values
+
+**Solution:**
+1. Compare your records with Lindo.ai requirements
+2. Copy values exactly (no extra spaces)
+3. Update incorrect records
+
+### Propagation Delay
+
+**Solution:**
+- DNS changes can take up to 48 hours
+- Check status periodically
+- Use dnschecker.org to verify
+
+### Conflicting Records
+
+**Solution:**
+1. Remove duplicate records
+2. Delete conflicting A records
+3. Keep only required records
+
+## Checking Status
+
+1. Open Settings → Domain
+2. Click **Check Status**
+3. Review connection status
+
+## Tips
+
+- Double-check all record values
+- Wait for propagation
+- Contact registrar support if needed
+- Verify domain ownership
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

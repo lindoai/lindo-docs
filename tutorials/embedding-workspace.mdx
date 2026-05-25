@@ -1,0 +1,102 @@
+---
+title: "Embedding Your Workspace"
+description: "Embed your Lindo workspace into external websites using iframe"
+---
+
+Learn how to embed your Lindo.ai workspace into your own website for a seamless client experience.
+
+## What is Workspace Embed?
+
+Workspace embed allows you to:
+
+- Display your workspace on your domain
+- Provide branded client access
+- Integrate with existing websites
+- Create custom client portals
+
+## Requirements
+
+- Business plan or higher
+- Embed Webapp add-on enabled
+- Custom domain configured
+
+<Steps>
+  <Step title="Enable Embed Feature">
+    1. Open **Settings** in sidebar
+    2. Go to **Reseller** tab
+    3. Find **Workspace Embed** section
+    4. Toggle **Enable Embed**
+  </Step>
+  <Step title="Get Embed Code">
+    Once enabled, you'll see the embed code:
+
+    ```html
+    <iframe
+      src="https://your-domain.com/embed"
+      width="100%"
+      height="800px"
+      frameborder="0"
+    ></iframe>
+    ```
+  </Step>
+  <Step title="Add to Your Website">
+    1. Copy the embed code
+    2. Open your external website's HTML
+    3. Paste the code where you want the workspace
+    4. Adjust width and height as needed
+  </Step>
+  <Step title="Style the Container">
+    Add CSS to match your site:
+
+    ```css
+    .workspace-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    ```
+  </Step>
+  <Step title="Configure Authentication">
+    Clients access the embedded workspace using:
+
+    - Their existing Lindo credentials
+    - Or client registration if enabled
+  </Step>
+</Steps>
+## Use Cases
+
+- **Agency Portals**: Embed in your agency website
+- **Client Dashboards**: Add to client-facing apps
+- **Reseller Platforms**: White-label integration
+- **Internal Tools**: Company intranet integration
+
+## Best Practices
+
+- Use responsive iframe sizing
+- Test on mobile devices
+- Ensure HTTPS on host site
+- Match branding between sites
+- Provide clear navigation
+
+## Troubleshooting
+
+**Iframe not loading:**
+- Check embed is enabled
+- Verify domain configuration
+- Ensure HTTPS is active
+
+**Styling issues:**
+- Adjust iframe dimensions
+- Check for CSS conflicts
+- Test in different browsers
+
+<CardGroup cols={2}>
+  <Card title="All Tutorials" icon="graduation-cap" href="/tutorials/build-saas-landing-page">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="building" href="/tutorials/white-label-setup">
+    Learn more
+  </Card>
+</CardGroup>

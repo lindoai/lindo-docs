@@ -1,0 +1,157 @@
+---
+title: "n8n"
+description: "Community node for n8n workflow automation."
+---
+
+The `n8n-nodes-lindo` package is a community node that lets you automate website and client management directly from your n8n workflows.
+
+## Installation
+
+1. Go to **Settings → Community Nodes** in your n8n instance
+2. Select **Install**
+3. Enter `n8n-nodes-lindo`
+4. Agree to the risks and click **Install**
+
+Or install via npm:
+
+```bash
+npm install n8n-nodes-lindo
+```
+
+## Credentials
+
+You need a Lindo API key to use this node.
+
+1. Log in to your [Lindo.ai](https://lindo.ai) workspace
+2. Go to **Settings** → **API** and copy your API key (starts with `lindo_sk_`)
+3. In n8n, create a new **Lindo API** credential and paste your key
+
+| Field | Description |
+|-------|-------------|
+| API Key | Your Lindo API key (`lindo_sk_...`) |
+| Base URL | `https://api.lindo.ai` (change only for staging environments) |
+
+## Video: How to Connect & Authorize
+
+Watch the full setup walkthrough — install the community node, create your API credential, and authorize the connection:
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/tXJxNs_xjJA" title="How to Connect & Authorize the Lindo.ai n8n Node" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+
+## Nodes
+
+### Lindo Trigger
+
+Starts a workflow when an event occurs in your Lindo workspace.
+
+| Event | Description |
+|-------|-------------|
+| New Website Created | Fires when a new website is created |
+| New Client Created | Fires when a new client is created |
+| Website Workflow Completed | Fires when a website creation workflow finishes |
+| Page/Blog Workflow Completed | Fires when a page or blog workflow finishes |
+
+### Lindo (Action Node)
+
+Performs actions in your Lindo workspace.
+
+| Resource | Operation | Description |
+|----------|-----------|-------------|
+| Website | Create | Create a new website with AI |
+| Website | List | List all websites in workspace |
+| Page | Create | Create a new page with AI |
+| Page | List | List pages for a website |
+| Blog | Create | Create a blog post with AI |
+| Blog | List | List blog posts for a website |
+| Client | Create | Create a new client |
+| Client | List | List all clients |
+| Client | Generate Magic Link | Generate a login link for a client |
+| Credits | Allocate | Allocate credits to a client |
+
+### Lindo Tool (AI Agent)
+
+Use Lindo actions as tools inside n8n AI Agent nodes. This lets an AI agent autonomously create websites, pages, and manage clients.
+
+| Tool | Description |
+|------|-------------|
+| Create Website | AI agent can create websites |
+| Create Page | AI agent can add pages |
+| Create Blog | AI agent can write blog posts |
+| List Pages | AI agent can check existing pages |
+| List Blogs | AI agent can check existing blogs |
+| Create Client | AI agent can onboard clients |
+| Generate Magic Link | AI agent can create login links |
+| Allocate Credits | AI agent can manage credits |
+
+## Workflow Templates
+
+Ready-to-use workflow templates for agencies and marketing teams:
+
+<CardGroup cols={2}>
+  <Card title="Typeform → 3 Design Options + Client Portal" icon="file-lines" href="https://lindo.ai/n8n/templates/01-typeform-3-designs-client-portal.json">
+    <img src="https://lindo.ai/n8n/01 · Typeform → 3 Design Options + Client Portal.png" alt="Typeform → 3 Design Options + Client Portal" />
+    A prospect fills out your intake form. The AI generates three completely different website designs in minutes. The lead gets a branded email with all three options and a magic link to pick their favourite.
+  </Card>
+  <Card title="CRM Deal Won → Auto-Build Client Site" icon="handshake" href="https://lindo.ai/n8n/templates/02-crm-deal-won-auto-build.json">
+    <img src="https://lindo.ai/n8n/02 · CRM Deal Won → Auto-Build Client Site.png" alt="CRM Deal Won → Auto-Build Client Site" />
+    The moment your sales rep marks a deal as won in HubSpot, the client's website starts building itself. By the time the AE sends the welcome call invite, the site is live and the CRM already has the URL.
+  </Card>
+  <Card title="Calendly Booking → Pre-Built Demo Site" icon="calendar" href="https://lindo.ai/n8n/templates/03-calendly-pre-built-demo.json">
+    <img src="https://lindo.ai/n8n/03 · Calendly Booking → Pre-Built Demo Site.png" alt="Calendly Booking → Pre-Built Demo Site" />
+    A prospect books a discovery call. Before the meeting starts, they receive an email with a fully built demo website tailored to their business. The AE walks in with a live example to show.
+  </Card>
+  <Card title="Weekly Blog Publisher from Content Calendar" icon="newspaper" href="https://lindo.ai/n8n/templates/04-weekly-blog-publisher.json">
+    <img src="https://lindo.ai/n8n/04 · Weekly Blog Publisher from Content Calendar.png" alt="Weekly Blog Publisher from Content Calendar" />
+    Your content team adds topics to a Google Sheet. Every Monday morning, the AI writes and publishes each blog post, updates the sheet with live URLs, and posts a digest to Slack.
+  </Card>
+  <Card title="RSS Feed → Auto Blog Posts" icon="rss" href="https://lindo.ai/n8n/templates/05-rss-auto-blog.json">
+    <img src="https://lindo.ai/n8n/05 · RSS Feed → Auto Blog Posts.png" alt="RSS Feed → Auto Blog Posts" />
+    Subscribe to an industry news feed and let the AI write commentary posts on your behalf. Every time a relevant article drops, your blog gets a fresh take within the hour.
+  </Card>
+  <Card title="Product Launch → Page + Blog + Email" icon="rocket" href="https://lindo.ai/n8n/templates/06-product-launch-page-blog-email.json">
+    <img src="https://lindo.ai/n8n/06 · Product Launch → Landing Page + Blog + Email.png" alt="Product Launch → Landing Page + Blog + Email" />
+    You add a new product. Automatically, a dedicated landing page goes live, an announcement blog post gets published, and a launch email goes out — all coordinated, all on-brand.
+  </Card>
+  <Card title="Stripe Payment → Full Client Setup" icon="credit-card" href="https://lindo.ai/n8n/templates/07-stripe-full-client-setup.json">
+    <img src="https://lindo.ai/n8n/07 · Stripe Payment → Full Client Setup.png" alt="Stripe Payment → Full Client Setup" />
+    A customer completes checkout. Within minutes they have a client account, credits loaded, a starter website built by AI, and a welcome email with their portal login. Entire onboarding on autopilot.
+  </Card>
+  <Card title="White-Label Agency Onboarding" icon="building" href="https://lindo.ai/n8n/templates/08-white-label-agency-onboarding.json">
+    <img src="https://lindo.ai/n8n/08 · White-Label Agency Onboarding.png" alt="White-Label Agency Onboarding" />
+    A new agency partner signs up. They instantly get a client account, 500 monthly credits, and three portfolio template websites tailored to their industry — ready to show their own clients on day one.
+  </Card>
+  <Card title="Stripe Invoice → Credit Top-Up" icon="coins" href="https://lindo.ai/n8n/templates/09-stripe-invoice-credit-topup.json">
+    <img src="https://lindo.ai/n8n/09 · Stripe Invoice Paid → Credit Top-Up.png" alt="Stripe Invoice Paid → Credit Top-Up" />
+    When a client pays their monthly invoice, their credit balance tops up automatically. They get a confirmation email with their new balance. No manual tracking, no support tickets.
+  </Card>
+  <Card title="Website Created → Slack + Airtable + CRM" icon="bell" href="https://lindo.ai/n8n/templates/10-website-created-slack-airtable-crm.json">
+    <img src="https://lindo.ai/n8n/10 · Website Created → Slack + Airtable + CRM.png" alt="Website Created → Slack + Airtable + CRM" />
+    Every time a website goes live, your Slack channel gets a notification, Airtable logs it for project tracking, and HubSpot updates the contact record. Everyone stays in sync.
+  </Card>
+  <Card title="Workflow Errored → PagerDuty/Slack Alert" icon="triangle-exclamation" href="https://lindo.ai/n8n/templates/11-workflow-errored-alert.json">
+    If a website build fails at 3am, you'll know before your client does. Critical failures page your on-call engineer; lower-severity issues get logged for the weekly review.
+  </Card>
+  <Card title="Weekly Client Report Email" icon="chart-line" href="https://lindo.ai/n8n/templates/12-weekly-client-report.json">
+    <img src="https://lindo.ai/n8n/12 · Weekly Client Report Email.png" alt="Weekly Client Report Email" />
+    Every Friday, each client receives a personalised performance email — their site visits, top pages, and a note from your agency. AI writes each report from real analytics data automatically.
+  </Card>
+  <Card title="Traffic Spike Alert" icon="arrow-trend-up" href="https://lindo.ai/n8n/templates/13-traffic-spike-alert.json">
+    <img src="https://lindo.ai/n8n/13 · Traffic Spike Alert.png" alt="Traffic Spike Alert" />
+    Your client's site suddenly gets 5x normal traffic. You know within the hour — which pages are driving it, how much. Act fast: capitalise on the moment or block the bots.
+  </Card>
+</CardGroup>
+
+## Example: AI Agent Workflow
+
+Build an autonomous agent that creates websites when triggered:
+
+1. **Trigger** — Calendly booking, form submission, or schedule
+2. **AI Agent** — n8n Agent node with OpenAI or Anthropic model
+3. **Lindo Tools** — Attach Create Website, Create Page, and Generate Magic Link as agent tools
+4. **Output** — Agent autonomously builds the site and sends results to Slack or email
+
+## Resources
+
+- [npm: n8n-nodes-lindo](https://www.npmjs.com/package/n8n-nodes-lindo)
+- [GitHub: lindoai/n8n-nodes-lindo](https://github.com/lindoai/n8n-nodes-lindo)
+- [n8n Community Nodes Documentation](https://docs.n8n.io/integrations/community-nodes/)
+- [n8n Workflow Templates](https://n8n.io/workflows/?search=lindo)
