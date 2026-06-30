@@ -1,0 +1,207 @@
+---
+title: "CLI"
+description: "Command-line interface for agents and developers."
+---
+
+The `lindoai` CLI lets you manage your Lindo workspace from the terminal. Built for both developers and AI agents.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npm install -g lindoai
+```
+
+```bash yarn
+yarn global add lindoai
+```
+
+```bash pnpm
+pnpm add -g lindoai
+```
+</CodeGroup>
+
+## Quick Start
+
+```bash
+# Login (opens browser)
+lindoai login
+
+# Or use API key directly
+export LINDO_API_KEY=lindo_sk_live_...
+
+# List websites
+lindoai sites list
+
+# Create a website
+lindoai sites create --name "My Business" --description "A coffee shop in Portland"
+
+# Check credits
+lindoai workspace credits
+```
+
+## Authentication
+
+Two methods:
+
+1. **Browser login** — Run `lindoai login` to open a browser and authenticate interactively.
+2. **API key** — Set `LINDO_API_KEY` environment variable for headless/agent use.
+
+```bash
+# Interactive login
+lindoai login
+
+# Or set env var (preferred for agents)
+export LINDO_API_KEY=lindo_sk_live_...
+```
+
+## Command Reference
+
+### Sites
+
+```bash
+lindoai sites list                    # List all websites
+lindoai sites create                  # Create a new website
+lindoai sites get <website-id>        # Get website details
+lindoai sites delete <website-id>     # Delete a website
+```
+
+### Pages
+
+```bash
+lindoai pages list <website-id>       # List pages for a website
+lindoai pages create <website-id>     # Create a new page
+lindoai pages get <page-id>           # Get page details
+lindoai pages delete <page-id>        # Delete a page
+```
+
+### Blogs
+
+```bash
+lindoai blogs list <website-id>       # List blog posts
+lindoai blogs create <website-id>     # Create a blog post
+lindoai blogs get <blog-id>           # Get blog details
+lindoai blogs delete <blog-id>        # Delete a blog post
+```
+
+### Clients
+
+```bash
+lindoai clients list                  # List all clients
+lindoai clients create                # Create a new client
+lindoai clients get <client-id>       # Get client details
+lindoai clients delete <client-id>    # Delete a client
+```
+
+### Workflows
+
+```bash
+lindoai workflows start <name>        # Start a workflow
+lindoai workflows status <id>         # Get workflow status
+lindoai workflows pause <id>          # Pause a workflow
+lindoai workflows resume <id>         # Resume a workflow
+lindoai workflows terminate <id>      # Terminate a workflow
+```
+
+### Workspace
+
+```bash
+lindoai workspace credits             # Check credit balance
+lindoai analytics workspace           # View workspace analytics
+lindoai analytics website             # View website analytics
+```
+
+### Config
+
+```bash
+lindoai config set apiKey <key>       # Set API key
+lindoai config get apiKey             # Get current API key
+lindoai config list                   # List all config values
+lindoai config path                   # Show config file path
+```
+
+## Output Formats
+
+### Table (default)
+
+Human-readable formatted output:
+
+```
+┌─────────────┬────────────┐
+│ workspace_id│ ws-123     │
+│ balance     │ 1000       │
+│ allocated   │ 5000       │
+│ used        │ 4000       │
+└─────────────┴────────────┘
+```
+
+### JSON
+
+Machine-readable output for scripting and AI agents:
+
+```bash
+lindoai sites list --format json
+```
+
+```json
+[
+  {
+    "id": "web_abc123",
+    "name": "My Business",
+    "domain": "mybusiness.lindo.agency",
+    "status": "published"
+  }
+]
+```
+
+## Agent Usage
+
+The CLI is designed for AI agents that operate via shell commands. Key features:
+
+- **JSON output** — `--format json` for machine parsing
+- **Non-interactive auth** — `LINDO_API_KEY` env var, no browser needed
+- **Clear errors** — Actionable error messages with fix suggestions
+- **Idempotent** — Safe to retry operations
+
+### Example: Agent Script
+
+```bash
+#!/bin/bash
+export LINDO_API_KEY=lindo_sk_live_...
+
+# Check credits before creating
+credits=$(lindoai workspace credits --format json | jq '.balance')
+if [ "$credits" -lt 100 ]; then
+  echo "Low credits: $credits"
+  exit 1
+fi
+
+# Create a website
+lindoai sites create \
+  --name "Acme Corp" \
+  --description "Enterprise software company" \
+  --format json
+```
+
+## Configuration
+
+Config is stored in `~/.lindo/config.json`.
+
+### Precedence
+
+1. Environment variables (highest)
+2. Config file
+3. Defaults (lowest)
+
+### Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `LINDO_API_KEY` | Your Lindo API key |
+| `LINDO_BASE_URL` | API base URL (default: `https://api.lindo.ai`) |
+
+## Resources
+
+- [npm: lindoai](https://www.npmjs.com/package/lindoai)
+- [AI Agents](/mcp-agents/ai-agents)
+- [API Reference](/api/introduction)

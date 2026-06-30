@@ -1,0 +1,55 @@
+---
+title: "How to Delete API Key"
+description: "Remove an API key from your workspace"
+---
+
+Delete API keys that are no longer needed or may have been compromised.
+
+## When to Delete
+
+Delete an API key when:
+
+- It's no longer in use
+- It may have been exposed
+- You're rotating keys
+- Revoking access from an integration
+
+## Deleting a Key
+
+1. Open **Settings** in sidebar
+2. Go to **API** tab
+3. Find the key you want to delete
+4. Click the **Delete** button
+5. Confirm deletion
+
+## What Happens
+
+When you delete a key:
+
+- It's immediately invalidated
+- Any requests using it will fail
+- The action cannot be undone
+
+## After Deletion
+
+If you still need API access:
+
+1. Generate a new key
+2. Copy it immediately
+3. Update your integrations
+
+## Best Practices
+
+- Rotate keys periodically
+- Delete unused keys promptly
+- Monitor for unauthorized usage
+- Keep track of where keys are used
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

@@ -1,0 +1,180 @@
+---
+title: "MCP Server"
+description: "Connect Lindo to any AI tool using the Model Context Protocol."
+---
+
+The Lindo MCP Server provides a universal interface for AI tools to interact with your Lindo workspace. It works with Claude, ChatGPT, Perplexity, Cursor, VS Code, Windsurf, and any MCP-compatible client.
+
+## What is MCP?
+
+The [Model Context Protocol](https://modelcontextprotocol.io) (MCP) is an open standard that lets AI assistants connect to external tools and data sources. Lindo's MCP server exposes 43 tools for managing websites, pages, blogs, clients, and credits.
+
+## One-Click Install
+
+<CardGroup cols={2}>
+  <Card title="Install in Cursor" icon="https://www.google.com/s2/favicons?domain=cursor.com&sz=32" href="cursor://anysphere.cursor-deeplink/mcp/install?name=lindo&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkBsaW5kb2FpL21jcC1zZXJ2ZXIiXX0=">
+    Click to add Lindo MCP to Cursor automatically.
+  </Card>
+  <Card title="Install in VS Code" icon="https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=32" href="vscode://mcp/install?%7B%22lindo%22%3A%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40lindoai%2Fmcp-server%22%5D%7D%7D">
+    Click to add Lindo MCP to VS Code automatically.
+  </Card>
+  <Card title="Add to Claude" icon="https://www.google.com/s2/favicons?domain=claude.ai&sz=32" href="https://claude.ai/customize/connectors?modal=add-custom-connector">
+    Add as a connector in Claude.ai settings.
+  </Card>
+</CardGroup>
+
+## Installation
+
+### Remote Server (Recommended)
+
+Use the hosted MCP server with OAuth login. Works with Claude.ai connectors, ChatGPT Apps, and more.
+
+```
+https://mcp.lindo.ai/mcp
+```
+
+### Local Server (npx)
+
+Run the MCP server locally. First run opens a browser for login, or set the `LINDO_API_KEY` environment variable.
+
+```bash
+npx -y @lindoai/mcp-server
+```
+
+## Configuration by Client
+
+<Tabs>
+  <Tab title="Cursor">
+    Add to `.cursor/mcp.json`:
+    ```json
+    {
+      "mcpServers": {
+        "lindo": {
+          "command": "npx",
+          "args": ["-y", "@lindoai/mcp-server"]
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="VS Code">
+    Add to `.vscode/mcp.json`:
+    ```json
+    {
+      "mcpServers": {
+        "lindo": {
+          "command": "npx",
+          "args": ["-y", "@lindoai/mcp-server"]
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Claude Desktop">
+    Add to `claude_desktop_config.json`:
+    ```json
+    {
+      "mcpServers": {
+        "lindo": {
+          "command": "npx",
+          "args": ["-y", "@lindoai/mcp-server"]
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Claude Code">
+    ```bash
+    claude mcp add lindo -- npx -y @lindoai/mcp-server
+    ```
+  </Tab>
+  <Tab title="Windsurf">
+    Add to `~/.codeium/windsurf/mcp_config.json`:
+    ```json
+    {
+      "mcpServers": {
+        "lindo": {
+          "command": "npx",
+          "args": ["-y", "@lindoai/mcp-server"],
+          "env": { "LINDO_API_KEY": "your_key_here" }
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Perplexity">
+    In Perplexity, go to **Settings → Connectors** and add a custom connector with the remote URL:
+
+    ```
+    https://mcp.lindo.ai/mcp
+    ```
+
+    Works in both Perplexity web and the Comet browser. OAuth login — no API key needed.
+  </Tab>
+</Tabs>
+
+## Authentication
+
+The MCP server supports two authentication methods:
+
+1. **Browser login** — On first run, the server opens a browser window for OAuth login. Credentials are cached locally.
+2. **API key** — Set the `LINDO_API_KEY` environment variable to skip the browser flow.
+
+```bash
+LINDO_API_KEY=lindo_sk_live_... npx -y @lindoai/mcp-server
+```
+
+## Available Tools (43)
+
+The MCP server exposes tools organized into these groups:
+
+| Group | Tools | Description |
+|-------|-------|-------------|
+| Workspace | 6 | Get workspace info, settings, analytics |
+| Clients | 6 | Create, list, update, delete clients, generate magic links |
+| Websites | 10 | Create, list, update, delete, publish, configure websites |
+| Pages | 9 | Create, list, update, delete, publish pages |
+| Blogs | 9 | Create, list, update, delete, publish blog posts |
+| Credits | 3 | Check balance, allocate, view history |
+
+### Example: Create a Website
+
+When connected to an AI assistant, you can say:
+
+> "Create a website for a coffee shop called Bean & Brew in Portland"
+
+The AI will use the `create_website` tool with the appropriate parameters.
+
+### Example: Manage Clients
+
+> "Create a client for john@example.com and assign them 500 credits"
+
+The AI will call `create_client` followed by `allocate_credits`.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Server not connecting">
+    - Ensure Node.js 18+ is installed
+    - Try running `npx -y @lindoai/mcp-server` directly in your terminal to check for errors
+    - Verify your API key is valid
+  </Accordion>
+
+  <Accordion title="Authentication issues">
+    - If browser login fails, use the API key method instead
+    - Ensure your API key starts with `lindo_sk_`
+    - Check that your workspace plan supports API access
+  </Accordion>
+
+  <Accordion title="Tools not appearing">
+    - Restart your AI client after adding the MCP configuration
+    - Check the MCP configuration file path is correct for your client
+    - Verify the server is running by checking your client's MCP status panel
+  </Accordion>
+</AccordionGroup>
+
+## Resources
+
+- [npm: @lindoai/mcp-server](https://www.npmjs.com/package/@lindoai/mcp-server)
+- [GitHub: lindoai/mcp-server](https://github.com/lindoai/mcp-server)
+- [Model Context Protocol](https://modelcontextprotocol.io)

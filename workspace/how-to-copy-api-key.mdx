@@ -1,0 +1,60 @@
+---
+title: "How to Copy API Key"
+description: "Copy your API key for use in integrations"
+---
+
+Copy your API key to use in external applications and integrations.
+
+## Important Note
+
+API keys are only shown once when generated. If you didn't copy it, you'll need to generate a new one.
+
+## Copying a New Key
+
+When you generate a new API key:
+
+1. The key appears in a modal
+2. Click the **Copy** button
+3. Key is copied to clipboard
+4. Store it securely immediately
+
+## If You Lost Your Key
+
+If you didn't copy your key:
+
+1. Delete the old key
+2. Generate a new one
+3. Copy it immediately
+4. Update your integrations
+
+## Secure Storage
+
+Store your API key in:
+
+- Environment variables
+- Secret management tools
+- Secure password managers
+
+Never store in:
+
+- Source code
+- Public repositories
+- Unencrypted files
+- Chat messages
+
+## Using the Key
+
+Include in API requests:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" ...
+```
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

@@ -1,0 +1,72 @@
+---
+title: "How to Connect Google Analytics"
+description: "Adding GA tracking"
+---
+
+Add Google Analytics to track workspace usage.
+
+## What is Google Analytics
+
+Google Analytics provides:
+- Visitor tracking
+- Traffic sources
+- User behavior
+- Conversion tracking
+
+## Prerequisites
+
+- Google Analytics account
+- GA4 Measurement ID (G-XXXXXXXXXX)
+
+<Steps>
+  <Step title="Get Your Measurement ID">
+    1. Log into analytics.google.com
+    2. Go to Admin → Data Streams
+    3. Select your stream
+    4. Copy Measurement ID (G-XXXXXXXXXX)
+  </Step>
+  <Step title="Open Integrations">
+    Go to Settings → White Label → Integrations tab.
+  </Step>
+  <Step title="Find Google Analytics">
+    Locate Google Analytics card.
+  </Step>
+  <Step title="Enter Measurement ID">
+    Paste your GA4 Measurement ID.
+  </Step>
+  <Step title="Save">
+    Click Save or Connect.
+  </Step>
+</Steps>
+## Verification
+
+After connecting:
+- Check GA4 Realtime report
+- Visit your workspace
+- Verify data appears
+
+## What Gets Tracked
+
+GA tracks:
+- Workspace login page
+- Client dashboard
+- Workspace pages
+
+Does NOT track:
+- Individual websites (use website settings)
+
+## Tips
+
+- Use GA4 (not Universal Analytics)
+- Set up conversions
+- Create custom reports
+- Monitor regularly
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

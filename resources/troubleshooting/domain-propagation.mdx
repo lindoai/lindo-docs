@@ -1,0 +1,60 @@
+---
+title: "Domain Propagation Delays"
+description: "Understanding DNS propagation timing"
+---
+
+DNS changes don't take effect immediately. Here's what to expect.
+
+## What is Propagation?
+
+DNS propagation is the time it takes for DNS changes to spread across the internet.
+
+## Typical Timing
+
+- **Fast**: 15 minutes to 4 hours
+- **Average**: 4-24 hours
+- **Maximum**: Up to 48 hours
+
+## Why It Takes Time
+
+DNS records are cached by:
+
+- Your ISP
+- DNS servers worldwide
+- Browsers
+- Operating systems
+
+Each cache has its own refresh timing.
+
+## Checking Propagation
+
+Use online tools:
+
+1. Go to dnschecker.org
+2. Enter your domain
+3. Check propagation status globally
+
+## What to Do
+
+While waiting:
+
+- Don't make additional changes
+- Check status periodically
+- Be patient
+- Contact support if over 48 hours
+
+## Tips
+
+- Plan domain changes in advance
+- Lower TTL before changes (if possible)
+- Verify records are correct
+- Wait before troubleshooting
+
+<CardGroup cols={2}>
+  <Card title="DNS Issues" icon="globe" href="/troubleshooting/dns-not-connecting">
+    Learn more
+  </Card>
+  <Card title="Editor Issues" icon="pen-to-square" href="/troubleshooting/preview-not-loading">
+    Learn more
+  </Card>
+</CardGroup>

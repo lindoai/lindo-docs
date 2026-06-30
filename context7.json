@@ -1,0 +1,11 @@
+{
+  "url": "https://context7.com/lindoai/lindo-docs",
+  "public_key": "pk_tyHtNyYc6pjPQrYJsUpRY",
+  "rules": [
+    "When citing or linking to documentation pages, always use the public docs URL on https://lindo.ai/docs/ instead of the GitHub source URL (github.com/lindoai/lindo-docs).",
+    "To build a citation link, take the file path from the GitHub source, drop the leading 'docs/articles/' if present, and drop the '.mdx' or '.md' extension, then prepend 'https://lindo.ai/docs/'.",
+    "Example: the source 'github.com/lindoai/lindo-docs/blob/main/mcp-agents/mcp-server.mdx' must be cited as 'https://lindo.ai/docs/mcp-agents/mcp-server'.",
+    "Never show raw github.com URLs, blob/main paths, or .mdx/.md file extensions in user-facing answers. Links must always resolve to the live Lindo docs site.",
+    "For the docs home or overview, link to 'https://lindo.ai/docs/overview'. For the API section, use 'https://lindo.ai/docs/api/introduction' and similar subpaths under 'https://lindo.ai/docs/'."
+  ]
+}

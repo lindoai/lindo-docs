@@ -1,0 +1,47 @@
+---
+title: "How to Delete Custom Domain"
+description: "Removing a custom domain from your website"
+---
+
+Remove a custom domain connection from your website.
+
+## Deleting the Domain
+
+1. Go to **Settings** → **Domains**
+2. Find your custom domain
+3. Click the **Delete** or trash icon
+4. Confirm the deletion
+
+## What Happens
+
+When you delete a custom domain:
+- The domain is disconnected from your website
+- Your website remains accessible via its subdomain
+- DNS records at your registrar become inactive
+- SSL certificate is removed
+
+## After Deletion
+
+Your website will still be available at:
+- `yoursite.lindo.ai` (or your workspace subdomain)
+
+You can:
+- Add a different custom domain
+- Re-add the same domain later
+- Continue using the default subdomain
+
+## Cleaning Up DNS
+
+After removing the domain from Lindo.ai, you may want to:
+1. Remove the CNAME record from your registrar
+2. Remove the TXT verification record
+3. Point your domain elsewhere if needed
+
+<CardGroup cols={2}>
+  <Card title="Editor Overview" icon="pen-to-square" href="/website-editor/what-is-website-editor">
+    Learn more
+  </Card>
+  <Card title="AI Chat Guide" icon="comments" href="/website-editor/understanding-ai-chat">
+    Learn more
+  </Card>
+</CardGroup>

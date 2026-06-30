@@ -1,0 +1,325 @@
+---
+title: "n8n Template Publishing Guide"
+description: "Complete reference for publishing Lindo workflow templates to the n8n Creator platform. Covers naming, descriptions, sticky notes, and submission requirements."
+---
+
+This guide documents exactly what n8n requires for template submissions to their Creator platform. Use this as a checklist when preparing each Lindo workflow template for publication.
+
+## Title Format
+
+n8n enforces a specific title structure for SEO:
+
+```
+Action verb + thing being manipulated + to/on/in/from + where
+```
+
+**Examples:**
+- ✅ `One-way contact sync from Pipedrive to HubSpot`
+- ✅ `Create AI websites from Typeform submissions using Lindo`
+- ✅ `Auto-build client sites on deal close in HubSpot with Lindo`
+- ❌ `🚀 Amazing AI Website Builder Automation!!!` (no emojis, no hype)
+
+**Rules:**
+- Sentence-style capitalization (not Title Case)
+- Include main node names in the title (e.g., "Typeform", "Lindo", "Slack")
+- No emojis in titles
+- Clear and objective — describe what it does, not how amazing it is
+
+## Description (Template Page)
+
+The description appears on the n8n template library page. Aim for **~200 words** using proper **Markdown** (not HTML tags).
+
+### Required Sections
+
+Use `## H2 Headings` (not H1) to split content:
+
+```markdown
+## Who is this for
+
+Agencies and freelancers who want to automate client onboarding.
+Triggered by a form submission, this workflow builds 3 website
+design options and delivers them with a client portal login.
+
+## How it works
+
+1. Typeform submission triggers the workflow
+2. AI agent generates 3 distinct website design prompts
+3. Lindo batch-creates all 3 websites in parallel
+4. Workflow polls status every 60 seconds until complete
+5. Creates a client record and assigns the first website
+6. Generates a magic link for client portal access
+7. AI composes and sends a welcome email via Emailr
+8. Posts a summary to Slack
+
+## Setup
+
+1. Install the `n8n-nodes-lindo` community node
+2. Add your Lindo API key credential
+3. Add your OpenAI API key credential
+4. Connect your Typeform account
+5. Connect Slack and Emailr credentials
+6. Set the Typeform form ID in the trigger node
+
+## Requirements
+
+- n8n self-hosted (uses community node `n8n-nodes-lindo`)
+- Lindo.ai account with API key
+- OpenAI API key
+- Typeform, Slack, and Emailr accounts
+
+## Customization
+
+- Replace Typeform with any trigger (webhook, Google Sheets, Calendly)
+- Change from 3 designs to 1 by modifying the AI agent prompt
+- Swap Emailr for Gmail or any email node
+- Add additional steps like CRM updates or Airtable logging
+```
+
+### Community Node Disclaimer
+
+Since `n8n-nodes-lindo` is a community node, **every template must include**:
+
+1. A note that it requires **self-hosted n8n** (community nodes don't work on n8n Cloud unless the user installs them manually)
+2. A **workflow screenshot image** at the top of the description (since the visual preview won't render for community nodes on the library page)
+
+Add this at the top of every description:
+
+```markdown
+> **Note:** This workflow uses the `n8n-nodes-lindo` community node.
+> Install it via Settings → Community Nodes → `n8n-nodes-lindo`.
+> Works on self-hosted n8n instances.
+
+![Workflow screenshot](https://lindo.ai/n8n/01 · Typeform → 3 Design Options + Client Portal.png)
+```
+
+## Sticky Notes (Mandatory)
+
+Every template **must** include sticky notes. n8n will reject submissions without them.
+
+### Main Overview Sticky (Required — exactly one)
+
+| Property | Value |
+|----------|-------|
+| Color | **Yellow** (`color: 2`) |
+| Position | Top-left corner of the canvas |
+| Size | Large enough to be the first thing users see |
+| Word count | 100–300 words |
+
+**Content structure:**
+
+```
+### Template Name
+
+Brief 1-2 sentence summary of what this workflow does.
+
+### How it works
+1. Step one
+2. Step two
+3. Step three
+...
+
+### Setup
+1. Install n8n-nodes-lindo community node
+2. Add Lindo API credential (your API key)
+3. Add OpenAI credential
+4. Configure trigger (set form ID, webhook URL, etc.)
+5. Connect Slack/Emailr credentials
+
+### Customization tips
+- Replace the trigger with any source
+- Modify the AI prompt for different industries
+- Add more steps after completion
+```
+
+### Section Stickies (Required for workflows with 4+ nodes)
+
+| Property | Value |
+|----------|-------|
+| Color | **White/neutral** (`color: 1`) |
+| Position | Behind/covering the nodes they describe |
+| Size | Stretched to cover the group of nodes |
+| Word count | Under 50 words — just a heading + 1-2 lines |
+
+**Examples:**
+
+```
+## 1. Trigger & Data Extraction
+Captures the incoming lead data and normalizes fields.
+```
+
+```
+## 2. AI Planning
+Generates 3 distinct website design prompts.
+```
+
+```
+## 3. Batch Creation & Polling
+Creates all 3 websites and waits for completion.
+```
+
+```
+## 4. Client Setup & Notification
+Creates client, assigns site, sends email, posts to Slack.
+```
+
+### Warning Stickies (Optional)
+
+| Property | Value |
+|----------|-------|
+| Color | **Red** (`color: 5`) |
+| Position | Covering a single critical node |
+| Use | Sparingly — only for critical setup steps |
+
+**Example:**
+
+```
+⚠️ Set your Lindo API key in the credential before running.
+```
+
+### Video Stickies (Optional but recommended)
+
+Embed a YouTube setup walkthrough:
+
+```
+@[youtube](YOUR_VIDEO_ID)
+```
+
+## Node Naming
+
+**Rename all nodes** to describe their purpose. Never leave default names like "HTTP Request" or "Set".
+
+**Good names:**
+- `Extract Booking Data`
+- `Batch Create 3 Websites`
+- `Check Website Status`
+- `Send Welcome Email`
+- `Persist Workflow IDs`
+
+**Bad names:**
+- `Set`
+- `HTTP Request`
+- `IF`
+- `Code`
+
+## Security & Privacy Checklist
+
+Before submitting, verify:
+
+- [ ] No hardcoded API keys in HTTP Request nodes
+- [ ] No real Google Sheet IDs (use empty string or placeholder)
+- [ ] No real email addresses (use `your-email@example.com`)
+- [ ] No real Telegram channel IDs
+- [ ] No personal webhook URLs
+- [ ] Credentials use `newCredential()` pattern (auto-assigned on import)
+- [ ] Sensitive config is in Set nodes that users can easily find and edit
+
+## Workflow Structure Best Practices
+
+- **Use Set nodes for user-configurable variables** — group all values the user needs to change in one visible Set node at the start
+- **Assume the user is new to n8n** — minimize friction
+- **Make it plug-and-play** — the workflow should work after just adding credentials
+- **Include sample/default values** where possible so users can test immediately
+- **Use `executeOnce: true`** on agent nodes to prevent item multiplication
+- **Use `alwaysOutputData: true`** on nodes that might return empty results
+
+## Submission Checklist
+
+Before submitting to the n8n Creator platform:
+
+1. [ ] Title follows the `Action verb + thing + to/from + where` format
+2. [ ] Description is ~200 words with H2 sections
+3. [ ] Community node disclaimer + workflow image at top
+4. [ ] One yellow main overview sticky (100-300 words)
+5. [ ] White section stickies for each logical group
+6. [ ] All nodes renamed to describe their purpose
+7. [ ] No hardcoded credentials or personal data
+8. [ ] Workflow tested end-to-end (or at minimum, validated)
+9. [ ] Categories selected (e.g., "Marketing", "Sales", "AI")
+10. [ ] Workflow image uploaded (1200×630 recommended)
+
+## Template Categories
+
+Choose the most relevant categories for each template:
+
+| Template | Suggested Categories |
+|----------|---------------------|
+| Typeform → 3 Designs | Marketing, Sales, AI |
+| CRM Deal Won | Sales, CRM |
+| Calendly Demo | Sales, AI |
+| Weekly Blog Publisher | Content Creation, Marketing |
+| RSS Auto Blog | Content Creation, AI |
+| Product Launch | Marketing, Content Creation |
+| Stripe Full Setup | Sales, Finance |
+| Agency Onboarding | Marketing, Sales |
+| Credit Top-Up | Finance |
+| Website Created Notifications | Communication |
+| Error Alerts | DevOps, Communication |
+| Weekly Reports | Analytics, Communication |
+| Traffic Spike | Analytics, DevOps |
+
+## Sticky Note Color Reference
+
+| Color | Code | Use |
+|-------|------|-----|
+| Yellow | `color: 2` | Main overview (required, exactly one) |
+| White/Neutral | `color: 1` | Section labels |
+| Blue | `color: 3` | Tips or optional info |
+| Red | `color: 5` | Warnings or critical steps |
+| Green | `color: 4` | Success/completion notes |
+
+## Example: Complete Template Description
+
+Here's a production-ready description for Template 01:
+
+---
+
+> **Note:** This workflow uses the `n8n-nodes-lindo` community node.
+> Install via Settings → Community Nodes → `n8n-nodes-lindo`.
+
+![Workflow](https://lindo.ai/n8n/01 · Typeform → 3 Design Options + Client Portal.png)
+
+## Who is this for
+
+Digital agencies and freelancers who want to automate lead-to-website delivery. When a prospect fills out a brief, this workflow generates 3 distinct AI website designs, sets up their client account, and sends a branded welcome email — all without manual intervention.
+
+## How it works
+
+1. A Typeform submission triggers the workflow with the lead's business details
+2. An AI agent (OpenAI gpt-4o) generates 3 distinct website creation prompts — each with a different visual direction (Modern Minimalist, Bold Editorial, Warm & Artisan)
+3. Lindo batch-creates all 3 websites simultaneously
+4. The workflow polls batch status every 60 seconds until all sites are complete
+5. On completion: creates a client record, assigns the first website, and generates a magic link
+6. An AI agent composes a personalised welcome email presenting all 3 options with the portal login link
+7. Sends the email via Emailr and posts a summary to Slack
+
+## Setup
+
+1. Install `n8n-nodes-lindo` (Settings → Community Nodes)
+2. Add credentials: Lindo API key, OpenAI API key, Typeform, Emailr, Slack
+3. Set your Typeform form ID in the trigger node
+4. Update the Slack channel name if needed
+
+## Requirements
+
+- Self-hosted n8n instance
+- Lindo.ai account with API key (`lindo_sk_...`)
+- OpenAI API key
+- Typeform, Emailr, and Slack accounts
+
+## Customization
+
+- Replace Typeform with a webhook, Google Sheets trigger, or Calendly
+- Change from 3 designs to any number by editing the AI prompt
+- Swap Emailr for Gmail, SendGrid, or any email service
+- Add CRM updates (HubSpot, Pipedrive) after client creation
+- Skip the client creation step if you only need the websites
+
+---
+
+## Resources
+
+- [n8n Template Submission Guidelines](https://n8n.notion.site/Template-submission-guidelines-9959894476734da3b402c90b124b1f77)
+- [Sticky Note Guidelines](https://n8n.notion.site/2aa5b6e0c94f8058b0aefddd02655887)
+- [n8n Creator Hub](https://n8n.notion.site/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f)
+- [Example Published Template](https://n8n.io/workflows/4817-composestitch-separate-images-together-using-n8n-and-gemini-ai-image-editing/)
+- [Auto-generate Sticky Notes Workflow](https://n8n.io/workflows/13868-auto-generate-sticky-notes-and-rename-nodes/)
