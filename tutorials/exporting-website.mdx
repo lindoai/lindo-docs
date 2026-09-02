@@ -1,0 +1,98 @@
+---
+title: "Exporting and Hosting Elsewhere"
+description: "Download your website and deploy it to external hosting"
+---
+
+Learn how to export your Lindo.ai website and host it on your own server or other platforms.
+
+## What Gets Exported
+
+When you export a website, you receive a ZIP file containing:
+
+- HTML files for all pages
+- CSS stylesheets
+- JavaScript files
+- Images and media
+- Fonts
+
+<Steps>
+  <Step title="Export Your Website">
+    1. Go to your workspace
+    2. Find the website you want to export
+    3. Click the three-dot menu on the website card
+    4. Select **Export**
+    5. Wait for the ZIP file to download
+  </Step>
+  <Step title="Extract the Files">
+    1. Locate the downloaded ZIP file
+    2. Extract to a folder on your computer
+    3. Review the file structure
+
+    Typical structure:
+    ```
+    my-website/
+    ├── index.html
+    ├── about.html
+    ├── contact.html
+    ├── css/
+    │   └── styles.css
+    ├── js/
+    │   └── main.js
+    └── images/
+        └── ...
+    ```
+  </Step>
+  <Step title="Test Locally">
+    Before deploying, test the site locally:
+
+    1. Open the folder in a code editor
+    2. Use a local server (e.g., Live Server extension)
+    3. Or open `index.html` directly in browser
+    4. Check all pages and links work
+  </Step>
+  <Step title="Deploy to Hosting">
+    #
+  </Step>
+  <Step title="Update DNS (Custom Domain)">
+    If using a custom domain:
+
+    1. Add A record pointing to hosting IP
+    2. Or add CNAME for subdomain
+    3. Wait for DNS propagation
+    4. Configure SSL certificate
+  </Step>
+</Steps>
+## Considerations
+
+- Exported sites are static HTML
+- Dynamic features may not work
+- Forms need backend configuration
+- Analytics need reconfiguration
+- Updates require re-export
+
+## When to Export
+
+Export is useful when:
+
+- Moving to different hosting
+- Creating offline backup
+- Integrating with existing systems
+- Compliance requirements
+- Ending Lindo.ai subscription
+
+## Best Practices
+
+- Export regularly as backups
+- Test thoroughly before going live
+- Update links if domain changes
+- Reconfigure integrations
+- Document any customizations
+
+<CardGroup cols={2}>
+  <Card title="All Tutorials" icon="graduation-cap" href="/tutorials/build-saas-landing-page">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="building" href="/tutorials/white-label-setup">
+    Learn more
+  </Card>
+</CardGroup>

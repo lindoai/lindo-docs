@@ -1,0 +1,96 @@
+---
+title: "Zapier"
+description: "Automate workflows with 8 actions and 4 triggers on Zapier."
+---
+
+The Lindo Zapier integration connects your workspace to 7,000+ apps. Trigger site creation from CRM deals, sync form submissions, notify your team on publish, and more.
+
+## Getting Started
+
+1. Open the [Lindo app on Zapier](https://zapier.com/apps/lindo/integrations)
+2. Create a new Zap
+3. Authenticate with your Lindo API key
+
+## Triggers
+
+Triggers start a Zap when something happens in your Lindo workspace.
+
+| Trigger | Description |
+|---------|-------------|
+| New Lead Captured | Fires when a form submission is received on a Lindo website |
+| New Form Submission | Fires when any form is submitted |
+| Website Published | Fires when a website is published or updated |
+| New Client Added | Fires when a new client is created in your workspace |
+
+## Actions
+
+Actions perform operations in your Lindo workspace.
+
+| Action | Description |
+|--------|-------------|
+| Create Website | Create a new AI-generated website |
+| Edit Website | Edit an existing website using AI |
+| Create Blog Post | Generate a blog post with AI |
+| Add Client | Create a new client in your workspace |
+| Publish Website | Publish or republish a website |
+| Update Page | Update an existing page |
+| Update Blog Post | Update an existing blog post |
+| Delete Website | Remove a website from your workspace |
+
+## Popular Recipes
+
+<CardGroup cols={2}>
+  <Card title="HubSpot Deal → Create Website" icon="handshake">
+    When a deal hits "Won" in HubSpot, automatically create a client workspace and seed a starter site.
+  </Card>
+  <Card title="Form Entry → CRM Lead" icon="address-book">
+    Form entries on Lindo sites create a deal in Pipedrive with UTM data and page URL attached.
+  </Card>
+  <Card title="New Client → Welcome Email" icon="envelope">
+    When a new client is invited, fire off a branded welcome email with their portal link.
+  </Card>
+  <Card title="Site Published → Slack" icon="slack">
+    Every time you publish a client site, celebrate it in Slack with the preview link.
+  </Card>
+  <Card title="Stripe Payment → Create Client" icon="credit-card">
+    When a payment is received, automatically create a client and allocate credits.
+  </Card>
+  <Card title="Credit Purchase → Google Sheet" icon="table">
+    Keep a running tally of client credit purchases for quick MRR reporting.
+  </Card>
+</CardGroup>
+
+## Setup Steps
+
+<Steps>
+  <Step title="Get your API key">
+    Go to **Settings** → **API** in your Lindo workspace and copy your API key.
+  </Step>
+  <Step title="Create a Zap">
+    In Zapier, create a new Zap and pick Lindo as the trigger or action app.
+  </Step>
+  <Step title="Authenticate">
+    Paste your API key when prompted to connect your Lindo account.
+  </Step>
+  <Step title="Configure and test">
+    Map fields between apps, test with a real event, and turn it on.
+  </Step>
+</Steps>
+
+## Multi-Step Zaps
+
+Chain multiple Lindo actions in a single Zap to model complex workflows:
+
+```
+Trigger: New HubSpot Deal (Won)
+  → Action 1: Create Client (Lindo)
+  → Action 2: Create Website (Lindo)
+  → Action 3: Send Welcome Email (Gmail)
+  → Action 4: Post to #launches (Slack)
+```
+
+## Resources
+
+- [Lindo on Zapier](https://zapier.com/apps/lindo/integrations)
+- [Zapier Documentation](https://zapier.com/help)
+- [Lindo API Reference](/api/introduction)

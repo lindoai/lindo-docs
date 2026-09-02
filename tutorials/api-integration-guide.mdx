@@ -1,0 +1,100 @@
+---
+title: "API Integration Guide"
+description: "Programmatically access your Lindo.ai workspace using the API"
+---
+
+Learn how to integrate Lindo.ai with your applications using the REST API.
+
+## Overview
+
+The Lindo.ai API allows you to:
+
+- Create and manage websites programmatically
+- Access client data
+- Automate workflows
+- Build custom integrations
+
+<Steps>
+  <Step title="Generate API Key">
+    1. Open **Settings** in sidebar
+    2. Go to **API** tab
+    3. Click **Generate API Key**
+    4. Copy the key immediately (shown only once)
+
+    Store your API key securely. Never expose it in client-side code.
+  </Step>
+  <Step title="Understand Authentication">
+    All API requests require Bearer token authentication:
+
+    ```bash
+    curl -X GET "https://api.lindo.ai/v1/websites" \
+      -H "Authorization: Bearer YOUR_API_KEY"
+    ```
+  </Step>
+  <Step title="Make Your First Request">
+    Test your connection by listing websites:
+
+    ```bash
+    curl -X GET "https://api.lindo.ai/v1/websites" \
+      -H "Authorization: Bearer YOUR_API_KEY" \
+      -H "Content-Type: application/json"
+    ```
+  </Step>
+  <Step title="Common Operations">
+    #
+  </Step>
+  <Step title="Handle Responses">
+    Successful responses return JSON:
+
+    ```json
+    {
+      "success": true,
+      "data": {
+        "id": "web_123",
+        "name": "My Website",
+        "status": "published"
+      }
+    }
+    ```
+
+    Error responses include error details:
+
+    ```json
+    {
+      "success": false,
+      "error": {
+        "code": "UNAUTHORIZED",
+        "message": "Invalid API key"
+      }
+    }
+    ```
+  </Step>
+  <Step title="Implement Error Handling">
+    Handle common errors:
+
+    - **401 Unauthorized**: Invalid or expired API key
+    - **403 Forbidden**: Insufficient permissions
+    - **404 Not Found**: Resource doesn't exist
+    - **429 Too Many Requests**: Rate limit exceeded
+  </Step>
+</Steps>
+## Best Practices
+
+- Store API keys in environment variables
+- Implement retry logic for transient errors
+- Cache responses when appropriate
+- Log API calls for debugging
+- Monitor rate limits
+
+## API Documentation
+
+For complete API reference, click **API Docs** in the Settings → API tab to access the full documentation on GitBook.
+
+<CardGroup cols={2}>
+  <Card title="All Tutorials" icon="graduation-cap" href="/tutorials/build-saas-landing-page">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="building" href="/tutorials/white-label-setup">
+    Learn more
+  </Card>
+</CardGroup>

@@ -1,0 +1,62 @@
+---
+title: "How to Add Body Code"
+description: "Inject custom code before the closing body tag"
+---
+
+Add custom scripts and code that loads at the end of your pages.
+
+## What is Body Code?
+
+Body code is injected just before the `</body>` tag. It's ideal for:
+
+- Chat widgets
+- Analytics scripts
+- Custom JavaScript
+- Third-party integrations
+
+## Adding Body Code
+
+1. Open **Settings** in sidebar
+2. Go to **Custom Code** tab
+3. Find **Body Code** section
+4. Paste your code
+5. Click **Save**
+
+## Example: Chat Widget
+
+```html
+<script>
+  (function() {
+    var script = document.createElement('script');
+    script.src = 'https://chat.example.com/widget.js';
+    document.body.appendChild(script);
+  })();
+</script>
+```
+
+## Example: Custom Script
+
+```html
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('Page loaded');
+    // Your custom code here
+  });
+</script>
+```
+
+## Tips
+
+- Body code loads after page content
+- Good for non-critical scripts
+- Test thoroughly before deploying
+- Keep code minimal for performance
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

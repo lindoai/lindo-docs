@@ -1,0 +1,78 @@
+---
+title: "What is Webhook"
+description: "Receiving events from your workspace"
+---
+
+Webhooks send real-time notifications when events happen in your workspace.
+
+## What They Do
+
+Webhooks notify you when:
+- Website created
+- Website published
+- Client added
+- Invoice paid
+- And more
+
+## How They Work
+
+1. Event happens in Lindo.ai
+2. Lindo.ai sends HTTP POST
+3. Your server receives data
+4. You process the event
+
+## Use Cases
+
+### Notifications
+
+- Slack alerts
+- Email notifications
+- SMS updates
+
+### Automation
+
+- Trigger workflows
+- Update databases
+- Sync systems
+
+### Integration
+
+- Connect to CRM
+- Update billing systems
+- Log events
+
+## Webhook Payload
+
+Events include data like:
+```json
+{
+  "event": "website.published",
+  "timestamp": "2024-01-15T10:30:00Z",
+  "data": {
+    "websiteId": "abc123",
+    "name": "My Website"
+  }
+}
+```
+
+## Requirements
+
+- Business plan or higher
+- HTTPS endpoint
+- Server to receive webhooks
+
+## Tips
+
+- Use HTTPS endpoints
+- Verify webhook signatures
+- Handle retries
+- Log all events
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

@@ -1,0 +1,71 @@
+---
+title: "How to Add Custom Domain"
+description: "Connect your own domain to your website"
+---
+
+Connect your own domain to your website instead of using the default lindo.site subdomain. Your site will be accessible at www.yourdomain.com.
+
+<Note>
+Requires Pro plan or higher. You need access to your domain's DNS settings.
+</Note>
+
+<Steps>
+  <Step title="Open website settings">
+    Open your website in the editor, go to the **Settings** tab, and click the **Domains** section.
+  </Step>
+  <Step title="Enter your domain">
+    In the Custom Domain field, enter your domain (e.g., `www.yourdomain.com` or `yourdomain.com`).
+  </Step>
+  <Step title="View DNS records">
+    The system shows you the DNS records to add. You'll see either CNAME records (for subdomains like www) or A records (for root domains), plus a TXT record for verification.
+
+    **Example CNAME record:**
+    | Type | Name | Value |
+    |------|------|-------|
+    | CNAME | www | cname.lindo.ai |
+  </Step>
+  <Step title="Add records to your registrar">
+    Log in to your domain registrar (GoDaddy, Cloudflare, Namecheap, etc.), find the DNS settings, and add each record with the exact values shown.
+  </Step>
+  <Step title="Verify connection">
+    Return to Lindo.ai and click **Check Status**. DNS changes take 5-30 minutes to propagate, though full global propagation can take up to 48 hours.
+  </Step>
+  <Step title="SSL is automatic">
+    Once DNS connects, an SSL certificate is automatically issued. Your site will be accessible via HTTPS with no additional setup.
+  </Step>
+</Steps>
+
+## CNAME vs A Record
+
+**CNAME (Recommended)** — Works with subdomains like www, blog, or shop. Easier to set up and more flexible.
+
+**A Record** — Works with root domains (yourdomain.com without www). Requires a specific IP address.
+
+## Troubleshooting
+
+**Not connecting?**
+- Double-check record values for typos
+- Remove any trailing dots from values
+- If using Cloudflare, temporarily disable the proxy (orange cloud)
+- Delete conflicting A records that point elsewhere
+
+**Still pending after 48 hours?**
+- Verify records are saved correctly in your registrar
+- Some registrars have propagation delays—contact their support
+
+## Website Domain vs White Label Domain
+
+| Website Domain | White Label Domain |
+|----------------|-------------------|
+| For one website | For entire workspace |
+| Set in website settings | Set in workspace settings |
+| Example: www.client.com | Example: app.agency.com |
+
+<CardGroup cols={2}>
+  <Card title="DNS Troubleshooting" icon="circle-exclamation" href="/troubleshooting/dns-not-connecting">
+    Fix connection issues
+  </Card>
+  <Card title="Change Subdomain" icon="link" href="/website-editor/settings/how-to-change-subdomain">
+    Update your lindo.site URL
+  </Card>
+</CardGroup>

@@ -1,0 +1,124 @@
+---
+title: "Claude Plugin"
+description: "Plugin with bundled skills, agents, and MCP server for Claude Code."
+---
+
+The Lindo Claude Plugin bundles MCP tools, skills, agents, hooks, and commands into a single installable package for Claude Code. It provides a complete integration — no separate MCP configuration needed.
+
+## Installation
+
+Add the Lindo marketplace and install the plugin:
+
+```bash
+claude plugin marketplace add lindoai/lindoai-claude-marketplace
+claude plugin install lindo-ai@lindo-marketplace
+```
+
+Or from within Claude Code:
+
+```
+/plugin marketplace add lindoai/lindoai-claude-marketplace
+/plugin install lindo-ai@lindo-marketplace
+```
+
+<Info>
+  You can also install from the Claude Desktop (Cowork) UI: **Customize** → **Personal plugins** → **+** → enter `lindoai/lindoai-claude-marketplace` → **Sync**.
+</Info>
+
+## Setup
+
+Set your Lindo API key:
+
+```bash
+export LINDO_API_KEY=lindo_sk_live_...
+```
+
+Or the plugin will open a browser login flow on first use.
+
+<Info>
+  Get an API key from **Settings** → **API** in your [Lindo workspace](https://app.lindo.ai).
+</Info>
+
+## Skills
+
+| Skill | Description |
+|-------|-------------|
+| create-website | Create a new website with AI |
+| edit-website | Edit an existing website using AI |
+| create-blog | Generate a blog post with AI |
+| manage-clients | Create, list, assign, and manage clients |
+| manage-websites | View, update, and configure websites |
+| manage-content | Publish, edit, and manage pages and blogs |
+
+## Agents
+
+| Agent | Description |
+|-------|-------------|
+| website-builder | Guided website creation — asks the right questions, then builds |
+| content-writer | SEO-focused blog and content creation assistant |
+| agency-manager | Client onboarding, credits, and agency operations |
+
+Use agents with: `/lindo-ai:website-builder`, `/lindo-ai:content-writer`, `/lindo-ai:agency-manager`
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| status | Check status of recent website builds |
+| dashboard | Workspace overview — websites, clients, usage |
+
+Use commands with: `/lindo-ai:status`, `/lindo-ai:dashboard`
+
+## Hooks
+
+- **API key validation** — Checks for `LINDO_API_KEY` before any tool call
+- **Delete protection** — Confirms destructive operations before executing
+- **Post-creation guidance** — Reminds you that generation takes 1-2 minutes
+
+## Example Usage
+
+Once installed, you can ask Claude Code:
+
+```
+> Build a portfolio website for a photographer
+> Add a pricing page to my website
+> Write a blog post about SEO tips
+> Create a client for Acme Corp
+> Give 500 credits to my client
+> Add example.com to my website
+> Show me traffic for my website
+```
+
+Or use the guided agents:
+
+```
+> /lindo-ai:website-builder
+> /lindo-ai:content-writer
+> /lindo-ai:agency-manager
+```
+
+## How It Differs from MCP + Skill
+
+| Feature | Plugin | MCP + Skill |
+|---------|--------|-------------|
+| Installation | Marketplace install | Two separate configs |
+| Authentication | Built-in browser flow | Manual API key setup |
+| Skills bundled | ✅ | Separate install |
+| Agents | ✅ 3 guided agents | ❌ |
+| Hooks | ✅ Auto-validation | ❌ |
+| Commands | ✅ /status, /dashboard | ❌ |
+| MCP tools | ✅ Included | Separate config |
+
+The plugin is the simplest way to get started with Lindo in Claude Code. If you need more control or use multiple AI clients, use the [MCP server](/mcp-agents/mcp-server) + [Agent Skill](/mcp-agents/agent-skill) approach instead.
+
+## Requirements
+
+- [Claude Code](https://code.claude.com) CLI or Claude Desktop (Team/Enterprise)
+- [Lindo AI](https://lindo.ai) account with Business or Whitelabel plan
+- Node.js 18+
+
+## Resources
+
+- [Marketplace: lindoai/lindoai-claude-marketplace](https://github.com/lindoai/lindoai-claude-marketplace)
+- [Claude Code Documentation](https://code.claude.com/docs/en/plugins)
+- [MCP Server](/mcp-agents/mcp-server)

@@ -1,0 +1,60 @@
+---
+title: "How to Import Products from CSV"
+description: "Bulk importing products using a CSV file"
+---
+
+Import multiple products at once using a CSV file.
+
+## CSV Format
+
+Your CSV file should include these columns:
+
+| Column | Required | Description |
+|--------|----------|-------------|
+| name | Yes | Product name |
+| description | No | Product description |
+| price | Yes | Price in cents (e.g., 1999 for $19.99) |
+| currency | No | Currency code (default: USD) |
+| frequency | No | one-time, monthly, yearly, weekly |
+| image_url | No | URL to product image |
+
+## Example CSV
+
+```csv
+name,description,price,currency,frequency
+Basic Plan,Essential features,999,USD,monthly
+Pro Plan,Advanced features,2999,USD,monthly
+Enterprise,Full access,9999,USD,monthly
+```
+
+## Importing Products
+
+1. Go to the **Pages** tab
+2. Select **Products** from the page type filter
+3. Click the import icon
+4. Select your CSV file
+5. Review the import preview
+6. Confirm the import
+
+## After Import
+
+- Products appear in your products list
+- Review each product for accuracy
+- Add images if not included in CSV
+- Configure checkout options as needed
+
+## Tips
+
+- Prices are in cents (multiply dollars by 100)
+- Use consistent currency codes
+- Validate your CSV before importing
+- Start with a small test batch
+
+<CardGroup cols={2}>
+  <Card title="Editor Overview" icon="pen-to-square" href="/website-editor/what-is-website-editor">
+    Learn more
+  </Card>
+  <Card title="AI Chat Guide" icon="comments" href="/website-editor/understanding-ai-chat">
+    Learn more
+  </Card>
+</CardGroup>

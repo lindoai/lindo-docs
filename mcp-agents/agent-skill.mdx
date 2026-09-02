@@ -1,0 +1,78 @@
+---
+title: "Agent Skill"
+description: "Open standard skill for Claude Code, Codex, and AI agents."
+---
+
+The Lindo Agent Skill teaches AI agents how to use the Lindo platform. It follows the open [Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) standard and works with Claude Code, OpenAI Codex, Perplexity, Cursor, Windsurf, and any tool that supports the `SKILL.md` format.
+
+## What It Does
+
+The skill provides structured instructions that teach AI agents how to:
+
+- Create websites from text prompts using AI
+- Create and publish pages and blog posts
+- Manage clients, assign websites, generate login links
+- Check and allocate credits
+- View workspace and website analytics
+
+## Installation
+
+### Install (all agents)
+
+```bash
+npx skills add lindoai/agent-skill
+```
+
+Works with Claude Code, Codex, OpenCode, Cursor, Windsurf, and any agent that supports the skills standard.
+
+### Manual Install
+
+Copy the `SKILL.md` file to your project's skills directory:
+
+```bash
+mkdir -p .claude/skills/lindo-ai
+curl -o .claude/skills/lindo-ai/SKILL.md \
+  https://raw.githubusercontent.com/lindoai/agent-skill/main/SKILL.md
+```
+
+## Prerequisites
+
+The skill requires the [Lindo MCP server](/mcp-agents/mcp-server) to be configured. The skill tells the agent *how* to use the MCP tools effectively — it doesn't provide the tools itself.
+
+```bash
+npx -y @lindoai/mcp-server
+```
+
+## Supported Platforms
+
+| Platform | Skill Support |
+|----------|--------------|
+| Claude Code | ✅ Native `claude skill install` |
+| OpenAI Codex | ✅ Via `.agents/skills/` directory |
+| Perplexity | ✅ Via Spaces and Comet browser |
+| Cursor | ✅ Via `.cursor/skills/` directory |
+| Windsurf | ✅ Via project skills directory |
+| OpenClaw | ✅ Via skills directory |
+
+## How It Works
+
+1. The skill file (`SKILL.md`) is loaded into the AI agent's context
+2. It provides structured instructions on available tools and their parameters
+3. The agent uses this knowledge to call MCP tools correctly
+4. Results are returned to the agent for further processing
+
+## Example Interactions
+
+Once the skill is installed, you can ask your AI agent:
+
+- "Create a portfolio website for a photographer named Sarah"
+- "Add a pricing page to my website"
+- "Write a blog post about SEO best practices"
+- "Create a client for john@acme.com and give them 500 credits"
+- "Show me the analytics for my website this month"
+
+## Resources
+
+- [GitHub: lindoai/agent-skill](https://github.com/lindoai/agent-skill)
+- [MCP Server Documentation](/mcp-agents/mcp-server)
+- [Agent Skills Standard](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)

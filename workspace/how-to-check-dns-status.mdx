@@ -1,0 +1,69 @@
+---
+title: "How to Check DNS Status"
+description: "Verifying domain connection status"
+---
+
+Verify your domain is properly connected.
+
+<Steps>
+  <Step title="Open Domain Settings">
+    Go to Settings → White Label → Domain tab.
+  </Step>
+  <Step title="View Status">
+    Each subdomain shows a status:
+    - **Connected** (green) - Working
+    - **Pending** (yellow) - Propagating
+    - **Not Connected** (red) - Issue
+  </Step>
+  <Step title="Check Each Subdomain">
+    Verify status for:
+    - WebApp subdomain
+    - Websites subdomain
+    - Email subdomain
+  </Step>
+</Steps>
+## Status Meanings
+
+| Status | Meaning | Action |
+|--------|---------|--------|
+| Connected | DNS working | None needed |
+| Pending | Propagating | Wait |
+| Not Connected | Issue found | Check records |
+
+## Propagation Time
+
+DNS changes take time:
+- Usually 15 min - 4 hours
+- Can take up to 48 hours
+- Be patient
+
+## If Not Connected
+
+1. Verify records are correct
+2. Check for typos
+3. Ensure no extra characters
+4. Wait longer for propagation
+5. Contact support if stuck
+
+## Manual Verification
+
+Use online tools to check:
+- whatsmydns.net
+- dnschecker.org
+- mxtoolbox.com
+
+## Tips
+
+- Check after 1 hour
+- Verify all records
+- Clear browser cache
+- Try incognito mode
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

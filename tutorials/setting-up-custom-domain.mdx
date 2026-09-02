@@ -1,0 +1,66 @@
+---
+title: "Setting Up Custom Domain"
+description: "DNS configuration walkthrough"
+---
+
+Connect your own domain to your website.
+
+## What You'll Need
+
+- Domain you own
+- Access to DNS settings
+- Website ready to publish
+
+<Steps>
+  <Step title="Open Domain Settings">
+    1. Open website in editor
+    2. Go to Settings
+    3. Click Domains tab
+  </Step>
+  <Step title="Enter Your Domain">
+    Enter your domain without www:
+    ```
+    yourdomain.com
+    ```
+  </Step>
+  <Step title="Choose Connection Type">
+    #
+  </Step>
+  <Step title="Add DNS Records">
+    Go to your domain registrar and add:
+
+    **For CNAME:**
+    - Type: CNAME
+    - Name: www (or @)
+    - Value: cname.lindo.ai
+
+    **For TXT:**
+    - Type: TXT
+    - Name: _verify
+    - Value: [your verification code]
+  </Step>
+  <Step title="Wait for Propagation">
+    DNS changes take time:
+    - Usually 15 min - 4 hours
+    - Can take up to 48 hours
+  </Step>
+  <Step title="Verify Connection">
+    1. Return to Lindo
+    2. Check status
+    3. Should show "Connected"
+  </Step>
+</Steps>
+## Troubleshooting
+
+- Double-check record values
+- Wait longer for propagation
+- Contact support if stuck
+
+<CardGroup cols={2}>
+  <Card title="All Tutorials" icon="graduation-cap" href="/tutorials/build-saas-landing-page">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="building" href="/tutorials/white-label-setup">
+    Learn more
+  </Card>
+</CardGroup>

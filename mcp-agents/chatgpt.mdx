@@ -1,0 +1,44 @@
+---
+title: "ChatGPT"
+description: "Use Lindo inside ChatGPT via Codex plugin or custom actions."
+---
+
+Connect Lindo to ChatGPT through the Codex plugin or a custom GPT with OpenAPI spec.
+
+## Codex Plugin
+
+Install the Lindo plugin with bundled skills for OpenAI Codex:
+
+```bash
+codex plugin marketplace add lindoai/codex-plugin
+```
+
+See the [Codex Plugin documentation](/mcp-agents/codex-plugin) for full details.
+
+## Custom GPT (OpenAPI Spec)
+
+Use this OpenAPI spec to build your own custom GPT with Lindo actions:
+
+```
+https://api.lindo.ai/openapi.json?chatgpt
+```
+
+### How to Create a Custom GPT
+
+1. Go to [ChatGPT GPT Builder](https://chatgpt.com/gpts/editor)
+2. Under **Actions**, click **Import from URL**
+3. Paste `https://api.lindo.ai/openapi.json?chatgpt`
+4. Configure authentication with your Lindo API key
+5. Publish your GPT
+
+## Which Should I Use?
+
+| Method | Best For |
+|--------|----------|
+| Codex Plugin | Developers using OpenAI Codex CLI |
+| Custom GPT | Teams wanting a branded GPT with specific instructions |
+
+## Resources
+
+- [Codex Plugin](/mcp-agents/codex-plugin)
+- [API Reference](/api/introduction)

@@ -1,0 +1,58 @@
+---
+title: "How to Edit Robots.txt"
+description: "Configure search engine crawl rules"
+---
+
+Edit your robots.txt file to control how search engines crawl your website.
+
+## Enabling Manual Control
+
+1. Open your website in the editor
+2. Click **Settings** tab
+3. Go to **SEO** section
+4. Find **Robots.txt** area
+5. Toggle **Manual** on
+6. Edit the content
+7. Save
+
+## Default Content
+
+The default robots.txt:
+
+```
+User-agent: *
+Allow: /
+Sitemap: https://yoursite.com/sitemap.xml
+```
+
+## Common Edits
+
+### Block a Page
+
+```
+User-agent: *
+Disallow: /private-page
+```
+
+### Block a Folder
+
+```
+User-agent: *
+Disallow: /admin/
+```
+
+## Tips
+
+- Test changes carefully
+- Don't block important pages
+- Always include sitemap
+- Changes take time to reflect
+
+<CardGroup cols={2}>
+  <Card title="Editor Overview" icon="pen-to-square" href="/website-editor/what-is-website-editor">
+    Learn more
+  </Card>
+  <Card title="AI Chat Guide" icon="comments" href="/website-editor/understanding-ai-chat">
+    Learn more
+  </Card>
+</CardGroup>

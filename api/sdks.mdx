@@ -1,0 +1,362 @@
+---
+title: "SDKs"
+description: "Official SDKs for integrating with the Lindo API."
+---
+
+Lindo provides official SDKs for TypeScript/JavaScript and Python to help you integrate with the API quickly and easily.
+
+## Available SDKs
+
+<CardGroup cols={2}>
+  <Card title="TypeScript SDK" icon="js" href="#typescript-sdk">
+    Full-featured SDK with TypeScript support for Node.js and browsers.
+  </Card>
+  <Card title="Python SDK" icon="python" href="#python-sdk">
+    Sync and async clients for Python 3.8+.
+  </Card>
+</CardGroup>
+
+---
+
+## TypeScript SDK
+
+The `lindoai` package provides typed methods and interfaces for interacting with AI agents, workflows, workspace management, and analytics.
+
+### Installation
+
+<CodeGroup>
+```bash npm
+npm install lindoai
+```
+
+```bash yarn
+yarn add lindoai
+```
+
+```bash pnpm
+pnpm add lindoai
+```
+</CodeGroup>
+
+### Quick Start
+
+```typescript
+import { LindoClient } from 'lindoai';
+
+const client = new LindoClient({
+  apiKey: 'your-api-key',
+});
+
+// Run an agent
+const result = await client.agents.run({
+  agent_id: 'my-agent',
+  input: { prompt: 'Hello!' },
+});
+
+// Start a workflow
+const workflow = await client.workflows.start({
+  workflow_name: 'publish-page',
+  params: { page_id: 'page-123' },
+});
+
+// Get workspace credits
+const credits = await client.workspace.getCredits();
+
+// Get analytics
+const analytics = await client.analytics.getWorkspace({
+  from: '2024-01-01',
+  to: '2024-01-31',
+});
+```
+
+### Configuration
+
+```typescript
+const client = new LindoClient({
+  apiKey: 'your-api-key',          // Required
+  baseUrl: 'https://api.lindo.ai', // Optional
+  timeout: 30000,                  // Optional, defaults to 30000ms
+});
+```
+
+### Agents
+
+Run AI agents with custom inputs.
+
+```typescript
+const result = await client.agents.run({
+  agent_id: 'my-agent',
+  input: { prompt: 'Hello!' },
+  stream: false, // Optional: enable streaming
+});
+
+console.log(result.success);      // boolean
+console.log(result.output);       // Agent output
+console.log(result.credits_used); // Credits consumed
+```
+
+### Workflows
+
+Manage long-running workflows.
+
+```typescript
+// Start a workflow
+const workflow = await client.workflows.start({
+  workflow_name: 'publish-page',
+  params: { page_id: 'page-123' },
+});
+
+// Start multiple workflows in batch
+const batch = await client.workflows.batchStart({
+  workflow_name: 'publish-page',
+  items: [
+    { params: { page_id: 'page-1' } },
+    { params: { page_id: 'page-2' } },
+  ],
+});
+
+// Get workflow status
+const status = await client.workflows.getStatus('instance-123');
+// status.status: 'queued' | 'running' | 'paused' | 'completed' | 'failed' | 'terminated'
+
+// Control workflows
+await client.workflows.pause('instance-123');
+await client.workflows.resume('instance-123');
+await client.workflows.terminate('instance-123');
+```
+
+### Workspace
+
+```typescript
+const credits = await client.workspace.getCredits();
+console.log(credits.balance);    // Current balance
+console.log(credits.allocated);  // Total allocated
+console.log(credits.used);       // Total used
+```
+
+### Analytics
+
+```typescript
+// Workspace analytics
+const workspaceAnalytics = await client.analytics.getWorkspace({
+  from: '2024-01-01',
+  to: '2024-01-31',
+});
+
+// Website analytics
+const websiteAnalytics = await client.analytics.getWebsite({
+  from: '2024-01-01',
+  to: '2024-01-31',
+});
+```
+
+### Error Handling
+
+```typescript
+import {
+  LindoClient,
+  AuthenticationError,
+  RateLimitError,
+  NotFoundError,
+  ValidationError,
+  ServerError,
+} from 'lindoai';
+
+try {
+  const result = await client.agents.run({
+    agent_id: 'my-agent',
+    input: {},
+  });
+} catch (error) {
+  if (error instanceof AuthenticationError) {
+    console.error('Please check your API key');
+  } else if (error instanceof RateLimitError) {
+    console.error(`Rate limited. Retry after ${error.retryAfter} seconds`);
+  } else if (error instanceof NotFoundError) {
+    console.error('Agent not found');
+  } else if (error instanceof ValidationError) {
+    console.error('Validation errors:', error.errors);
+  } else if (error instanceof ServerError) {
+    console.error('Server error, please try again later');
+  }
+}
+```
+
+---
+
+## Python SDK
+
+The `lindoai` package provides both synchronous and asynchronous clients for Python.
+
+### Installation
+
+```bash
+pip install lindoai
+```
+
+### Requirements
+
+- Python 3.8 or higher
+- httpx
+
+### Quick Start (Sync)
+
+```python
+from lindoai import LindoClient
+
+client = LindoClient(api_key="your-api-key")
+
+# Run an agent
+result = client.agents.run(
+    agent_id="my-agent",
+    input={"prompt": "Hello!"}
+)
+
+# Start a workflow
+workflow = client.workflows.start(
+    workflow_name="publish-page",
+    params={"page_id": "page-123"}
+)
+
+# Get workspace credits
+credits = client.workspace.get_credits()
+
+# Get analytics
+analytics = client.analytics.get_workspace(
+    from_date="2024-01-01",
+    to_date="2024-01-31"
+)
+
+# Close the client when done
+client.close()
+```
+
+### Using Context Manager
+
+```python
+from lindoai import LindoClient
+
+with LindoClient(api_key="your-api-key") as client:
+    result = client.agents.run(
+        agent_id="my-agent",
+        input={"prompt": "Hello!"}
+    )
+```
+
+### Async Client
+
+```python
+import asyncio
+from lindoai import AsyncLindoClient
+
+async def main():
+    async with AsyncLindoClient(api_key="your-api-key") as client:
+        result = await client.agents.run(
+            agent_id="my-agent",
+            input={"prompt": "Hello!"}
+        )
+        
+        workflow = await client.workflows.start(
+            workflow_name="publish-page",
+            params={"page_id": "page-123"}
+        )
+        
+        credits = await client.workspace.get_credits()
+
+asyncio.run(main())
+```
+
+### Configuration
+
+```python
+client = LindoClient(
+    api_key="your-api-key",           # Required
+    base_url="https://api.lindo.ai",  # Optional
+    timeout=30.0,                      # Optional, defaults to 30.0 seconds
+)
+```
+
+### Agents
+
+```python
+result = client.agents.run(
+    agent_id="my-agent",
+    input={"prompt": "Hello!"},
+    stream=False  # Optional: enable streaming
+)
+
+print(result.success)       # bool
+print(result.output)        # Agent output
+print(result.credits_used)  # Credits consumed
+```
+
+### Workflows
+
+```python
+# Start a workflow
+workflow = client.workflows.start(
+    workflow_name="publish-page",
+    params={"page_id": "page-123"}
+)
+
+# Batch start
+batch = client.workflows.batch_start(
+    workflow_name="publish-page",
+    items=[
+        {"params": {"page_id": "page-1"}},
+        {"params": {"page_id": "page-2"}},
+    ]
+)
+
+# Get status
+status = client.workflows.get_status("instance-123")
+# status.status: 'queued', 'running', 'paused', 'completed', 'failed', 'terminated'
+
+# Control workflows
+client.workflows.pause("instance-123")
+client.workflows.resume("instance-123")
+client.workflows.terminate("instance-123")
+```
+
+### Error Handling
+
+```python
+from lindoai import (
+    LindoClient,
+    AuthenticationError,
+    RateLimitError,
+    NotFoundError,
+    ValidationError,
+    ServerError,
+)
+
+try:
+    result = client.agents.run(agent_id="my-agent", input={})
+except AuthenticationError:
+    print("Please check your API key")
+except RateLimitError as e:
+    print(f"Rate limited. Retry after {e.retry_after} seconds")
+except NotFoundError:
+    print("Agent not found")
+except ValidationError as e:
+    print(f"Validation errors: {e.errors}")
+except ServerError:
+    print("Server error, please try again later")
+```
+
+---
+
+## Error Reference
+
+Both SDKs provide consistent error classes:
+
+| Error Class | HTTP Status | Description |
+|-------------|-------------|-------------|
+| `AuthenticationError` | 401 | Invalid or expired API key |
+| `ForbiddenError` | 403 | Insufficient permissions |
+| `NotFoundError` | 404 | Resource not found |
+| `ValidationError` | 400 | Invalid request parameters |
+| `RateLimitError` | 429 | Too many requests |
+| `ServerError` | 5xx | Internal server error |
+| `NetworkError` | - | Network connection failed |
+| `TimeoutError` | - | Request timed out |

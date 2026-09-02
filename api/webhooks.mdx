@@ -1,0 +1,596 @@
+---
+title: "Webhooks"
+description: "Receive real-time notifications about events in your workspace."
+---
+
+The Lindo platform provides webhook notifications to inform your application about important events happening in your workspace. This allows you to build integrations and automate workflows based on real-time events.
+
+## Setting Up Webhooks
+
+To receive webhook notifications, configure a webhook URL in your workspace settings. This URL should be a publicly accessible endpoint that can receive POST requests.
+
+Requirements:
+- The endpoint must accept POST requests
+- The endpoint must accept `application/json` content type
+- The endpoint should respond with a 2xx status code to acknowledge receipt
+
+## Webhook Format
+
+All webhooks are sent as HTTP POST requests to your configured webhook URL.
+
+### Headers
+
+```
+Content-Type: application/json
+User-Agent: LindoAI-Webhooks/1.0
+```
+
+### Payload Structure
+
+```json
+{
+  "event": "event.type",
+  "timestamp": "2025-10-15T12:00:00.000Z",
+  "data": {
+    // Event-specific data
+  }
+}
+```
+
+## Supported Events
+
+### website.created
+
+Triggered when a new website is created in your workspace.
+
+```json
+{
+  "event": "website.created",
+  "timestamp": "2025-10-15T12:00:00.000Z",
+  "data": {
+    "website_id": "web_abc123xyz",
+    "domain": "https://example.lindo.agency",
+    "name": "My Business Website",
+    "created_at": "2025-10-15T12:00:00.000Z",
+    "activated": false
+  }
+}
+```
+
+<ResponseField name="website_id" type="string">
+  Unique identifier for the website
+</ResponseField>
+
+<ResponseField name="domain" type="string">
+  The preview URL of the website
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  Business name / website name
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  ISO 8601 timestamp of creation
+</ResponseField>
+
+<ResponseField name="activated" type="boolean">
+  Whether the website is activated
+</ResponseField>
+
+### website.deleted
+
+Triggered when a website is deleted from your workspace.
+
+```json
+{
+  "event": "website.deleted",
+  "timestamp": "2025-10-15T13:30:00.000Z",
+  "data": {
+    "website_id": "web_abc123xyz",
+    "domain": "https://example.lindo.agency",
+    "name": "My Business Website",
+    "deleted_at": "2025-10-15T13:30:00.000Z"
+  }
+}
+```
+
+<ResponseField name="website_id" type="string">
+  Unique identifier for the deleted website
+</ResponseField>
+
+<ResponseField name="domain" type="string">
+  The preview URL that was associated with the website
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  Business name / website name
+</ResponseField>
+
+<ResponseField name="deleted_at" type="string">
+  ISO 8601 timestamp of deletion
+</ResponseField>
+
+### client.created
+
+Triggered when a new client is added to your workspace.
+
+```json
+{
+  "event": "client.created",
+  "timestamp": "2025-10-15T14:00:00.000Z",
+  "data": {
+    "client_id": "cli_xyz789abc",
+    "full_name": "John Doe",
+    "email": "john.doe@example.com",
+    "website_limit": 5,
+    "created_at": "2025-10-15T14:00:00.000Z"
+  }
+}
+```
+
+<ResponseField name="client_id" type="string">
+  Unique identifier for the client
+</ResponseField>
+
+<ResponseField name="full_name" type="string">
+  Full name of the client
+</ResponseField>
+
+<ResponseField name="email" type="string">
+  Email address of the client
+</ResponseField>
+
+<ResponseField name="website_limit" type="number">
+  Maximum number of websites the client can create
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  ISO 8601 timestamp of creation
+</ResponseField>
+
+### client.deleted
+
+Triggered when a client is removed from your workspace.
+
+```json
+{
+  "event": "client.deleted",
+  "timestamp": "2025-10-15T15:45:00.000Z",
+  "data": {
+    "client_id": "cli_xyz789abc",
+    "full_name": "John Doe",
+    "email": "john.doe@example.com",
+    "deleted_at": "2025-10-15T15:45:00.000Z"
+  }
+}
+```
+
+<ResponseField name="client_id" type="string">
+  Unique identifier for the deleted client
+</ResponseField>
+
+<ResponseField name="full_name" type="string">
+  Full name of the client
+</ResponseField>
+
+<ResponseField name="email" type="string">
+  Email address of the client
+</ResponseField>
+
+<ResponseField name="deleted_at" type="string">
+  ISO 8601 timestamp of deletion
+</ResponseField>
+
+### workflow.website.completed
+
+Triggered when all pages of a multi-page AI website build have finished generating. For single-page websites, this fires once the page is published.
+
+```json
+{
+  "event": "workflow.website.completed",
+  "timestamp": "2025-10-15T12:05:00.000Z",
+  "data": {
+    "website_id": "web_abc123xyz",
+    "business_name": "My Business Website",
+    "domain": "https://example.lindo.agency",
+    "preview_url": "https://example.lindo.agency",
+    "parent_workflow_id": "batch_1729000000000_a1b2c3",
+    "completed_at": "2025-10-15T12:05:00.000Z"
+  }
+}
+```
+
+<ResponseField name="website_id" type="string">
+  Unique identifier for the website
+</ResponseField>
+
+<ResponseField name="business_name" type="string">
+  Business name / website name
+</ResponseField>
+
+<ResponseField name="domain" type="string">
+  The live or preview URL of the website
+</ResponseField>
+
+<ResponseField name="preview_url" type="string">
+  The preview URL of the website
+</ResponseField>
+
+<ResponseField name="parent_workflow_id" type="string">
+  Identifier of the parent workflow that orchestrated the build
+</ResponseField>
+
+<ResponseField name="completed_at" type="string">
+  ISO 8601 timestamp of when all pages finished building
+</ResponseField>
+
+### workflow.page.completed
+
+Triggered when a standalone AI page build finishes and the page is published. This does not fire for pages that are part of a multi-page website build (those are covered by `workflow.website.completed`).
+
+```json
+{
+  "event": "workflow.page.completed",
+  "timestamp": "2025-10-15T12:03:00.000Z",
+  "data": {
+    "website_id": "web_abc123xyz",
+    "page_id": "page_def456uvw",
+    "page_path": "about",
+    "page_name": "About Us",
+    "is_blog": false,
+    "workflow_instance_id": "wf_inst_789",
+    "completed_at": "2025-10-15T12:03:00.000Z"
+  }
+}
+```
+
+<ResponseField name="website_id" type="string">
+  Unique identifier for the website the page belongs to
+</ResponseField>
+
+<ResponseField name="page_id" type="string">
+  Unique identifier for the published page
+</ResponseField>
+
+<ResponseField name="page_path" type="string">
+  URL path / slug of the page (e.g. `about`, `services`)
+</ResponseField>
+
+<ResponseField name="page_name" type="string">
+  Display name of the page
+</ResponseField>
+
+<ResponseField name="is_blog" type="boolean">
+  Whether the page is a blog post (always `false` for this event)
+</ResponseField>
+
+<ResponseField name="workflow_instance_id" type="string">
+  Identifier of the workflow that built this page
+</ResponseField>
+
+<ResponseField name="completed_at" type="string">
+  ISO 8601 timestamp of completion
+</ResponseField>
+
+### workflow.blog.completed
+
+Triggered when an AI blog post build finishes and the post is published.
+
+```json
+{
+  "event": "workflow.blog.completed",
+  "timestamp": "2025-10-15T12:04:00.000Z",
+  "data": {
+    "website_id": "web_abc123xyz",
+    "page_id": "page_ghi012rst",
+    "page_path": "my-first-post",
+    "page_name": "My First Blog Post",
+    "is_blog": true,
+    "workflow_instance_id": "wf_inst_456",
+    "completed_at": "2025-10-15T12:04:00.000Z"
+  }
+}
+```
+
+<ResponseField name="website_id" type="string">
+  Unique identifier for the website the blog belongs to
+</ResponseField>
+
+<ResponseField name="page_id" type="string">
+  Unique identifier for the published blog post
+</ResponseField>
+
+<ResponseField name="page_path" type="string">
+  URL path / slug of the blog post
+</ResponseField>
+
+<ResponseField name="page_name" type="string">
+  Title of the blog post
+</ResponseField>
+
+<ResponseField name="is_blog" type="boolean">
+  Always `true` for this event
+</ResponseField>
+
+<ResponseField name="workflow_instance_id" type="string">
+  Identifier of the workflow that built this blog post
+</ResponseField>
+
+<ResponseField name="completed_at" type="string">
+  ISO 8601 timestamp of completion
+</ResponseField>
+
+## Implementation Examples
+
+### Node.js / Express
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.post('/webhook', (req, res) => {
+  const { event, timestamp, data } = req.body;
+
+  console.log(`Received webhook: ${event} at ${timestamp}`);
+
+  switch (event) {
+    case 'website.created':
+      handleWebsiteCreated(data);
+      break;
+    case 'website.deleted':
+      handleWebsiteDeleted(data);
+      break;
+    case 'client.created':
+      handleClientCreated(data);
+      break;
+    case 'client.deleted':
+      handleClientDeleted(data);
+      break;
+    case 'workflow.website.completed':
+      handleWorkflowWebsiteCompleted(data);
+      break;
+    case 'workflow.page.completed':
+      handleWorkflowPageCompleted(data);
+      break;
+    case 'workflow.blog.completed':
+      handleWorkflowBlogCompleted(data);
+      break;
+    default:
+      console.log(`Unknown event type: ${event}`);
+  }
+
+  // Always return 200 to acknowledge receipt
+  res.status(200).json({ received: true });
+});
+
+function handleWebsiteCreated(data) {
+  console.log(`New website created: ${data.name} (${data.website_id})`);
+  // Your custom logic here
+}
+
+function handleWebsiteDeleted(data) {
+  console.log(`Website deleted: ${data.name} (${data.website_id})`);
+  // Your custom logic here
+}
+
+function handleClientCreated(data) {
+  console.log(`New client added: ${data.full_name} (${data.email})`);
+  // Your custom logic here
+}
+
+function handleClientDeleted(data) {
+  console.log(`Client removed: ${data.full_name} (${data.email})`);
+  // Your custom logic here
+}
+
+function handleWorkflowWebsiteCompleted(data) {
+  console.log(`Website build completed: ${data.business_name} (${data.website_id})`);
+  console.log(`Live at: ${data.domain}`);
+  // Your custom logic here — e.g. notify the client, update your CRM
+}
+
+function handleWorkflowPageCompleted(data) {
+  console.log(`Page build completed: ${data.page_name} at /${data.page_path}`);
+  // Your custom logic here
+}
+
+function handleWorkflowBlogCompleted(data) {
+  console.log(`Blog post published: ${data.page_name} at /${data.page_path}`);
+  // Your custom logic here
+}
+
+app.listen(3000, () => {
+  console.log('Webhook receiver listening on port 3000');
+});
+```
+
+### Python / Flask
+
+```python
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    payload = request.get_json()
+
+    event = payload.get('event')
+    timestamp = payload.get('timestamp')
+    data = payload.get('data')
+
+    print(f"Received webhook: {event} at {timestamp}")
+
+    if event == 'website.created':
+        handle_website_created(data)
+    elif event == 'website.deleted':
+        handle_website_deleted(data)
+    elif event == 'client.created':
+        handle_client_created(data)
+    elif event == 'client.deleted':
+        handle_client_deleted(data)
+    elif event == 'workflow.website.completed':
+        handle_workflow_website_completed(data)
+    elif event == 'workflow.page.completed':
+        handle_workflow_page_completed(data)
+    elif event == 'workflow.blog.completed':
+        handle_workflow_blog_completed(data)
+    else:
+        print(f"Unknown event type: {event}")
+
+    # Always return 200 to acknowledge receipt
+    return jsonify({'received': True}), 200
+
+def handle_website_created(data):
+    print(f"New website created: {data['name']} ({data['website_id']})")
+    # Your custom logic here
+
+def handle_website_deleted(data):
+    print(f"Website deleted: {data['name']} ({data['website_id']})")
+    # Your custom logic here
+
+def handle_client_created(data):
+    print(f"New client added: {data['full_name']} ({data['email']})")
+    # Your custom logic here
+
+def handle_client_deleted(data):
+    print(f"Client removed: {data['full_name']} ({data['email']})")
+    # Your custom logic here
+
+def handle_workflow_website_completed(data):
+    print(f"Website build completed: {data['business_name']} ({data['website_id']})")
+    print(f"Live at: {data['domain']}")
+    # Your custom logic here — e.g. notify the client, update your CRM
+
+def handle_workflow_page_completed(data):
+    print(f"Page build completed: {data['page_name']} at /{data['page_path']}")
+    # Your custom logic here
+
+def handle_workflow_blog_completed(data):
+    print(f"Blog post published: {data['page_name']} at /{data['page_path']}")
+    # Your custom logic here
+
+if __name__ == '__main__':
+    app.run(port=3000)
+```
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Respond quickly">
+    Your webhook endpoint should respond with a 2xx status code as quickly as possible (ideally within 5 seconds). If you need to perform time-consuming operations, queue them for background processing.
+
+    ```javascript
+    app.post('/webhook', async (req, res) => {
+      // Acknowledge receipt immediately
+      res.status(200).json({ received: true });
+
+      // Process in background
+      processWebhookAsync(req.body).catch(err => {
+        console.error('Background processing failed:', err);
+      });
+    });
+    ```
+  </Accordion>
+
+  <Accordion title="Validate webhook source">
+    For production environments, consider implementing additional security measures:
+    - Use HTTPS endpoints only
+    - Validate the User-Agent header (`LindoAI-Webhooks/1.0`)
+    - Consider implementing IP allowlisting if Lindo provides static IP addresses
+  </Accordion>
+
+  <Accordion title="Handle failures gracefully">
+    Your endpoint should be resilient to:
+    - Duplicate webhook deliveries
+    - Out-of-order webhook deliveries
+    - Missing or malformed data
+  </Accordion>
+
+  <Accordion title="Implement idempotency">
+    Design your webhook handlers to be idempotent, as you may receive the same webhook multiple times:
+
+    ```javascript
+    async function handleWebsiteCreated(data) {
+      const exists = await checkIfWebsiteExists(data.website_id);
+
+      if (exists) {
+        console.log(`Website ${data.website_id} already processed, skipping`);
+        return;
+      }
+
+      // Process the new website...
+      await createWebsiteInDatabase(data);
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="Log and monitor">
+    Implement comprehensive logging and monitoring:
+    - Log all received webhooks
+    - Monitor webhook processing failures
+    - Set up alerts for repeated failures
+  </Accordion>
+</AccordionGroup>
+
+## Testing Webhooks
+
+### Local Development
+
+For local development and testing, you can use tools like:
+
+- [ngrok](https://ngrok.com) - Create a public URL for your local server
+- [Webhook.site](https://webhook.site) - Test webhook payloads without writing code
+- [RequestBin](https://requestbin.com) - Another tool for inspecting webhook requests
+
+```bash
+ngrok http 3000
+```
+
+### Manual Testing
+
+You can manually test your webhook endpoint using curl:
+
+```bash
+curl -X POST http://your-webhook-url/webhook \
+  -H "Content-Type: application/json" \
+  -H "User-Agent: LindoAI-Webhooks/1.0" \
+  -d '{
+    "event": "website.created",
+    "timestamp": "2025-10-15T12:00:00.000Z",
+    "data": {
+      "website_id": "web_test123",
+      "domain": "https://test.lindo.agency",
+      "name": "Test Website",
+      "created_at": "2025-10-15T12:00:00.000Z",
+      "activated": false
+    }
+  }'
+```
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Webhooks not being received">
+    - Check webhook URL configuration in your workspace settings
+    - Verify endpoint accessibility (not behind a firewall)
+    - Check for HTTPS requirement
+    - Review server logs
+  </Accordion>
+
+  <Accordion title="Webhook delivery failures">
+    If your endpoint returns non-2xx status codes:
+    - Webhooks may be retried (implementation dependent)
+    - Check your endpoint's error handling and logging
+    - Ensure your endpoint can handle the payload structure
+  </Accordion>
+
+  <Accordion title="Duplicate webhooks">
+    If you're receiving duplicate webhooks:
+    - Implement idempotency in your webhook handlers
+    - Use unique identifiers (like `website_id`, `client_id`) to detect duplicates
+    - Store processed webhook IDs to prevent reprocessing
+  </Accordion>
+</AccordionGroup>

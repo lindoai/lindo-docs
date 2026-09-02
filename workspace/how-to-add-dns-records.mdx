@@ -1,0 +1,96 @@
+---
+title: "How to Add DNS Records"
+description: "Adding CNAME and TXT records to your provider"
+---
+
+Add required DNS records to connect your domain.
+
+## Records to Add
+
+### CNAME for WebApp
+
+| Field | Value |
+|-------|-------|
+| Type | CNAME |
+| Name | app (or your choice) |
+| Value | cname.lindo.ai |
+| TTL | Auto or 3600 |
+
+### CNAME for Websites
+
+| Field | Value |
+|-------|-------|
+| Type | CNAME |
+| Name | sites (or your choice) |
+| Value | cname.lindo.ai |
+| TTL | Auto or 3600 |
+
+### TXT for Verification
+
+| Field | Value |
+|-------|-------|
+| Type | TXT |
+| Name | _verify |
+| Value | [your verification code] |
+| TTL | Auto or 3600 |
+
+## Steps by Provider
+
+### GoDaddy
+
+1. Log into GoDaddy
+2. Go to My Products → DNS
+3. Click Add Record
+4. Select record type
+5. Enter name and value
+6. Save
+
+### Namecheap
+
+1. Log into Namecheap
+2. Go to Domain List
+3. Click Manage → Advanced DNS
+4. Add New Record
+5. Enter details
+6. Save
+
+### Cloudflare
+
+1. Log into Cloudflare
+2. Select your domain
+3. Go to DNS
+4. Click Add Record
+5. Enter details
+6. Save
+
+### Google Domains
+
+1. Log into Google Domains
+2. Select domain
+3. Go to DNS
+4. Custom Records
+5. Add records
+6. Save
+
+## Tips
+
+- Copy values exactly
+- Don't add extra spaces
+- Wait for propagation
+- Check status in Lindo.ai
+
+## Troubleshooting
+
+- Double-check spelling
+- Remove trailing dots
+- Verify record type
+- Wait 24-48 hours
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

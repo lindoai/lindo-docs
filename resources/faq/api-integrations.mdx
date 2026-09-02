@@ -1,0 +1,72 @@
+---
+title: "API & Integrations FAQ"
+description: "Common questions about API access and integrations"
+---
+
+<AccordionGroup>
+  <Accordion title="Which plans include API access?">
+    API access is available on Business, Elite, and Reseller plans. Pro plan doesn't include API access.
+  </Accordion>
+
+  <Accordion title="How do I get an API key?">
+    Generate an API key in Settings → API & Webhook → Generate Key. Keep your key secure and don't share it publicly.
+  </Accordion>
+
+  <Accordion title="Can I have multiple API keys?">
+    Yes, you can create multiple API keys for different applications or environments. This helps with security and tracking.
+  </Accordion>
+
+  <Accordion title="What can I do with the API?">
+    The API allows you to:
+    - Create websites programmatically
+    - Manage website settings
+    - Trigger workflows
+    - Access website data
+    - Integrate with your existing systems
+  </Accordion>
+
+  <Accordion title="What webhook events are available?">
+    You can receive webhooks for:
+    - Website created
+    - Website published
+    - Website deleted
+    - Workflow completed
+    - And other workspace events
+  </Accordion>
+
+  <Accordion title="Do webhooks retry on failure?">
+    Yes, failed webhook deliveries are automatically retried. If your endpoint is temporarily unavailable, we'll attempt redelivery.
+  </Accordion>
+
+  <Accordion title="What integrations are available?">
+    Built-in integrations include:
+    - **Analytics**: Google Analytics, Google Tag Manager, Microsoft Clarity
+    - **Chat**: Crisp, Intercom, HubSpot Chat
+    - **Payments**: Stripe
+  </Accordion>
+
+  <Accordion title="Can I add custom integrations?">
+    Yes, use the Custom Code feature to add any third-party scripts to your websites. Add code to the header or body of your pages.
+  </Accordion>
+
+  <Accordion title="Do integrations work on all pages?">
+    Yes, integrations configured in website settings apply to all pages of that website automatically.
+  </Accordion>
+
+  <Accordion title="How do I connect Google Analytics?">
+    Go to website Settings → Integrations → Google Analytics, enter your GA4 Measurement ID (G-XXXXXXXX), and save. Tracking starts immediately.
+  </Accordion>
+
+  <Accordion title="Is my API key secure?">
+    Your API key is shown only once when created. Store it securely. If compromised, delete the key and generate a new one.
+  </Accordion>
+</AccordionGroup>
+
+<CardGroup cols={2}>
+  <Card title="API Guide" icon="code" href="/tutorials/api-integration-guide">
+    Full API documentation
+  </Card>
+  <Card title="Webhook Guide" icon="webhook" href="/tutorials/webhook-integration-guide">
+    Set up webhooks
+  </Card>
+</CardGroup>
