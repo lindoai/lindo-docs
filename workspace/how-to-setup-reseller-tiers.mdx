@@ -1,0 +1,59 @@
+---
+title: "How to Set Up Reseller Tiers"
+description: "Step-by-step guide to creating subscription tiers for your clients"
+---
+
+Set up subscription tiers so your clients can choose a plan and pay through Stripe Checkout.
+
+## Prerequisites
+
+- Reseller (Whitelabel) plan active
+- Stripe connected in **Settings → Integrations**
+
+## Steps
+
+### 1. Open Tiers Settings
+
+Navigate to **Settings → Tiers** tab in your workspace.
+
+### 2. Add a Tier
+
+Click the **Add Tier** button. A new row appears with fields for:
+
+- **Name** — Display name (e.g., "Starter", "Pro")
+- **Website Limit** — Number of websites the client can create
+- **Monthly Credits** — AI credits allocated each month
+- **Price** — Monthly subscription price
+- **Currency** — USD, EUR, GBP, AUD, or CAD
+
+### 3. Configure Multiple Tiers
+
+Add up to 4 tiers. They'll be ordered from left to right in the client's billing modal. The order determines upgrade/downgrade direction — tiers later in the list are considered higher.
+
+### 4. Save
+
+Click **Save Tiers**. The tiers are now available for your clients.
+
+### 5. Client Experience
+
+When a client opens their **Plans & Billing** modal, they'll see:
+- Tier cards with pricing and features
+- A **Subscribe** button on each tier
+- After subscribing: **Upgrade**, **Downgrade**, or **Cancel** buttons
+
+## Editing Tiers
+
+You can modify tier details at any time. Changes apply to new subscriptions. Existing subscribers keep their current terms until they change plans.
+
+## Removing a Tier
+
+Delete a tier row and save. Existing subscribers on that tier will keep their subscription until they cancel.
+
+<CardGroup cols={2}>
+  <Card title="What are Tiers" icon="layer-group" href="/workspace/what-are-reseller-tiers">
+    Learn more
+  </Card>
+  <Card title="Credit Packages" icon="coins" href="/workspace/how-to-setup-credit-packages">
+    Set up credit packages
+  </Card>
+</CardGroup>

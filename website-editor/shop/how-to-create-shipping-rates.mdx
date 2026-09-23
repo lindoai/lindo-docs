@@ -1,0 +1,46 @@
+---
+title: "How to Create Shipping Rates"
+description: "Create Stripe shipping rates for physical-product checkout"
+---
+
+Shipping rates are created in Stripe, not in the product editor. Lindo reads your active Stripe shipping rates and adds them to checkout when at least one product requires shipping.
+
+## Create shipping rates in Stripe
+
+1. Open your website in the editor
+2. Go to **Settings -> Shop**
+3. In the **Shipping Rate** guide, click **Open Stripe**
+4. Create one or more shipping rates in Stripe
+
+Common examples:
+
+- Standard shipping
+- Express shipping
+- International shipping
+- Local delivery
+
+## Make a product use shipping
+
+1. Open the **Pages** tab
+2. Edit a product
+3. Enable **Shipping Address** in checkout options
+4. Save the product
+
+Once at least one item in checkout requires shipping, Lindo sends your active Stripe shipping rates to Checkout.
+
+## How it works in cart checkout
+
+- If all items are digital or do not require shipping, no shipping rates are shown
+- If one or more items require shipping, Stripe shows your active shipping rates
+- The shipping rates come directly from your connected Stripe account
+
+## Best practices
+
+- Create clear rate names in Stripe
+- Test both desktop and mobile checkout flows
+- Keep domestic and international rates separate when needed
+- Disable unused rates in Stripe so customers only see valid options
+
+<Card title="Collect Shipping Address" icon="location-dot" href="/website-editor/products/how-to-collect-address">
+  Enable shipping collection on physical products.
+</Card>

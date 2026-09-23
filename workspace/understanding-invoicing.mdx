@@ -1,0 +1,64 @@
+---
+title: "Understanding Invoicing"
+description: "How billing and invoices work"
+---
+
+Bill clients through Workspace CRM with Stripe integration.
+
+## How It Works
+
+1. Connect Stripe to your workspace
+2. Create invoices for clients
+3. Clients receive payment link
+4. Payment processed via Stripe
+5. Funds deposited to your account
+
+## Invoice Types
+
+### One-Time Invoice
+
+- Single payment
+- For projects, services
+- No recurring
+
+### Recurring Invoice (Subscription)
+
+- Automatic billing
+- Monthly, yearly, weekly
+- Ongoing services
+
+## Invoice Flow
+
+```
+Create Invoice → Client Receives Email → Client Pays → You Get Paid
+```
+
+## Invoice Status
+
+| Status | Meaning |
+|--------|---------|
+| Open | Awaiting payment |
+| Paid | Payment received |
+| Refunded | Payment returned |
+
+## Requirements
+
+- Stripe connected
+- Client in CRM
+- Valid email for client
+
+## Tips
+
+- Clear service descriptions
+- Timely invoicing
+- Follow up on open invoices
+- Keep records
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

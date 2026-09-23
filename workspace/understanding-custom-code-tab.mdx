@@ -1,0 +1,95 @@
+---
+title: "Understanding the Custom Code Tab"
+description: "Header and body code injection"
+---
+
+The Custom Code tab lets you inject code into your workspace pages.
+
+## Accessing
+
+1. Click **Settings** in sidebar
+2. Select **White Label**
+3. Click **Custom Code** tab
+
+## Code Injection Areas
+
+### Header Code
+
+Code injected before `</head>`:
+- Meta tags
+- CSS stylesheets
+- Analytics scripts
+- Font imports
+
+### Body Code
+
+Code injected before `</body>`:
+- JavaScript
+- Chat widgets
+- Tracking pixels
+- Custom scripts
+
+## Use Cases
+
+### Analytics
+
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"></script>
+```
+
+### Custom Fonts
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+```
+
+### Chat Widgets
+
+```html
+<script>
+  // Chat widget initialization
+</script>
+```
+
+### Custom CSS
+
+```html
+<style>
+  /* Custom styles */
+</style>
+```
+
+## Where Code Applies
+
+Custom code applies to:
+- Workspace login page
+- Client dashboard
+- All workspace pages
+
+Does NOT apply to:
+- Individual websites (use website settings)
+- Published website pages
+
+## Tips
+
+- Test code before adding
+- Use header for CSS/meta
+- Use body for JavaScript
+- Keep code minimal
+
+## Security
+
+- Only add trusted code
+- Avoid inline credentials
+- Test in staging first
+- Monitor for issues
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

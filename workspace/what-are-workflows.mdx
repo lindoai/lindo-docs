@@ -1,0 +1,73 @@
+---
+title: "What are Workflows"
+description: "Background automation for bulk website creation"
+---
+
+Workflows are background processes that create websites automatically. Instead of creating websites one by one, queue multiple creations and let them run while you continue working.
+
+## Accessing Workflows
+
+Click **Workflows** in the sidebar to open the Workflows modal.
+
+## Workflow Types
+
+**Single Workflow** — Create one website in the background. Enter a prompt, add AI tools if needed, and start the workflow. Continue working while it generates.
+
+**Batch Import** — Create multiple websites from a CSV file. Prepare a CSV with prompts, upload it, and all websites generate in parallel.
+
+## Scheduling Workflows
+
+You can schedule workflows to run at a future date and time. When creating a workflow:
+
+1. Click the **Schedule** date picker
+2. Select a future date and time
+3. Click **Schedule** instead of Start
+
+Scheduled workflows appear in the workflow list with a "Scheduled" status and the scheduled date. You can edit or cancel scheduled workflows before they run.
+
+| Action | How |
+|--------|-----|
+| Reschedule | Click the edit button on a scheduled workflow to change the date/time or prompt |
+| Cancel | Click the cancel button to remove a scheduled workflow |
+
+Batch imports also support scheduling — add a `schedule_at` column to your CSV with ISO 8601 dates.
+
+## Workflow Statistics
+
+The modal shows:
+- **Total** — All workflows created
+- **Running** — Currently processing
+- **Completed** — Successfully finished
+- **Scheduled** — Waiting for scheduled time
+- **Errored** — Failed workflows
+
+## Workflow Status
+
+| Status | Meaning |
+|--------|---------|
+| Running | In progress |
+| Completed | Successfully finished |
+| Scheduled | Waiting for scheduled date/time |
+| Cancelled | Cancelled before execution |
+| Error | Failed (click for details) |
+
+## Use Cases
+
+**Bulk Client Websites** — Create websites for multiple clients at once. Prepare a CSV with client details, upload for batch import, and all sites generate automatically.
+
+**Campaign Landing Pages** — Launch multiple landing page variations. Create them in a CSV, batch import, and have all pages ready quickly.
+
+**Template Testing** — Test different prompts by creating multiple workflows, comparing results, and finding the best approach.
+
+## Email Notifications
+
+Enable notifications to get emailed when workflows complete. Toggle "Email Notifications" when creating a workflow to receive an email on completion or error.
+
+<CardGroup cols={2}>
+  <Card title="Create Workflow" icon="play" href="/workspace/how-to-create-workflow">
+    Start a background workflow
+  </Card>
+  <Card title="Batch Import" icon="file-csv" href="/workspace/how-to-batch-import">
+    Create multiple websites from CSV
+  </Card>
+</CardGroup>

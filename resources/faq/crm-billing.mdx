@@ -1,0 +1,68 @@
+---
+title: "CRM & Billing FAQ"
+description: "Common questions about client management and billing"
+---
+
+<AccordionGroup>
+  <Accordion title="What's the difference between Workspace CRM and Website CRM?">
+    **Workspace CRM** manages your agency clients—people you bill for website services. **Website CRM** manages your website's customers—people who buy products on your published sites.
+  </Accordion>
+
+  <Accordion title="Do I need Stripe to use CRM?">
+    You need Stripe connected to send invoices and process payments. You can still manage client information, allocate credits, and track details without Stripe—just no billing features.
+  </Accordion>
+
+  <Accordion title="How many clients can I have?">
+    Client limits by plan:
+    - **Business**: 20 clients
+    - **Elite**: 100 clients
+    - **Reseller**: Unlimited
+    
+    Pro and Business plans don't include client management.
+  </Accordion>
+
+  <Accordion title="Can clients see my other clients?">
+    No, clients only see their own websites and information. Each client's view is completely isolated.
+  </Accordion>
+
+  <Accordion title="What currencies are supported for invoicing?">
+    All currencies supported by Stripe, including USD, EUR, GBP, CAD, AUD, and many more. Set the currency per invoice.
+  </Accordion>
+
+  <Accordion title="Can I offer discounts to clients?">
+    Yes, you set custom pricing per invoice. Charge whatever amount makes sense for your services.
+  </Accordion>
+
+  <Accordion title="How do refunds work?">
+    Refunds are processed through Stripe. Go to the invoice, click Refund, and the amount returns to the client's original payment method.
+  </Accordion>
+
+  <Accordion title="How do client credits work?">
+    You allocate AI credits from your workspace pool to clients. Clients use their allocation for AI features. You control how many credits each client gets monthly.
+  </Accordion>
+
+  <Accordion title="Do unused client credits roll over?">
+    No, monthly credit allocations reset each month. Unused credits don't carry forward.
+  </Accordion>
+
+  <Accordion title="Can I set up recurring billing?">
+    Yes, create subscriptions for clients with automatic monthly or custom-frequency billing. Stripe handles the recurring charges.
+  </Accordion>
+
+  <Accordion title="How do I track client payments?">
+    View all invoices and payment status in CRM → Billing tab. See paid, pending, and overdue invoices at a glance.
+  </Accordion>
+
+  <Accordion title="Can clients pay invoices online?">
+    Yes, invoices include a payment link. Clients click the link and pay securely through Stripe.
+  </Accordion>
+</AccordionGroup>
+
+<CardGroup cols={2}>
+  <Card title="Add a Client" icon="user-plus" href="/workspace/how-to-add-client">
+    Create client accounts
+  </Card>
+  <Card title="Create Invoice" icon="file-invoice" href="/workspace/how-to-create-invoice">
+    Bill your clients
+  </Card>
+</CardGroup>

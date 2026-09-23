@@ -1,0 +1,69 @@
+---
+title: "Setting Up Analytics Tracking"
+description: "GA, GTM, Clarity"
+---
+
+Track visitors and understand user behavior.
+
+## What You'll Set Up
+
+- Google Analytics 4
+- Google Tag Manager
+- Microsoft Clarity
+
+## Google Analytics 4
+
+<Steps>
+  <Step title="Create GA4 Property">
+    1. Go to analytics.google.com
+    2. Create new property
+    3. Get Measurement ID (G-XXXXXXXXXX)
+  </Step>
+  <Step title="Connect to Lindo">
+    1. Open website Settings
+    2. Go to Integrations
+    3. Enter GA4 Measurement ID
+    4. Save
+  </Step>
+  <Step title="Verify">
+    1. Visit your website
+    2. Check GA4 Realtime
+    3. Confirm data appears
+  </Step>
+  <Step title="Create GTM Container">
+    1. Go to tagmanager.google.com
+    2. Create container
+    3. Get Container ID (GTM-XXXXXX)
+  </Step>
+  <Step title="Connect to Lindo">
+    1. Open website Settings
+    2. Go to Integrations
+    3. Enter GTM Container ID
+    4. Save
+  </Step>
+  <Step title="Create Clarity Project">
+    1. Go to clarity.microsoft.com
+    2. Create project
+    3. Get Project ID
+  </Step>
+  <Step title="Connect to Lindo">
+    1. Open website Settings
+    2. Go to Integrations
+    3. Enter Clarity Project ID
+    4. Save
+  </Step>
+</Steps>
+## Tips
+
+- Use GTM for all tags
+- Clarity for heatmaps
+- GA4 for traffic data
+
+<CardGroup cols={2}>
+  <Card title="All Tutorials" icon="graduation-cap" href="/tutorials/build-saas-landing-page">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="building" href="/tutorials/white-label-setup">
+    Learn more
+  </Card>
+</CardGroup>
