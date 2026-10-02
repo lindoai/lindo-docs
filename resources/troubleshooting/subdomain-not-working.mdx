@@ -1,0 +1,102 @@
+---
+title: "Subdomain Not Working"
+description: "Troubleshoot subdomain configuration issues"
+---
+
+If your subdomain isn't working properly, follow these troubleshooting steps.
+
+## Common Issues
+
+### Subdomain Not Resolving
+
+**Symptoms:**
+- Browser shows "site can't be reached"
+- DNS lookup fails
+
+**Solutions:**
+
+1. **Check DNS records**
+   - Verify CNAME record is added
+   - Ensure it points to correct target
+   - Wait for propagation (up to 48 hours)
+
+2. **Verify subdomain format**
+   - Use only letters, numbers, hyphens
+   - Don't start or end with hyphen
+   - Keep it short and simple
+
+3. **Check for conflicts**
+   - Ensure no duplicate records
+   - Remove conflicting A records
+
+### SSL Certificate Issues
+
+**Symptoms:**
+- "Not secure" warning in browser
+- Certificate errors
+
+**Solutions:**
+
+1. Wait for SSL provisioning (can take up to 24 hours)
+2. Verify DNS is properly configured
+3. Check domain ownership verification
+
+### Subdomain Shows Wrong Content
+
+**Symptoms:**
+- Different website appears
+- Old content displays
+
+**Solutions:**
+
+1. Clear browser cache
+2. Try incognito/private window
+3. Verify subdomain assignment in settings
+
+## Checking DNS Status
+
+In Lindo.ai:
+
+1. Open Settings → Domain
+2. Check connection status
+3. Look for green checkmark
+
+## DNS Propagation
+
+DNS changes can take time:
+
+- **Typical**: 15 minutes to 4 hours
+- **Maximum**: Up to 48 hours
+- **Check**: Use dnschecker.org
+
+## Common DNS Mistakes
+
+| Mistake | Fix |
+|---------|-----|
+| Wrong record type | Use CNAME, not A record |
+| Typo in target | Copy exact value from Lindo.ai |
+| Missing period | Some providers need trailing dot |
+| Proxy enabled | Disable Cloudflare proxy initially |
+
+## Testing Your Subdomain
+
+1. Open terminal/command prompt
+2. Run: `nslookup yoursubdomain.yourdomain.com`
+3. Verify it resolves to correct target
+
+## Still Having Issues?
+
+If problems persist:
+
+1. Screenshot your DNS settings
+2. Note the exact subdomain
+3. Contact support with details
+
+<CardGroup cols={2}>
+  <Card title="DNS Issues" icon="globe" href="/troubleshooting/dns-not-connecting">
+    Learn more
+  </Card>
+  <Card title="Editor Issues" icon="pen-to-square" href="/troubleshooting/preview-not-loading">
+    Learn more
+  </Card>
+</CardGroup>

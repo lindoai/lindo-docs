@@ -1,0 +1,176 @@
+---
+title: "AI Agents"
+description: "Use Lindo inside autonomous AI agents like OpenClaw, Hermes, OpenCode, Claude Code, and Codex."
+---
+
+Connect Lindo to autonomous AI agents. Install the CLI, login, and let the agent manage your workspace through conversation.
+
+## OpenClaw
+
+[OpenClaw](https://openclaw.ai) is an open-source AI agent that can negotiate, manage tasks, and interact with tools through messaging apps like Telegram.
+
+### Setup
+
+1. Install OpenClaw following the [official guide](https://docs.openclaw.ai/install)
+2. Ask your agent to install the Lindo CLI:
+
+```
+First install lindoai-cli globally and run lindoai skill to install the skill. Then run lindoai --help to learn all available commands. Finally run lindoai login to authenticate and connect to my workspace.
+```
+
+The agent will install the CLI, install the skill, read the help, authenticate, and start managing your workspace autonomously.
+
+### What OpenClaw Can Do with Lindo
+
+- Create websites from a text description
+- Onboard new clients and assign credits
+- Publish pages and blog posts
+- Monitor workflow status
+- Check analytics and credit balances
+
+### Links
+
+- [OpenClaw Documentation](https://docs.openclaw.ai/install)
+- [GitHub: openclaw/openclaw](https://github.com/openclaw/openclaw)
+
+---
+
+## Hermes Agent
+
+[Hermes Agent](https://hermes-agent.nousresearch.com/) is an autonomous AI agent built by Nous Research.
+
+### Setup
+
+1. Install Hermes Agent from [Nous Research](https://hermes-agent.nousresearch.com/)
+2. Ask your agent to install the Lindo CLI:
+
+```
+First install lindoai-cli globally and run lindoai skill to install the skill. Then run lindoai --help to learn all available commands. Finally run lindoai login to authenticate and connect to my workspace.
+```
+
+### What Hermes Can Do with Lindo
+
+- Create and manage websites autonomously
+- Handle client onboarding workflows
+- Publish content on schedule
+- Monitor workspace health and credits
+
+### Links
+
+- [Hermes Agent](https://hermes-agent.nousresearch.com/)
+- [GitHub: nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent)
+
+---
+
+## OpenCode
+
+[OpenCode](https://opencode.ai) is an open-source terminal-based AI coding agent. It executes shell commands, edits files, and manages projects — making it a natural fit for running Lindo CLI commands autonomously.
+
+### Setup
+
+1. Install OpenCode from [opencode.ai](https://opencode.ai) or [GitHub](https://github.com/opencode-ai/opencode)
+2. Tell OpenCode:
+
+```
+First install lindoai-cli globally and run lindoai skill to install the skill. Then run lindoai --help to learn all available commands. Finally run lindoai login to authenticate and connect to my workspace.
+```
+
+### What OpenCode Can Do with Lindo
+
+- Build websites from natural language descriptions
+- Batch-create multiple sites for client onboarding
+- Manage client accounts and credit allocations
+- Publish pages and blog posts programmatically
+- Check workflow status and analytics
+
+### Links
+
+- [OpenCode Website](https://opencode.ai)
+- [GitHub: opencode-ai/opencode](https://github.com/opencode-ai/opencode)
+
+---
+
+## Claude Code
+
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's terminal-based agentic coding tool. It runs shell commands, manages files, and orchestrates multi-step tasks — perfect for using the Lindo CLI to build and manage websites from your development environment.
+
+### Setup
+
+1. Install Claude Code from [Anthropic](https://docs.anthropic.com/en/docs/claude-code) or [GitHub](https://github.com/anthropics/claude-code)
+2. Tell Claude Code:
+
+```
+First install lindoai-cli globally and run lindoai skill to install the skill. Then run lindoai --help to learn all available commands. Finally run lindoai login to authenticate and connect to my workspace.
+```
+
+### What Claude Code Can Do with Lindo
+
+- Create websites with detailed design prompts
+- Chain multiple operations (create client → build site → assign → magic link)
+- Debug and retry failed workflows
+- Integrate Lindo into larger development workflows
+
+### Links
+
+- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
+- [GitHub: anthropics/claude-code](https://github.com/anthropics/claude-code)
+
+---
+
+## OpenAI Codex CLI
+
+[Codex](https://github.com/openai/codex) is OpenAI's open-source terminal coding agent. It executes shell commands and edits code autonomously — give it the Lindo CLI and it can create websites, manage clients, and publish content through natural language instructions.
+
+### Setup
+
+1. Install Codex from [GitHub](https://github.com/openai/codex)
+2. Tell Codex:
+
+```
+First install lindoai-cli globally and run lindoai skill to install the skill. Then run lindoai --help to learn all available commands. Finally run lindoai login to authenticate and connect to my workspace.
+```
+
+### What Codex Can Do with Lindo
+
+- Create and manage websites via CLI commands
+- Automate repetitive client setup tasks
+- Publish content and check build status
+- Integrate with other tools in your terminal workflow
+
+### Links
+
+- [GitHub: openai/codex](https://github.com/openai/codex)
+
+---
+
+## How It Works
+
+AI agents interact with Lindo through the [CLI](/mcp-agents/cli). The flow is:
+
+1. Agent installs the Lindo CLI (`npm install -g lindoai-cli`)
+2. Agent installs the skill (`lindoai skill`) — writes the full command reference to the agent's skill directory
+3. Agent reads the help (`lindoai --help`) — discovers available commands and the `skill --print` tip
+4. Agent authenticates (`lindoai login`)
+5. Agent runs commands to manage your workspace
+
+When an agent runs `lindoai --help`, the output includes a tip to run `lindoai skill --print` which outputs the full SKILL.md — a complete reference of every command, parameter, and usage example. This teaches the agent everything it can do without needing external docs.
+
+The CLI also provides JSON output mode (`--format json`) which agents parse to understand results and make decisions.
+
+## Supported Agents
+
+Any AI agent that can execute shell commands can use Lindo. The CLI is designed to be agent-friendly with:
+
+- Structured JSON output for machine parsing
+- Clear error messages with actionable suggestions
+- Non-interactive authentication via `LINDO_API_KEY` env var
+- Idempotent operations safe for retry
+
+| Agent | Status | Notes |
+|-------|--------|-------|
+| OpenClaw | ✅ Supported | Full CLI access via Telegram |
+| Hermes | ✅ Supported | Autonomous task execution |
+| OpenCode | ✅ Supported | Terminal-based coding agent |
+| Claude Code | ✅ Supported | Also works via [MCP](/mcp-agents/mcp-server) or [Plugin](/mcp-agents/claude-plugin) |
+| OpenAI Codex | ✅ Supported | Also works via [Codex Plugin](/mcp-agents/codex-plugin) |
+| Custom agents | ✅ Supported | Any agent with shell access |

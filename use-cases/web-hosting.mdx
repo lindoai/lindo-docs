@@ -1,0 +1,252 @@
+---
+title: "Lindo.ai for Web Hosting Companies"
+description: "Add AI website creation to your hosting packages and stand out from competitors"
+---
+
+<Info>
+**Perfect for:** Web hosting providers, domain registrars, managed hosting companies, and cloud service providers looking to differentiate their offerings.
+</Info>
+
+## The Hosting Dilemma
+
+Hosting is a commodity. Everyone offers:
+- 99.9% uptime
+- Free SSL
+- One-click WordPress
+- 24/7 support
+
+**How do you stand out when everyone offers the same thing?**
+
+---
+
+## The Lindo.ai Advantage
+
+<CardGroup cols={2}>
+  <Card title="Instant Differentiation" icon="star">
+    "AI Website Builder Included" — a feature competitors don't have.
+  </Card>
+  <Card title="Higher ARPU" icon="chart-line">
+    Customers who build sites are worth 3-5x more than domain-only customers.
+  </Card>
+  <Card title="Reduced Churn" icon="lock">
+    Customers with active websites don't leave. Their business depends on you.
+  </Card>
+  <Card title="Zero Development" icon="code">
+    White-label embed ready to go. No engineering resources required.
+  </Card>
+</CardGroup>
+
+---
+
+## Integration Models
+
+<Tabs>
+  <Tab title="Bundled Feature">
+    **Include website builder in hosting plans.**
+    
+    | Plan | Current | With Lindo.ai |
+    |------|---------|---------------|
+    | Basic Hosting | $9.99/mo | $9.99/mo + 1 AI site |
+    | Pro Hosting | $24.99/mo | $24.99/mo + 3 AI sites |
+    | Business | $49.99/mo | $49.99/mo + 10 AI sites |
+    
+    **Benefit:** Justify premium pricing, reduce price sensitivity
+  </Tab>
+  <Tab title="Premium Add-On">
+    **Offer as optional upgrade.**
+    
+    | Add-On | Price | Your Margin |
+    |--------|-------|-------------|
+    | AI Site Builder | $19.99/mo | 70%+ |
+    | Pro Builder | $39.99/mo | 75%+ |
+    | Agency Builder | $99.99/mo | 80%+ |
+    
+    **Benefit:** New revenue stream, upsell existing customers
+  </Tab>
+  <Tab title="Standalone Product">
+    **Launch separate website builder brand.**
+    
+    - Full white-label platform
+    - Separate pricing and marketing
+    - Cross-sell to hosting customers
+    - Capture new market segment
+    
+    **Benefit:** Diversified revenue, new customer acquisition
+  </Tab>
+</Tabs>
+
+---
+
+## Customer Journey
+
+### Before Lindo.ai
+
+```
+Customer buys domain → Needs website → Goes to Wix/Squarespace → Never returns
+```
+
+### With Lindo.ai
+
+```
+Customer buys domain → "Create your website now?" → AI builds site → Stays forever
+```
+
+---
+
+## The Numbers
+
+### Customer Lifetime Value
+
+| Customer Type | Average LTV | Churn Rate |
+|---------------|-------------|------------|
+| Domain only | $120 | 40%/year |
+| Domain + hosting | $480 | 25%/year |
+| Domain + hosting + website | $1,800 | 8%/year |
+
+**Customers with websites are worth 15x more.**
+
+### Revenue Impact
+
+For a hosting company with 100,000 customers:
+
+| Scenario | Annual Revenue Impact |
+|----------|----------------------|
+| 10% adopt AI builder @ $20/mo | +$2.4M ARR |
+| 5% upgrade to premium @ $40/mo | +$2.4M ARR |
+| 15% reduction in churn | +$1.8M saved |
+| **Total Impact** | **+$6.6M** |
+
+---
+
+## Technical Integration
+
+### Control Panel Integration
+
+Add "Website Builder" to your hosting control panel:
+
+```html
+<!-- In your control panel -->
+<div class="service-card">
+  <h3>AI Website Builder</h3>
+  <p>Create a professional website in minutes</p>
+  <button onclick="launchBuilder()">
+    Build My Website
+  </button>
+</div>
+
+<script>
+function launchBuilder() {
+  // Open embedded Lindo.ai workspace
+  window.open(
+    'https://yourhosting.lindo.ai/build?user=' + userId,
+    'Website Builder',
+    'width=1200,height=800'
+  );
+}
+</script>
+```
+
+### Automatic Domain Connection
+
+When customers build a site, automatically connect their domain:
+
+```javascript
+// Webhook handler
+app.post('/webhooks/lindo', (req, res) => {
+  if (req.body.event === 'website.published') {
+    const { userId, websiteId } = req.body.data;
+    
+    // Get customer's domain from your system
+    const domain = getCustomerDomain(userId);
+    
+    // Auto-configure DNS
+    configureDNS(domain, websiteId);
+    
+    // Notify customer
+    sendEmail(userId, 'Your website is live!');
+  }
+});
+```
+
+---
+
+## Marketing Angles
+
+<AccordionGroup>
+  <Accordion title="For New Customers" icon="user-plus">
+    **"Get a Domain + AI Website in 5 Minutes"**
+    
+    - Register domain
+    - AI builds website instantly
+    - Published and live immediately
+    - No design skills needed
+    
+    *Conversion rate increase: 40-60%*
+  </Accordion>
+  <Accordion title="For Existing Customers" icon="users">
+    **"Your Domain Deserves a Website"**
+    
+    - Email campaign to domain-only customers
+    - "We'll build your website with AI"
+    - One-click activation
+    - Free trial period
+    
+    *Upsell conversion: 15-25%*
+  </Accordion>
+  <Accordion title="For Business Customers" icon="building">
+    **"Professional Websites for Your Clients"**
+    
+    - Reseller/agency features
+    - White-label option
+    - Bulk pricing
+    - Partner program
+    
+    *Higher-value customer acquisition*
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Competitive Advantage
+
+| Feature | You + Lindo.ai | GoDaddy | Bluehost | Hostinger |
+|---------|----------------|---------|----------|-----------|
+| AI Website Generation | ✅ | ❌ | ❌ | ❌ |
+| Conversational Editing | ✅ | ❌ | ❌ | ❌ |
+| White-Label Option | ✅ | ❌ | ❌ | ❌ |
+| Built-in CRM | ✅ | ❌ | ❌ | ❌ |
+| Client Management | ✅ | ❌ | ❌ | ❌ |
+
+**You offer what the big players can't.**
+
+---
+
+## Implementation Timeline
+
+<Steps>
+  <Step title="Week 1: Setup">
+    Configure white-label workspace, connect branding
+  </Step>
+  <Step title="Week 2: Integration">
+    Add to control panel, set up webhooks
+  </Step>
+  <Step title="Week 3: Testing">
+    Internal testing, beta with select customers
+  </Step>
+  <Step title="Week 4: Launch">
+    Roll out to all customers, marketing campaign
+  </Step>
+</Steps>
+
+---
+
+## Get Started
+
+<CardGroup cols={2}>
+  <Card title="Enterprise Partnership" icon="handshake" href="https://lindo.ai/enterprise">
+    Discuss integration and pricing options
+  </Card>
+  <Card title="Embedding Guide" icon="code" href="/tutorials/embedding-workspace">
+    Technical documentation for integration
+  </Card>
+</CardGroup>

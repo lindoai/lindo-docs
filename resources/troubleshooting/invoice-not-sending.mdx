@@ -1,0 +1,140 @@
+---
+title: "Invoice Not Sending"
+description: "Troubleshoot client invoice delivery issues"
+---
+
+If invoices aren't being delivered to your clients, follow these troubleshooting steps.
+
+## Verify Invoice Setup
+
+### Check Stripe Connection
+
+1. Open Settings → Integrations
+2. Verify Stripe is connected
+3. Ensure verification is complete
+
+### Check Client Email
+
+1. Open CRM
+2. Select the client
+3. Verify email address is correct
+
+## Common Issues
+
+### Invoice Created But Not Sent
+
+**Symptoms:**
+- Invoice shows in billing tab
+- Client didn't receive email
+
+**Solutions:**
+
+1. **Check client's spam folder**
+   - Ask client to check spam/junk
+   - Add sender to contacts
+
+2. **Verify email address**
+   - Check for typos
+   - Confirm email is active
+
+3. **Resend the invoice**
+   - Open invoice details
+   - Copy payment link
+   - Send manually if needed
+
+### Stripe Not Verified
+
+**Symptoms:**
+- Can't create invoices
+- Stripe shows pending
+
+**Solutions:**
+
+1. Open Stripe dashboard
+2. Complete verification requirements
+3. Submit required documents
+4. Wait for approval
+
+### Invoice Stuck as Draft
+
+**Symptoms:**
+- Invoice created but not finalized
+- Status shows "draft"
+
+**Solutions:**
+
+1. Open invoice details
+2. Review invoice information
+3. Click to send/finalize
+4. Confirm sending
+
+## Manual Invoice Delivery
+
+If automatic delivery fails:
+
+### Copy Payment Link
+
+1. Open CRM → Billing tab
+2. Find the invoice
+3. Click copy link icon
+4. Send link to client manually
+
+### Download PDF
+
+1. Open invoice details
+2. Click download
+3. Email PDF to client
+4. Include payment link
+
+## Email Delivery Issues
+
+### Check Email Settings
+
+If using white label:
+
+1. Verify email subdomain configured
+2. Check DNS records for email
+3. Ensure SPF/DKIM records added
+
+### Common Email Problems
+
+| Issue | Solution |
+|-------|----------|
+| Spam filtering | Ask client to whitelist |
+| Invalid email | Update client email |
+| Bounced email | Verify email exists |
+| Delayed delivery | Wait and check again |
+
+## Stripe Dashboard
+
+Check invoice status in Stripe:
+
+1. Log into Stripe dashboard
+2. Go to Invoices
+3. Find the invoice
+4. Check delivery status
+
+## Prevention Tips
+
+- Verify client emails when adding
+- Test with your own email first
+- Keep Stripe verification current
+- Monitor invoice delivery status
+
+## Contact Support
+
+If issues persist:
+
+1. Note the invoice number
+2. Include client email (redacted)
+3. Describe the issue
+4. Contact support
+
+<CardGroup cols={2}>
+  <Card title="DNS Issues" icon="globe" href="/troubleshooting/dns-not-connecting">
+    Learn more
+  </Card>
+  <Card title="Editor Issues" icon="pen-to-square" href="/troubleshooting/preview-not-loading">
+    Learn more
+  </Card>
+</CardGroup>
