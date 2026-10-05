@@ -1,0 +1,73 @@
+---
+title: "Introduction"
+description: "Understand general concepts, response codes, and authentication strategies."
+---
+
+## Base URL
+
+The Lindo AI API is built on **REST** principles. We enforce **HTTPS** in every request to improve data security, integrity, and privacy. The API does not support **HTTP**.
+
+All requests contain the following base URL:
+
+```
+https://api.lindo.ai
+```
+
+## Authentication
+
+To authenticate you need to add an *Authorization* header with the contents of the header being `Bearer YOUR_API_KEY` where `YOUR_API_KEY` is your API Key.
+
+```
+Authorization: Bearer YOUR_API_KEY
+```
+
+Get your API key from **Settings** > **API** > **API Keys** in your workspace dashboard.
+
+## Response Codes
+
+Lindo AI uses standard HTTP codes to indicate the success or failure of your requests.
+
+In general, `2xx` HTTP codes correspond to success, `4xx` codes are for user-related failures, and `5xx` codes are for infrastructure issues.
+
+| Status | Description                             |
+| ------ | --------------------------------------- |
+| `200`  | Successful request.                     |
+| `201`  | Resource created successfully.          |
+| `400`  | Check that the parameters were correct. |
+| `401`  | The API key used was missing.           |
+| `403`  | The API key used was invalid.           |
+| `404`  | The resource was not found.             |
+| `429`  | The rate limit was exceeded.            |
+| `5xx`  | Indicates an error with Lindo servers.  |
+
+<Info>
+  Check [Error Codes](/api/errors) for a comprehensive breakdown of all possible API errors.
+</Info>
+
+## Rate Limits
+
+The API enforces rate limits to ensure fair usage and system stability. After exceeding the limit, you'll receive a `429` response error code.
+
+Learn more about our [rate limits](/api/rate-limit).
+
+## Pagination
+
+Some endpoints support cursor-based pagination to help you browse through large datasets efficiently.
+
+Learn more about [pagination](/api/pagination).
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How does pagination work with the API?">
+    Some endpoints support cursor-based pagination to help you browse through large datasets efficiently. Check our [pagination guide](/api/pagination) for detailed information on how to use pagination parameters.
+  </Accordion>
+
+  <Accordion title="Where can I find my API key?">
+    You can find and manage your API keys in the workspace settings under **Settings** > **API** > **API Keys**.
+  </Accordion>
+
+  <Accordion title="What should I do if I hit the rate limit?">
+    If you receive a `429` response, you should reduce the rate of your requests. Implement a queue mechanism or add delays between requests. Check the response headers for retry timing information.
+  </Accordion>
+</AccordionGroup>

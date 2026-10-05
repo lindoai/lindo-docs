@@ -1,0 +1,159 @@
+---
+title: "API Authentication Errors"
+description: "Troubleshoot API key and authentication issues"
+---
+
+If you're getting authentication errors when using the API, follow these troubleshooting steps.
+
+## Common Errors
+
+### 401 Unauthorized
+
+**Error message:**
+```json
+{
+  "error": "Unauthorized",
+  "message": "Invalid or missing API key"
+}
+```
+
+**Causes:**
+- Missing API key
+- Invalid API key
+- Expired API key
+
+**Solutions:**
+
+1. **Check API key is included**
+   ```bash
+   curl -H "Authorization: Bearer YOUR_API_KEY" ...
+   ```
+
+2. **Verify key format**
+   - Include "Bearer " prefix
+   - No extra spaces
+   - Complete key (not truncated)
+
+3. **Generate new key**
+   - Old key may be deleted
+   - Create fresh API key
+
+### 403 Forbidden
+
+**Error message:**
+```json
+{
+  "error": "Forbidden",
+  "message": "Insufficient permissions"
+}
+```
+
+**Causes:**
+- Key doesn't have required permissions
+- Accessing restricted resource
+
+**Solutions:**
+
+1. Check your account permissions
+2. Verify resource access rights
+3. Contact workspace owner if needed
+
+## API Key Best Practices
+
+### Storing Keys
+
+- Use environment variables
+- Never commit to version control
+- Rotate keys periodically
+
+```bash
+# Good - environment variable
+export LINDO_API_KEY="your_key_here"
+curl -H "Authorization: Bearer $LINDO_API_KEY" ...
+```
+
+### Key Security
+
+- Keep keys confidential
+- Don't share in public channels
+- Delete unused keys
+
+## Generating New API Key
+
+1. Open Settings in sidebar
+2. Go to API tab
+3. Click "Generate API Key"
+4. Copy immediately (shown once)
+5. Store securely
+
+## Testing Your Key
+
+Verify your key works:
+
+```bash
+curl -X GET "https://api.lindo.ai/v1/websites" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json"
+```
+
+Expected response:
+```json
+{
+  "success": true,
+  "data": [...]
+}
+```
+
+## Common Mistakes
+
+| Mistake | Fix |
+|---------|-----|
+| Missing "Bearer " | Add "Bearer " before key |
+| Extra whitespace | Trim spaces from key |
+| Wrong header name | Use "Authorization" |
+| Truncated key | Copy complete key |
+| Using old key | Generate new key |
+
+## Rate Limiting
+
+### 429 Too Many Requests
+
+If you see this error:
+
+1. Reduce request frequency
+2. Implement exponential backoff
+3. Cache responses when possible
+
+```javascript
+// Exponential backoff example
+async function apiCallWithRetry(fn, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await fn();
+    } catch (error) {
+      if (error.status === 429) {
+        await sleep(Math.pow(2, i) * 1000);
+      } else {
+        throw error;
+      }
+    }
+  }
+}
+```
+
+## Getting Help
+
+If issues persist:
+
+1. Note the exact error message
+2. Include request details (without key)
+3. Contact support
+
+<CardGroup cols={2}>
+  <Card title="DNS Issues" icon="globe" href="/troubleshooting/dns-not-connecting">
+    Learn more
+  </Card>
+  <Card title="Editor Issues" icon="pen-to-square" href="/troubleshooting/preview-not-loading">
+    Learn more
+  </Card>
+</CardGroup>

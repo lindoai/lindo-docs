@@ -1,0 +1,75 @@
+---
+title: "How to Save Webhook URL"
+description: "Configuring webhook endpoint"
+---
+
+Set up your webhook endpoint to receive events.
+
+## Prerequisites
+
+- Business plan or higher
+- HTTPS endpoint ready
+
+<Steps>
+  <Step title="Open Settings">
+    Click **Settings** in the sidebar.
+  </Step>
+  <Step title="Go to API Tab">
+    Select the **API & Webhook** tab.
+  </Step>
+  <Step title="Find Webhook Section">
+    Locate the webhook URL field.
+  </Step>
+  <Step title="Enter Your URL">
+    Paste your webhook endpoint:
+    ```
+    https://yourserver.com/webhooks/lindo
+    ```
+  </Step>
+  <Step title="Save">
+    Click Save to activate.
+  </Step>
+</Steps>
+## URL Requirements
+
+- Must be HTTPS
+- Must be publicly accessible
+- Should respond with 200 OK
+- Handle POST requests
+
+## Testing
+
+After saving:
+1. Trigger an event (create website)
+2. Check your server logs
+3. Verify data received
+
+## Example Endpoint
+
+```javascript
+// Express.js example
+app.post('/webhooks/lindo', (req, res) => {
+  const event = req.body;
+  console.log('Received:', event);
+
+  // Process the event
+
+  res.status(200).send('OK');
+});
+```
+
+## Tips
+
+- Use HTTPS only
+- Respond quickly (under 5 seconds)
+- Handle retries
+- Log all events
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

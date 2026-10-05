@@ -1,0 +1,92 @@
+---
+title: "How to Setup White Label Domain"
+description: "Complete domain setup wizard walkthrough"
+---
+
+Connect your own domain to your Lindo.ai workspace.
+
+## Prerequisites
+
+- Elite or Reseller plan
+- Access to your domain's DNS settings
+- A domain you own
+
+<Steps>
+  <Step title="Open Domain Settings">
+    1. Go to Settings → White Label
+    2. Click the **Domain** tab
+    3. Click **Setup Domain**
+  </Step>
+  <Step title="Enter Your Domain">
+    Enter your main domain (e.g., `youragency.com`).
+
+    Click **Next**.
+  </Step>
+  <Step title="Configure Subdomains">
+    Set up three subdomains:
+
+    | Subdomain | Purpose | Example |
+    |-----------|---------|---------|
+    | WebApp | Your workspace | app.youragency.com |
+    | Website | Client websites | sites.youragency.com |
+    | Email | Transactional emails | mail.youragency.com |
+
+    Default suggestions work for most cases. Click **Next**.
+  </Step>
+  <Step title="Add DNS Records">
+    You'll see a list of DNS records to add. Go to your domain registrar:
+
+    **Required Records:**
+
+    | Type | Name | Value |
+    |------|------|-------|
+    | CNAME | app | cname.lindo.ai |
+    | CNAME | sites | cname.lindo.ai |
+    | TXT | _lindo | (verification code shown) |
+
+    **How to add:**
+    1. Log in to your domain registrar (GoDaddy, Cloudflare, Namecheap, etc.)
+    2. Find DNS settings
+    3. Add each record with the exact values shown
+  </Step>
+  <Step title="Verify Connection">
+    1. Return to Lindo.ai
+    2. Click **Check Status** for each record
+    3. Wait for green checkmarks (5-30 minutes)
+    4. Once all verified, click **Complete Setup**
+  </Step>
+</Steps>
+## DNS Propagation
+
+DNS changes take time to propagate:
+- Initial: 5-30 minutes
+- Full global: Up to 48 hours
+
+Be patient if status doesn't update immediately.
+
+## Common Issues
+
+**Record not connecting:**
+- Double-check values match exactly
+- Remove trailing dots if present
+- Check for conflicting A/AAAA records
+
+**Cloudflare users:**
+- Disable proxy (orange cloud → gray cloud)
+- Use DNS-only mode for verification
+
+## After Setup
+
+Once connected:
+- Share `app.youragency.com` with clients
+- Client websites publish to `sites.youragency.com`
+- Emails come from your domain
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

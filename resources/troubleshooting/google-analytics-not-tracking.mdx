@@ -1,0 +1,143 @@
+---
+title: "Google Analytics Not Tracking"
+description: "Troubleshoot Google Analytics integration issues"
+---
+
+If Google Analytics isn't tracking your website visitors, follow these troubleshooting steps.
+
+## Verify Integration Setup
+
+### Check Connection
+
+1. Open website editor
+2. Go to Settings → Integrations
+3. Verify Google Analytics is connected
+4. Check the Measurement ID is correct
+
+### Measurement ID Format
+
+- GA4 format: `G-XXXXXXXXXX`
+- Ensure no extra spaces
+- Copy directly from GA dashboard
+
+## Test Tracking
+
+### Real-Time Reports
+
+1. Open Google Analytics
+2. Go to Reports → Real-time
+3. Visit your website in another tab
+4. Check if visit appears
+
+### Debug Mode
+
+Use Google Analytics Debugger extension:
+
+1. Install Chrome extension
+2. Enable debugger
+3. Visit your website
+4. Check console for GA events
+
+## Common Issues
+
+### Wrong Measurement ID
+
+**Symptoms:**
+- No data in GA
+- Real-time shows nothing
+
+**Solutions:**
+
+1. Go to GA Admin → Data Streams
+2. Copy correct Measurement ID
+3. Update in Lindo.ai settings
+
+### Tracking Blocked
+
+**Symptoms:**
+- Works for some visitors
+- Your visits not tracked
+
+**Solutions:**
+
+1. **Check ad blockers**
+   - Disable ad blocker
+   - Test in incognito mode
+
+2. **Check browser settings**
+   - Disable "Do Not Track"
+   - Allow third-party cookies
+
+### Page Not Published
+
+**Symptoms:**
+- Preview doesn't track
+- Only published pages track
+
+**Solutions:**
+
+1. Publish the page
+2. Visit the live URL
+3. Check real-time reports
+
+## Verify Installation
+
+### Check Page Source
+
+1. Visit your published website
+2. View page source (Ctrl+U)
+3. Search for "gtag" or your Measurement ID
+4. Verify script is present
+
+### Expected Code
+
+```html
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
+
+## Data Processing Delay
+
+### Normal Delays
+
+- Real-time: Immediate
+- Standard reports: 24-48 hours
+- Some metrics: Up to 72 hours
+
+### Check Date Range
+
+1. Ensure correct date range selected
+2. Include today's date
+3. Check timezone settings
+
+## Alternative: Use GTM
+
+If direct GA integration has issues:
+
+1. Set up Google Tag Manager
+2. Connect GTM in Lindo.ai
+3. Configure GA through GTM
+4. More control and debugging options
+
+## Still Not Working?
+
+If issues persist:
+
+1. Verify GA property is active
+2. Check for GA account issues
+3. Try disconnecting and reconnecting
+4. Contact support with Measurement ID
+
+<CardGroup cols={2}>
+  <Card title="DNS Issues" icon="globe" href="/troubleshooting/dns-not-connecting">
+    Learn more
+  </Card>
+  <Card title="Editor Issues" icon="pen-to-square" href="/troubleshooting/preview-not-loading">
+    Learn more
+  </Card>
+</CardGroup>

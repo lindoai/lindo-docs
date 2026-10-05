@@ -1,0 +1,20 @@
+---
+title: 'Form email notifications'
+description: 'Receive submissions through your own SMTP server.'
+---
+
+Open **Website Settings → Form Settings → Email notifications**.
+
+1. Enable notifications and enter the SMTP host, username and password supplied by your email provider. Some providers require an app password or SMTP credential rather than your normal login password.
+2. Choose **587 — STARTTLS** or **465 — TLS**, as specified by the provider.
+3. Enter the sender name and email. The sender must be permitted by your SMTP provider.
+4. Enter your notification recipients, separated by commas (up to 10).
+5. Save, then click **Send test email**. Confirm it arrives in the recipient's inbox or spam folder.
+
+Notifications contain the form name, submission time, submitted fields and uploaded file links. Files are not attached to the email. Password fields contain salted hashes, never the original password.
+
+Only your connected SMTP server sends these notifications. There is no fallback to the platform's email service. Without SMTP, submissions still appear in the inbox and configured webhooks still run.
+
+Submissions are saved before email delivery. A failed notification does not lose the submission or ask the visitor to submit again. Delivery status appears in the submission details. Use **Retry email** to retry a failed notification manually. If a timeout occurred after the SMTP server accepted the first email, a manual retry can produce a duplicate. Test-mode and spam submissions do not send notifications; the settings test button sends a separate sample email.
+
+To stop notifications, turn off the checkbox and save. To remove the credentials, select **Disconnect SMTP and remove credentials** and save.

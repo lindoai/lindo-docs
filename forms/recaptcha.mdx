@@ -1,0 +1,41 @@
+---
+title: 'Protect forms with reCAPTCHA'
+description: 'Connect reCAPTCHA v3 on a custom domain.'
+---
+
+Built-in forms use spam verification, with a temporary allowance of 20 submissions for custom domains that have not connected reCAPTCHA yet. Visitors do not need to solve a puzzle: reCAPTCHA v3 checks a submission in the background.
+
+## Branded website addresses
+
+Websites on the platform's default address or your workspace's branded website subdomain use managed protection. You do not need to create a key for each website. Custom domains need their own keys.
+
+## Create your keys
+
+1. Open the [Google reCAPTCHA admin console](https://www.google.com/recaptcha/admin/create) and sign in.
+2. Enter a label you recognize, such as your business name.
+3. Select **Score based (v3)**. Do not select the v2 checkbox option.
+4. Add your website's domain without `https://`, a path or `*.`. For example, `example.com` also covers `www.example.com` and its other subdomains.
+5. Select or create the Google Cloud project requested by the console and complete Google's registration steps.
+6. Copy the **site key** and **secret key**. If your Google Cloud key page does not show a secret, open the key's integration/legacy-secret settings. This connection uses the v3 site key and legacy secret, not a Google Cloud API key.
+
+## Connect the website
+
+1. Open **Website Settings → Form Settings**.
+2. Select **Spam Protection** and find the custom-domain reCAPTCHA fields.
+3. Paste the site key and secret key, then save.
+4. Submit a test from the website's actual custom domain. A branded preview address uses managed protection and does not test your custom key.
+
+The secret is encrypted on the server. Reopening settings shows only whether it has been saved; leave the secret field blank to keep it.
+
+## Troubleshooting
+
+- **Setup required:** save both keys for the custom domain.
+- **Invalid domain/site key:** check that the Google key is v3 and includes the hostname visitors use.
+- **Verification failed:** refresh and try again. Tokens expire quickly and can only be used once. Browser extensions blocking Google scripts may prevent verification.
+- **Domain changed:** add the new domain in Google before testing it.
+
+Do not disable Google's domain verification. The backend also checks that the token belongs to this website and the form-submission action.
+
+## Temporary submission allowance
+
+Custom domains without reCAPTCHA keys can receive 20 submissions across all forms on the website. The Forms tab shows how many remain and links to Form Settings. Notification emails also remind you to connect reCAPTCHA. After 20, submissions on that custom domain pause until you connect valid keys. Deleting forms or disconnecting keys does not reset the allowance. Branded website addresses continue to use managed protection.
