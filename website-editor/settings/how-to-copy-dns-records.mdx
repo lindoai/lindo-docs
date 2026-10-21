@@ -1,0 +1,58 @@
+---
+title: "How to Copy DNS Records"
+description: "Copying DNS record name and value for your registrar"
+---
+
+Copy the DNS records you need to add at your domain registrar.
+
+## Finding DNS Records
+
+1. Go to **Settings** → **Domains**
+2. Add your custom domain if not already added
+3. The required DNS records are displayed
+
+## Copying Records
+
+For each record (CNAME and TXT):
+
+1. Find the **Name** field
+2. Click the copy icon next to it
+3. Paste into your registrar's DNS settings
+4. Find the **Value** field
+5. Click the copy icon
+6. Paste into your registrar
+
+## Record Types
+
+### CNAME Record
+- **Name**: Your domain or subdomain
+- **Value**: Lindo.ai's server address
+
+### TXT Record
+- **Name**: Usually @ or your domain
+- **Value**: Verification code
+
+## At Your Registrar
+
+Common registrars and where to find DNS settings:
+
+- **GoDaddy**: Domain Settings → DNS Management
+- **Namecheap**: Domain List → Manage → Advanced DNS
+- **Cloudflare**: DNS → Records
+- **Google Domains**: DNS → Custom Records
+
+## Tips
+
+- Copy values exactly (no extra spaces)
+- Some registrars auto-append your domain to the name
+- TTL can usually be left at default
+- Save changes after adding records
+
+<CardGroup cols={2}>
+  <Card title="Editor Overview" icon="pen-to-square" href="/website-editor/what-is-website-editor">
+    Learn more
+  </Card>
+  <Card title="AI Chat Guide" icon="comments" href="/website-editor/understanding-ai-chat">
+    Learn more
+  </Card>
+</CardGroup>

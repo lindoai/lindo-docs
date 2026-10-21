@@ -1,0 +1,122 @@
+---
+title: "Setting Up White Label Platform"
+description: "Configure custom branding for your agency"
+---
+
+Configure your Lindo.ai workspace with custom branding so clients see your agency name, logo, and domain instead of Lindo.ai. This tutorial takes 30-45 minutes including DNS propagation time.
+
+<Note>
+Requires Elite or Reseller plan.
+</Note>
+
+## What You'll Achieve
+
+- Custom logo and favicon
+- Your own domain (app.youragency.com)
+- Branded login page
+- Client self-registration enabled
+- Stripe connected for billing
+
+## Prerequisites
+
+- Access to your domain's DNS settings
+- Logo files (200x50px for full logo, 32x32px for favicon)
+- Stripe account (optional, for billing)
+
+## Part 1: Basic Branding
+
+<Steps>
+  <Step title="Open White Label settings">
+    Click **Settings** in the sidebar, then click the **White Label** tab.
+  </Step>
+  <Step title="Configure workspace">
+    In the **Workspace** tab, enter your agency name and toggle **Agentic Mode** ON. Click **Save Changes**.
+  </Step>
+  <Step title="Upload brand assets">
+    Switch to the **Appearance** tab and upload:
+    - **Full Logo** (200x50px) — Your agency logo, PNG or SVG with transparent background
+    - **Favicon** (32x32px) — Square icon for browser tabs
+    - **Login Background** (optional, 1920x1080px) — Custom background for the login page
+
+    Select your default language and click **Save Changes**.
+  </Step>
+</Steps>
+
+## Part 2: Custom Domain
+
+<Steps>
+  <Step title="Start domain setup">
+    Switch to the **Domain** tab and click **Setup Domain**.
+  </Step>
+  <Step title="Enter your domain">
+    Enter your main domain (e.g., `youragency.com`) and click **Next**.
+  </Step>
+  <Step title="Configure subdomains">
+    Set up your subdomains:
+    - **WebApp**: `app` → app.youragency.com (where clients log in)
+    - **Website**: `sites` → sites.youragency.com (where client sites live)
+    - **Email**: `mail` → mail.youragency.com (for email sending)
+
+    Click **Next**.
+  </Step>
+  <Step title="Add DNS records">
+    Go to your domain registrar (GoDaddy, Cloudflare, Namecheap, etc.) and add the DNS records shown:
+
+    | Type | Name | Value |
+    |------|------|-------|
+    | CNAME | app | cname.lindo.ai |
+    | CNAME | sites | cname.lindo.ai |
+    | TXT | _lindo | (verification code shown) |
+  </Step>
+  <Step title="Verify connection">
+    Return to Lindo.ai and click **Check Status** for each record. Wait for green checkmarks (5-30 minutes), then click **Complete Setup**.
+  </Step>
+</Steps>
+
+## Part 3: Client Access
+
+<Steps>
+  <Step title="Enable registration">
+    In the **Workspace** tab, toggle **Client Register** ON and save. Clients can now self-register at app.youragency.com.
+  </Step>
+  <Step title="Test client view">
+    Click **Preview Client View** to see exactly what your clients will experience when they log in.
+  </Step>
+</Steps>
+
+## Part 4: Billing Setup (Optional)
+
+<Steps>
+  <Step title="Connect Stripe">
+    Switch to the **Integrations** tab, find the **Stripe** section, and click **Connect Stripe**. Complete Stripe's onboarding process and return to Lindo.ai.
+  </Step>
+  <Step title="Start billing clients">
+    With Stripe connected, you can now create invoices and subscriptions for clients through the CRM.
+  </Step>
+</Steps>
+
+## Verification Checklist
+
+- [ ] Logo appears in header
+- [ ] Favicon shows in browser tab
+- [ ] Custom domain loads correctly
+- [ ] Login page shows your branding
+- [ ] Client registration works
+- [ ] Stripe connected (if using billing)
+
+## Troubleshooting
+
+**DNS not connecting** — Check that record values match exactly, remove conflicting A/AAAA records, and temporarily disable Cloudflare proxy if using it.
+
+**Logo not displaying** — Verify PNG or SVG format, check file is under 2MB, and use a transparent background.
+
+**Clients can't register** — Confirm the toggle is ON, check they're using the correct URL, and verify DNS has propagated.
+
+<CardGroup cols={2}>
+  <Card title="Add a Client" icon="user-plus" href="/workspace/how-to-add-client">
+    Create client accounts
+  </Card>
+  <Card title="Create Invoice" icon="file-invoice" href="/workspace/how-to-create-invoice">
+    Bill clients for services
+  </Card>
+</CardGroup>

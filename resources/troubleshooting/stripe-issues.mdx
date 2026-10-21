@@ -1,0 +1,122 @@
+---
+title: "Stripe Connection Issues"
+description: "Troubleshooting payment setup problems"
+---
+
+Problems connecting or using Stripe for billing.
+
+## Symptoms
+
+- Can't connect Stripe account
+- Verification pending
+- Invoices not sending
+- Payments not processing
+
+## Common Causes & Solutions
+
+<Steps>
+  <Step title="Incomplete Stripe Onboarding">
+    **Problem:** Stripe account setup not finished.
+
+    **Solution:**
+    1. Log in to Stripe dashboard
+    2. Check for pending requirements
+    3. Complete all verification steps:
+       - Business information
+       - Bank account
+       - Identity verification
+    4. Return to Lindo.ai and reconnect
+  </Step>
+  <Step title="Verification Pending">
+    **Problem:** Stripe is verifying your information.
+
+    **Solution:**
+    1. Check email for Stripe requests
+    2. Log in to Stripe dashboard
+    3. Complete any pending verifications
+    4. Wait for Stripe to approve (1-3 days)
+  </Step>
+  <Step title="Connection Timeout">
+    **Problem:** Connection process timed out.
+
+    **Solution:**
+    1. Refresh the page
+    2. Try connecting again
+    3. Use a different browser
+    4. Clear browser cache
+  </Step>
+  <Step title="Country Not Supported">
+    **Problem:** Stripe not available in your country.
+
+    **Solution:**
+    1. Check Stripe's supported countries
+    2. Use a business entity in supported country
+    3. Contact support for alternatives
+  </Step>
+  <Step title="Browser Blocking Popup">
+    **Problem:** Stripe popup was blocked.
+
+    **Solution:**
+    1. Allow popups for lindo.ai
+    2. Check browser's popup blocker
+    3. Try again
+  </Step>
+</Steps>
+## Checking Stripe Status
+
+### In Lindo.ai
+
+1. Go to Settings → White Label → Integrations
+2. Check Stripe section
+3. Status should show "Connected"
+
+### In Stripe Dashboard
+
+1. Log in to stripe.com
+2. Check for alerts or requirements
+3. Verify account is active
+
+## Reconnecting Stripe
+
+If connection is broken:
+1. Go to Settings → White Label → Integrations
+2. Click Disconnect (if shown)
+3. Click Connect Stripe
+4. Complete the flow again
+
+## Invoice Issues
+
+### Invoices Not Sending
+
+1. Verify Stripe is connected
+2. Check client email is correct
+3. Check spam folders
+4. Try resending invoice
+
+### Payments Not Processing
+
+1. Verify Stripe account is active
+2. Check for Stripe dashboard alerts
+3. Ensure bank account is verified
+4. Contact Stripe support if needed
+
+## When to Contact Support
+
+Contact Lindo.ai support if:
+- Connection fails repeatedly
+- Status shows connected but features don't work
+- Error messages persist
+
+Contact Stripe support if:
+- Verification issues
+- Payout problems
+- Account restrictions
+
+<CardGroup cols={2}>
+  <Card title="DNS Issues" icon="globe" href="/troubleshooting/dns-not-connecting">
+    Learn more
+  </Card>
+  <Card title="Editor Issues" icon="pen-to-square" href="/troubleshooting/preview-not-loading">
+    Learn more
+  </Card>
+</CardGroup>

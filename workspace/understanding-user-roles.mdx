@@ -1,0 +1,119 @@
+---
+title: "Understanding User Roles"
+description: "Owner, Admin, Editor, Viewer, Client - permissions and access levels"
+---
+
+Lindo.ai has five user roles with different permissions and access levels.
+
+## Role Overview
+
+| Role | Description |
+|------|-------------|
+| Owner | Full control, billing access |
+| Admin | Full control except billing |
+| Editor | Create and edit websites |
+| Viewer | Read-only access |
+| Client | Limited access to assigned sites |
+
+## Detailed Permissions
+
+### Owner
+
+The account creator with complete access:
+- ✓ All workspace settings
+- ✓ Billing and plan management
+- ✓ Team member management
+- ✓ Client management (CRM)
+- ✓ Create/edit/delete websites
+- ✓ Analytics access
+- ✓ API and webhook configuration
+
+**Note:** Each workspace has exactly one Owner. Ownership cannot be transferred.
+
+### Admin
+
+Full access except financial controls:
+- ✓ All workspace settings (except billing)
+- ✗ Billing and plan management
+- ✓ Team member management
+- ✓ Client management (CRM)
+- ✓ Create/edit/delete websites
+- ✓ Analytics access
+- ✓ API and webhook configuration
+
+### Editor
+
+Content creation focused:
+- ✗ Workspace settings
+- ✗ Billing
+- ✗ Team management
+- ✗ Client management
+- ✓ Create/edit websites
+- ✓ Analytics access
+- ✗ API configuration
+
+### Viewer
+
+Read-only access:
+- ✗ Workspace settings
+- ✗ Billing
+- ✗ Team management
+- ✗ Client management
+- ✗ Create/edit websites (view only)
+- ✓ Analytics access
+- ✗ API configuration
+
+### Client
+
+For agency clients:
+- ✗ Workspace settings
+- ✗ Billing
+- ✗ Team management
+- ✗ Other clients
+- ✓ Create/edit their assigned websites
+- ✓ Their website analytics
+- ✗ API configuration
+
+## Permission Matrix
+
+| Permission | Owner | Admin | Editor | Viewer | Client |
+|------------|-------|-------|--------|--------|--------|
+| View websites | ✓ | ✓ | ✓ | ✓ | Own |
+| Create websites | ✓ | ✓ | ✓ | ✗ | ✓* |
+| Edit websites | ✓ | ✓ | ✓ | ✗ | Own |
+| Delete websites | ✓ | ✓ | ✓ | ✗ | ✗ |
+| Manage settings | ✓ | ✓ | ✗ | ✗ | ✗ |
+| Manage billing | ✓ | ✗ | ✗ | ✗ | ✗ |
+| Invite team | ✓ | ✓ | ✗ | ✗ | ✗ |
+| Manage clients | ✓ | ✓ | ✗ | ✗ | ✗ |
+| View analytics | ✓ | ✓ | ✓ | ✓ | Own |
+| Use API | ✓ | ✓ | ✗ | ✗ | ✗ |
+
+*Clients can create websites up to their assigned limit.
+
+## Assigning Roles
+
+When inviting team members:
+1. Go to Settings → Members
+2. Click **Invite Member**
+3. Enter email address
+4. Select role from dropdown
+5. Send invitation
+
+## Changing Roles
+
+To change a team member's role:
+1. Go to Settings → Members
+2. Find the member
+3. Click the role dropdown
+4. Select new role
+5. Changes apply immediately
+
+<CardGroup cols={2}>
+  <Card title="Workspace Overview" icon="grid-2" href="/workspace/what-is-workspace">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="palette" href="/workspace/what-is-white-label">
+    Learn more
+  </Card>
+</CardGroup>

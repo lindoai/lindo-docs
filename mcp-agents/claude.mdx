@@ -1,0 +1,61 @@
+---
+title: "Claude"
+description: "Three ways to connect Lindo with Claude."
+---
+
+Connect Lindo to Claude through the Claude.ai Connector, Claude Desktop Extension, or Claude Code MCP/Plugin.
+
+## Claude.ai Connector
+
+Paste the remote MCP URL in Claude.ai → Settings → Connectors. Supports OAuth login — no API key needed.
+
+```
+https://mcp.lindo.ai/mcp
+```
+
+<a href="https://claude.ai/customize/connectors?modal=add-custom-connector" target="_blank">Add Connector →</a>
+
+## Claude Desktop Extension
+
+Download the `.mcpb` file from GitHub releases and drag it into Claude Desktop → Settings → Extensions.
+
+<a href="https://github.com/lindoai/mcp-server/releases" target="_blank">Download Extension →</a>
+
+## Claude Code (MCP)
+
+Add Lindo as an MCP server in Claude Code:
+
+```bash
+claude mcp add lindo -- npx -y @lindoai/mcp-server
+```
+
+## Claude Code Plugin
+
+All-in-one plugin with bundled MCP server, skills, and agents:
+
+```bash
+claude plugin marketplace add lindoai/lindoai-claude-marketplace
+claude plugin install lindo-ai@lindo-marketplace
+```
+
+See the [Claude Plugin documentation](/mcp-agents/claude-plugin) for full details.
+
+## Which Should I Use?
+
+| Method | Best For |
+|--------|----------|
+| Connector | Claude.ai web app users |
+| Extension | Claude Desktop app users |
+| MCP | Claude Code users who want granular control |
+| Plugin | Claude Code users who want the simplest setup |
+
+## Authentication
+
+- **Connector & Extension** — OAuth login, no API key needed
+- **MCP & Plugin** — Browser login on first run, or set `LINDO_API_KEY` env var
+
+## Resources
+
+- [Claude.ai Connectors](https://claude.ai/customize/connectors?modal=add-custom-connector)
+- [Claude Plugin](/mcp-agents/claude-plugin)
+- [MCP Server](/mcp-agents/mcp-server)

@@ -1,0 +1,140 @@
+---
+title: "Custom Code Injection"
+description: "Add custom scripts and tracking codes to your websites"
+---
+
+Learn how to inject custom HTML, CSS, and JavaScript into your websites using the custom code feature.
+
+## Overview
+
+Custom code injection allows you to add:
+
+- Analytics tracking scripts
+- Chat widgets
+- Custom CSS styles
+- JavaScript functionality
+- Meta tags
+
+## Workspace-Level vs Website-Level
+
+- **Workspace-Level**: Applies to all websites in workspace
+- **Website-Level**: Applies to specific website only
+
+## Adding Workspace Custom Code
+
+1. Open **Settings** in sidebar
+2. Go to **Custom Code** tab
+3. Add code to Header or Body section
+4. Click **Save**
+
+### Header Code
+
+Code added before `</head>`:
+
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_ID');
+</script>
+```
+
+### Body Code
+
+Code added before `</body>`:
+
+```html
+<!-- Chat Widget -->
+<script>
+  (function() {
+    var script = document.createElement('script');
+    script.src = 'https://chat-widget.example.com/widget.js';
+    document.body.appendChild(script);
+  })();
+</script>
+```
+
+## Adding Website Custom Code
+
+For website-specific code:
+
+1. Open website editor
+2. Go to Settings → Integrations
+3. Use the integration options
+4. Or add custom code in theme settings
+
+## Common Use Cases
+
+### Facebook Pixel
+
+```html
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'YOUR_PIXEL_ID');
+  fbq('track', 'PageView');
+</script>
+```
+
+### Custom CSS
+
+```html
+<style>
+  .custom-button {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    padding: 12px 24px;
+  }
+</style>
+```
+
+### Cookie Consent Banner
+
+```html
+<script src="https://cdn.example.com/cookie-consent.js"></script>
+<script>
+  CookieConsent.init({
+    theme: 'dark',
+    position: 'bottom'
+  });
+</script>
+```
+
+## Best Practices
+
+- Test code in staging first
+- Minimize script size for performance
+- Use async/defer for non-critical scripts
+- Validate HTML before adding
+- Document what each code snippet does
+
+## Troubleshooting
+
+**Code not appearing:**
+- Check for syntax errors
+- Verify code is saved
+- Clear browser cache
+- Check browser console for errors
+
+**Performance issues:**
+- Load scripts asynchronously
+- Minimize inline code
+- Use CDN-hosted libraries
+
+<CardGroup cols={2}>
+  <Card title="All Tutorials" icon="graduation-cap" href="/tutorials/build-saas-landing-page">
+    Learn more
+  </Card>
+  <Card title="White Label Setup" icon="building" href="/tutorials/white-label-setup">
+    Learn more
+  </Card>
+</CardGroup>

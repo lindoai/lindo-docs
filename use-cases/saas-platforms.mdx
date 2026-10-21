@@ -1,0 +1,231 @@
+---
+title: "Lindo.ai for SaaS & Platforms"
+description: "Embed AI website building into your product as a feature or revenue stream"
+---
+
+<Info>
+**Perfect for:** SaaS companies, marketing platforms, CRM providers, e-commerce platforms, and any software that serves businesses who need websites.
+</Info>
+
+## The Opportunity
+
+Your users already trust you. They're already paying you. And many of them need websites.
+
+**Why send them elsewhere?**
+
+- Marketing platforms → clients need landing pages
+- CRM systems → businesses need company websites
+- E-commerce tools → merchants need storefronts
+- Booking software → service providers need online presence
+- Email platforms → senders need somewhere to drive traffic
+
+**Lindo.ai lets you offer website building as a native feature.**
+
+---
+
+## Integration Options
+
+<Tabs>
+  <Tab title="Workspace Embedding">
+    **Embed the full Lindo.ai workspace into your product.**
+    
+    - Users never leave your platform
+    - Full white-label (your branding)
+    - Seamless authentication
+    - You control the experience
+    
+    ```html
+    <iframe 
+      src="https://yourworkspace.lindo.ai/embed" 
+      width="100%" 
+      height="800px"
+    />
+    ```
+    
+    **Best for:** Platforms wanting deep integration
+  </Tab>
+  <Tab title="API Integration">
+    **Use our API to build custom workflows.**
+    
+    - Programmatic website creation
+    - Webhook notifications
+    - Custom UI/UX
+    - Full control over the experience
+    
+    **Best for:** Platforms with specific UX requirements
+  </Tab>
+  <Tab title="Reseller White-Label">
+    **Offer Lindo.ai as a standalone product under your brand.**
+    
+    - Completely separate product
+    - Your pricing, your billing
+    - Full platform access
+    - No development required
+    
+    **Best for:** Companies wanting to launch quickly
+  </Tab>
+</Tabs>
+
+---
+
+## Business Models
+
+### Model 1: Feature Add-On
+
+**Include website building in your existing plans.**
+
+| Your Plan | Current Price | With Website Builder | Value Add |
+|-----------|---------------|---------------------|-----------|
+| Starter | $29/mo | $29/mo (1 site) | Retention |
+| Pro | $79/mo | $79/mo (3 sites) | Retention |
+| Business | $199/mo | $199/mo (10 sites) | Retention |
+
+**Why it works:** Increases stickiness. Users who build their website on your platform are far less likely to churn.
+
+### Model 2: Premium Upsell
+
+**Offer website building as a paid add-on.**
+
+| Add-On | Price | Your Margin |
+|--------|-------|-------------|
+| 1 Website | $49/mo | 70%+ |
+| 5 Websites | $149/mo | 75%+ |
+| Unlimited | $299/mo | 80%+ |
+
+**Why it works:** New revenue stream with minimal effort. Users already trust you.
+
+### Model 3: Standalone Product
+
+**Launch a separate website builder brand.**
+
+- Full white-label platform
+- Your pricing structure
+- Separate marketing and sales
+- Potential for significant revenue
+
+**Why it works:** Diversifies your business. Captures market you're not currently serving.
+
+---
+
+## Integration Example: Marketing Platform
+
+<Steps>
+  <Step title="User Creates Campaign">
+    User sets up email campaign in your platform
+  </Step>
+  <Step title="Needs Landing Page">
+    Prompt appears: "Create a landing page for this campaign?"
+  </Step>
+  <Step title="AI Generates Page">
+    Lindo.ai creates landing page matching campaign content
+  </Step>
+  <Step title="User Customizes">
+    Quick edits in embedded editor
+  </Step>
+  <Step title="Publish & Track">
+    Page goes live, analytics flow back to your platform
+  </Step>
+</Steps>
+
+**Result:** User never leaves your platform. Campaign + landing page created in one workflow.
+
+---
+
+## Technical Integration
+
+### Workspace Embedding
+
+```javascript
+// Initialize embedded workspace
+const workspace = new LindoEmbed({
+  container: '#website-builder',
+  workspaceId: 'your-workspace-id',
+  userId: currentUser.id,
+  theme: 'light', // or 'dark'
+  features: {
+    templates: true,
+    aiChat: true,
+    export: false // control what users can do
+  }
+});
+
+// Listen for events
+workspace.on('website.created', (data) => {
+  // Update your database
+  saveWebsiteToUser(currentUser.id, data.websiteId);
+});
+
+workspace.on('website.published', (data) => {
+  // Trigger your workflows
+  notifyUser(currentUser.id, 'Website published!');
+});
+```
+
+### Webhook Events
+
+```json
+{
+  "event": "website.published",
+  "timestamp": "2024-01-15T10:30:00Z",
+  "data": {
+    "websiteId": "ws_abc123",
+    "userId": "user_xyz789",
+    "domain": "client-site.com",
+    "pages": 5
+  }
+}
+```
+
+---
+
+## Why Platforms Choose Lindo.ai
+
+<CardGroup cols={2}>
+  <Card title="No Development Required" icon="code">
+    Embed or integrate in days, not months. We handle the complexity.
+  </Card>
+  <Card title="AI-First Experience" icon="robot">
+    Your users get cutting-edge AI website building without you building it.
+  </Card>
+  <Card title="White-Label Ready" icon="palette">
+    Your brand throughout. Users never know it's Lindo.ai.
+  </Card>
+  <Card title="Scalable Infrastructure" icon="server">
+    We handle hosting, CDN, SSL, and scaling. You focus on your product.
+  </Card>
+  <Card title="Revenue Share Options" icon="handshake">
+    Flexible pricing models for enterprise partnerships.
+  </Card>
+  <Card title="Dedicated Support" icon="headset">
+    Enterprise customers get dedicated account management.
+  </Card>
+</CardGroup>
+
+---
+
+## Case Study: Marketing SaaS
+
+**Company:** Email marketing platform with 50,000 users
+
+**Challenge:** Users needed landing pages but were using competitors
+
+**Solution:** Embedded Lindo.ai workspace as "Landing Page Builder"
+
+**Results after 6 months:**
+- 12,000 users activated the feature
+- 8,500 landing pages created
+- 23% reduction in churn
+- $180K new ARR from premium tier upgrades
+
+---
+
+## Get Started
+
+<CardGroup cols={2}>
+  <Card title="Enterprise Contact" icon="building" href="https://lindo.ai/enterprise">
+    Talk to our team about integration options
+  </Card>
+  <Card title="API Documentation" icon="book" href="/reference/api-endpoints">
+    Explore our API capabilities
+  </Card>
+</CardGroup>

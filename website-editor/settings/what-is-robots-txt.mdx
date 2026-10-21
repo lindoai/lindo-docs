@@ -1,0 +1,71 @@
+---
+title: "What is Robots.txt"
+description: "Search engine crawl rules for your website"
+---
+
+Robots.txt is a file that tells search engines which pages they can and cannot crawl.
+
+## Overview
+
+The robots.txt file sits at the root of your website and provides instructions to search engine crawlers.
+
+## Default Configuration
+
+By default, Lindo.ai allows all crawlers to access all pages:
+
+```
+User-agent: *
+Allow: /
+Sitemap: https://yoursite.com/sitemap.xml
+```
+
+## Manual Control
+
+You can enable manual robots.txt to:
+- Block specific pages from indexing
+- Disallow certain crawlers
+- Add custom rules
+
+## Common Directives
+
+| Directive | Purpose |
+|-----------|---------|
+| User-agent | Specify which crawler |
+| Allow | Permit crawling |
+| Disallow | Block crawling |
+| Sitemap | Point to sitemap |
+
+## Example Rules
+
+### Block a Page
+```
+User-agent: *
+Disallow: /private/
+```
+
+### Block All Crawlers
+```
+User-agent: *
+Disallow: /
+```
+
+### Allow Specific Crawler
+```
+User-agent: Googlebot
+Allow: /
+```
+
+## Important Notes
+
+- Robots.txt is a suggestion, not enforcement
+- Sensitive content should use authentication
+- Changes take time to be recognized
+
+<CardGroup cols={2}>
+  <Card title="Editor Overview" icon="pen-to-square" href="/website-editor/what-is-website-editor">
+    Learn more
+  </Card>
+  <Card title="AI Chat Guide" icon="comments" href="/website-editor/understanding-ai-chat">
+    Learn more
+  </Card>
+</CardGroup>

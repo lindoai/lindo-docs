@@ -1,0 +1,120 @@
+---
+title: "Workflow Errors"
+description: "Troubleshooting failed workflows"
+---
+
+Your workflow shows "Error" status and didn't complete.
+
+## Symptoms
+
+- Workflow status shows red "Error"
+- Website wasn't created or is incomplete
+- Error message in workflow details
+
+## Common Causes & Solutions
+
+<Steps>
+  <Step title="Insufficient Credits">
+    **Problem:** Not enough credits to complete.
+
+    **Solution:**
+    1. Check balance in Settings → Credits
+    2. Purchase additional credits if needed
+    3. Create a new workflow
+
+    **Prevention:** Ensure 200+ credits before starting (typical website uses 100-200).
+  </Step>
+  <Step title="Invalid Prompt">
+    **Problem:** Prompt contains unsupported or conflicting requests.
+
+    **Solution:**
+    1. Review your prompt for clarity
+    2. Remove contradictory instructions
+    3. Simplify complex requests
+    4. Create new workflow with revised prompt
+  </Step>
+  <Step title="CSV Format Issues (Batch Import)">
+    **Problem:** CSV has formatting errors.
+
+    **Solution:**
+    1. Download sample CSV from Workflows
+    2. Compare your CSV structure
+    3. Fix common issues:
+       - Missing required columns
+       - Extra commas or special characters
+       - Wrong encoding (use UTF-8)
+       - Empty rows between data
+    4. Re-upload fixed CSV
+  </Step>
+  <Step title="Rate Limiting">
+    **Problem:** Too many workflows started at once.
+
+    **Solution:**
+    1. Wait 5-10 minutes
+    2. Start workflows in smaller batches
+    3. Split large CSVs into multiple files
+  </Step>
+  <Step title="Temporary Service Issue">
+    **Problem:** Backend temporarily unavailable.
+
+    **Solution:**
+    1. Wait 15-30 minutes
+    2. Click "Refresh" in Workflows
+    3. Check if workflow completed
+    4. Create new workflow if still errored
+  </Step>
+</Steps>
+## Checking Workflow Status
+
+1. Open **Workflows** from sidebar
+2. Find your workflow
+3. Status indicators:
+   - 🔵 Running - In progress
+   - 🟢 Completed - Success
+   - 🔴 Error - Failed (click for details)
+
+## Recovering from Errors
+
+### If Website Was Partially Created
+
+1. Check "Your Websites" for the site
+2. If exists, open in editor
+3. Use AI to complete missing sections
+4. No need to restart workflow
+
+### If Website Wasn't Created
+
+1. Note the error message
+2. Fix the underlying issue
+3. Create new workflow
+4. Ignore the failed one
+
+## Best Practices
+
+1. **Enable notifications** - Get emailed on completion/failure
+2. **Test first** - Single workflow before batch
+3. **Keep prompts simple** - Complex = more likely to fail
+4. **Check status** - Don't assume success
+
+## When to Contact Support
+
+Contact support if:
+- Same error repeats with different prompts
+- Error message is unclear
+- Credits deducted but no website created
+- Workflow stuck "Running" over 1 hour
+
+Include:
+- Workflow ID (if visible)
+- Error message
+- Your prompt
+- When error occurred
+
+<CardGroup cols={2}>
+  <Card title="DNS Issues" icon="globe" href="/troubleshooting/dns-not-connecting">
+    Learn more
+  </Card>
+  <Card title="Editor Issues" icon="pen-to-square" href="/troubleshooting/preview-not-loading">
+    Learn more
+  </Card>
+</CardGroup>

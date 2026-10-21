@@ -1,0 +1,826 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Lindo.ai",
+  "colors": {
+    "primary": "#171717",
+    "light": "#525252",
+    "dark": "#404040"
+  },
+  "favicon": "/favicon.png",
+  "logo": {
+    "light": "/logo/lindo-mono-full-logo-dark.png",
+    "dark": "/logo/lindo-mono-full-logo-white.png",
+    "href": "https://lindo.ai"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://lindo.ai/support"
+      },
+      {
+        "label": "What's New",
+        "href": "/whats-new",
+        "icon": "sparkles"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Get Started",
+      "href": "https://app.lindo.ai"
+    }
+  },
+  "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "icon": "book-open-cover",
+          "href": "/overview"
+        },
+        {
+          "anchor": "API",
+          "icon": "code",
+          "href": "/api/introduction"
+        },
+        {
+          "anchor": "MCP & Agents",
+          "icon": "robot",
+          "href": "/mcp-agents/mcp-server"
+        },
+        {
+          "anchor": "Automations",
+          "icon": "bolt",
+          "href": "/automations/n8n"
+        }
+      ]
+    },
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "icon": "book-open",
+        "groups": [
+          {
+            "group": "Home",
+            "pages": [
+              "overview",
+              "whats-new"
+            ]
+          },
+          {
+            "group": "Getting Started",
+            "pages": [
+              "getting-started/introduction",
+              "getting-started/creating-account",
+              "getting-started/google-oauth",
+              "getting-started/pin-verification",
+              "getting-started/understanding-workspaces",
+              "getting-started/ai-credits",
+              "getting-started/pricing-plans",
+              "getting-started/first-website",
+              "getting-started/customizing-website",
+              "getting-started/navigating-dashboard",
+              "getting-started/changing-language"
+            ]
+          },
+          {
+            "group": "Quick Start",
+            "pages": [
+              "getting-started/quick-start-landing-page",
+              "getting-started/quick-start-multi-page",
+              "getting-started/quick-start-template"
+            ]
+          },
+          {
+            "group": "Workspace",
+            "pages": [
+              "workspace/what-is-workspace",
+              "workspace/understanding-header",
+              "workspace/understanding-sidebar",
+              "workspace/understanding-user-roles",
+              "workspace/workspace-plans-overview",
+              "workspace/what-is-ai-prompt-builder",
+              "workspace/what-is-website-builder-mode",
+              "workspace/understanding-toolbar",
+              "workspace/what-is-language-tool",
+              "workspace/what-is-mode-tool",
+              "workspace/what-is-color-palette",
+              "workspace/what-is-website-url-tool",
+              "workspace/what-is-prompt-builder-modal",
+              "workspace/understanding-design-styles",
+              "workspace/understanding-sample-prompts",
+              "workspace/understanding-sample-sections",
+              "workspace/how-to-create-website-ai",
+              "workspace/how-to-use-prompt-builder",
+              "workspace/how-to-use-add-tools",
+              "workspace/how-to-create-single-page",
+              "workspace/how-to-create-multi-page"
+            ]
+          },
+          {
+            "group": "Your Websites",
+            "pages": [
+              "workspace/what-is-websites-grid",
+              "workspace/understanding-website-cards",
+              "workspace/understanding-website-status",
+              "workspace/what-is-website-actions-menu",
+              "workspace/how-to-search-websites",
+              "workspace/how-to-open-website",
+              "workspace/how-to-rename-website",
+              "workspace/how-to-clone-website",
+              "workspace/how-to-export-website",
+              "workspace/how-to-delete-website",
+              "workspace/how-to-upgrade-website",
+              "workspace/how-to-downgrade-website"
+            ]
+          },
+          {
+            "group": "White Label",
+            "pages": [
+              "workspace/what-is-white-label",
+              "workspace/understanding-workspace-tab",
+              "workspace/understanding-appearance-tab",
+              "workspace/understanding-domain-tab",
+              "workspace/understanding-integrations-tab",
+              "workspace/understanding-custom-code-tab",
+              "workspace/understanding-dns-records",
+              "workspace/what-is-agentic-mode",
+              "workspace/what-is-client-register",
+              "workspace/how-to-setup-white-label-domain",
+              "workspace/how-to-upload-logo",
+              "workspace/how-to-upload-favicon",
+              "workspace/how-to-upload-login-background",
+              "workspace/how-to-connect-stripe",
+              "workspace/how-to-connect-gtm",
+              "workspace/how-to-connect-ga",
+              "workspace/how-to-connect-clarity",
+              "workspace/how-to-connect-crisp",
+              "workspace/how-to-connect-intercom",
+              "workspace/how-to-connect-hubspot"
+            ]
+          },
+          {
+            "group": "Team Members",
+            "pages": [
+              "workspace/what-is-team-members",
+              "workspace/understanding-member-roles",
+              "workspace/how-to-invite-team-members",
+              "workspace/how-to-resend-invitation",
+              "workspace/how-to-revoke-access"
+            ]
+          },
+          {
+            "group": "Reseller",
+            "pages": [
+              "workspace/what-is-reseller-program",
+              "workspace/what-is-reseller-website",
+              "workspace/what-is-workspace-embed",
+              "workspace/what-are-reseller-tiers",
+              "workspace/what-are-credit-packages",
+              "workspace/how-to-create-reseller-website",
+              "workspace/how-to-setup-reseller-tiers",
+              "workspace/how-to-setup-credit-packages",
+              "workspace/how-to-enable-workspace-embed",
+              "workspace/how-to-embed-workspace"
+            ]
+          },
+          {
+            "group": "API & Webhook",
+            "pages": [
+              "workspace/what-are-api-keys",
+              "workspace/what-is-webhook",
+              "workspace/understanding-api-authorization",
+              "workspace/how-to-generate-api-key",
+              "workspace/how-to-save-webhook-url"
+            ]
+          },
+          {
+            "group": "Plans & Billing",
+            "pages": [
+              "workspace/understanding-pro-plan",
+              "workspace/understanding-business-plan",
+              "workspace/understanding-elite-plan",
+              "workspace/understanding-reseller-plan",
+              "workspace/understanding-plan-limits",
+              "workspace/what-are-addons",
+              "workspace/how-to-compare-plans",
+              "workspace/how-to-upgrade-plan",
+              "workspace/how-to-downgrade-plan"
+            ]
+          },
+          {
+            "group": "Credits",
+            "pages": [
+              "workspace/what-are-ai-credits",
+              "workspace/understanding-estimated-usage",
+              "workspace/understanding-credit-reset",
+              "workspace/how-to-check-credit-balance",
+              "workspace/how-to-purchase-credits",
+              "workspace/how-to-view-purchase-history"
+            ]
+          },
+          {
+            "group": "Workspace CRM",
+            "pages": [
+              "workspace/what-is-workspace-crm",
+              "workspace/understanding-clients-tab",
+              "workspace/understanding-billing-tab",
+              "workspace/understanding-client-details",
+              "workspace/how-to-add-client",
+              "workspace/how-to-search-clients",
+              "workspace/how-to-update-client-info",
+              "workspace/how-to-set-website-limit",
+              "workspace/how-to-delete-client",
+              "workspace/understanding-client-credits",
+              "workspace/how-to-allocate-credits",
+              "workspace/how-to-set-monthly-credits",
+              "workspace/understanding-invoicing",
+              "workspace/how-to-create-invoice",
+              "workspace/how-to-send-invoice",
+              "workspace/how-to-view-billing-history",
+              "workspace/how-to-refund-invoice",
+              "workspace/what-are-subscriptions",
+              "workspace/how-to-create-subscription",
+              "workspace/how-to-cancel-subscription"
+            ]
+          },
+          {
+            "group": "Workflows",
+            "pages": [
+              "workspace/what-are-workflows",
+              "workspace/understanding-workflow-statistics",
+              "workspace/understanding-workflow-status",
+              "workspace/what-is-batch-import",
+              "workspace/how-to-open-workflows",
+              "workspace/how-to-create-workflow",
+              "workspace/how-to-batch-import",
+              "workspace/how-to-download-sample-csv",
+              "workspace/how-to-upload-csv",
+              "workspace/how-to-monitor-workflow",
+              "workspace/how-to-enable-workflow-notifications"
+            ]
+          },
+          {
+            "group": "Workspace Analytics",
+            "pages": [
+              "workspace/what-is-workspace-analytics",
+              "workspace/understanding-statistics-cards",
+              "workspace/understanding-traffic-chart",
+              "workspace/understanding-top-websites",
+              "workspace/understanding-devices",
+              "workspace/understanding-browsers",
+              "workspace/understanding-operating-systems",
+              "workspace/understanding-top-countries",
+              "workspace/understanding-referrers",
+              "workspace/understanding-utm-campaigns",
+              "workspace/how-to-open-analytics",
+              "workspace/how-to-set-date-range",
+              "workspace/how-to-read-traffic-chart",
+              "workspace/how-to-analyze-traffic-sources"
+            ]
+          },
+          {
+            "group": "Website Editor",
+            "pages": [
+              "website-editor/what-is-website-editor",
+              "website-editor/understanding-editor-header",
+              "website-editor/understanding-preview-area",
+              "website-editor/how-to-navigate-tabs",
+              "website-editor/how-to-return-workspace",
+              "website-editor/how-to-access-editor",
+              "website-editor/how-to-check-credits-editor",
+              "website-editor/how-to-toggle-chat-panel",
+              "website-editor/understanding-editor-mode",
+              "website-editor/understanding-editor-select-mode",
+              "website-editor/understanding-preview-mode",
+              "website-editor/how-to-switch-modes",
+              "forms/recaptcha",
+              "forms/smtp"
+            ]
+          },
+          {
+            "group": "AI Chat & Editing",
+            "pages": [
+              "website-editor/understanding-ai-chat",
+              "website-editor/understanding-ai-agents",
+              "website-editor/understanding-chat-messages",
+              "website-editor/understanding-ai-tools-editor",
+              "website-editor/what-is-stream-preview",
+              "website-editor/what-is-prompt-enhancement",
+              "website-editor/how-to-send-message",
+              "website-editor/how-to-enhance-prompt",
+              "website-editor/how-to-upload-reference-images",
+              "website-editor/how-to-edit-text-ai",
+              "website-editor/how-to-edit-blocks-ai",
+              "website-editor/how-to-edit-elements-ai",
+              "website-editor/how-to-stop-generation",
+              "website-editor/how-to-add-sections"
+            ]
+          },
+          {
+            "group": "Editor Controls",
+            "pages": [
+              "website-editor/what-is-preview-header",
+              "website-editor/understanding-editor-modes",
+              "website-editor/what-is-layers-panel",
+              "website-editor/what-is-theme-panel",
+              "website-editor/what-is-page-settings-panel",
+              "website-editor/understanding-address-bar",
+              "website-editor/what-is-page-history",
+              "website-editor/how-to-open-layers",
+              "website-editor/how-to-open-theme",
+              "website-editor/how-to-open-page-settings",
+              "website-editor/how-to-change-page-url",
+              "website-editor/how-to-undo-redo",
+              "website-editor/how-to-view-page-history",
+              "website-editor/how-to-restore-version",
+              "website-editor/how-to-save-draft",
+              "website-editor/how-to-publish-page"
+            ]
+          },
+          {
+            "group": "Device Preview",
+            "pages": [
+              "website-editor/understanding-device-preview",
+              "website-editor/what-is-fullscreen-preview",
+              "website-editor/how-to-preview-desktop",
+              "website-editor/how-to-preview-tablet",
+              "website-editor/how-to-preview-mobile",
+              "website-editor/how-to-enter-fullscreen",
+              "website-editor/how-to-exit-fullscreen"
+            ]
+          },
+          {
+            "group": "Pages",
+            "pages": [
+              "website-editor/what-is-pages-tab",
+              "website-editor/understanding-page-types",
+              "website-editor/understanding-page-status",
+              "website-editor/what-is-page-card",
+              "website-editor/understanding-page-actions",
+              "website-editor/how-to-view-all-pages",
+              "website-editor/how-to-search-pages",
+              "website-editor/how-to-add-new-page",
+              "website-editor/how-to-edit-page",
+              "website-editor/how-to-duplicate-page",
+              "website-editor/how-to-change-page-status",
+              "website-editor/how-to-edit-page-seo",
+              "website-editor/how-to-delete-page",
+              "website-editor/how-to-unpublish-page",
+              "website-editor/how-to-create-blog-post",
+              "website-editor/how-to-import-blog-content"
+            ]
+          },
+          {
+            "group": "Shop",
+            "pages": [
+              "website-editor/shop/what-is-shop",
+              "website-editor/shop/how-to-enable-shop",
+              "website-editor/shop/how-to-manage-coupons",
+              "website-editor/shop/how-to-manage-inventory",
+              "website-editor/shop/how-to-create-shipping-rates",
+              "website-editor/what-are-products",
+              "website-editor/understanding-product-card",
+              "website-editor/understanding-product-pricing",
+              "website-editor/understanding-checkout-options",
+              "website-editor/what-is-product-settings-modal",
+              "website-editor/how-to-view-all-products",
+              "website-editor/how-to-create-product",
+              "website-editor/how-to-edit-product-settings",
+              "website-editor/how-to-set-product-price",
+              "website-editor/how-to-set-product-frequency",
+              "website-editor/how-to-upload-product-image",
+              "website-editor/how-to-upload-digital-file",
+              "website-editor/how-to-set-thank-you-message",
+              "website-editor/products/how-to-import-products-csv",
+              "website-editor/products/how-to-show-product-preview",
+              "website-editor/products/how-to-enable-discount-codes",
+              "website-editor/products/how-to-collect-phone",
+              "website-editor/products/how-to-collect-address",
+              "website-editor/products/how-to-enable-quantity",
+              "website-editor/products/how-to-duplicate-product",
+              "website-editor/products/how-to-delete-product"
+            ]
+          },
+          {
+            "group": "Website CRM",
+            "pages": [
+              "website-editor/what-is-website-crm",
+              "website-editor/crm/what-is-customer-details",
+              "website-editor/crm/how-to-add-customer",
+              "website-editor/crm/how-to-send-customer-invoice",
+              "website-editor/crm/how-to-view-customer-details",
+              "website-editor/crm/how-to-set-invoice-frequency",
+              "website-editor/crm/how-to-set-invoice-price",
+              "website-editor/crm/how-to-set-invoice-currency",
+              "website-editor/crm/how-to-set-invoice-service-name",
+              "website-editor/crm/how-to-view-all-invoices",
+              "website-editor/crm/how-to-copy-payment-link",
+              "website-editor/crm/how-to-view-invoice-details"
+            ]
+          },
+          {
+            "group": "Website Analytics",
+            "pages": [
+              "website-editor/what-is-website-analytics",
+              "website-editor/insights/what-is-website-analytics",
+              "website-editor/insights/understanding-domain-rating",
+              "website-editor/insights/how-to-view-analytics",
+              "website-editor/insights/how-to-set-date-range",
+              "website-editor/insights/how-to-refresh-analytics",
+              "website-editor/insights/how-to-read-traffic-chart",
+              "website-editor/insights/how-to-identify-top-pages",
+              "website-editor/insights/how-to-analyze-traffic-sources",
+              "website-editor/insights/how-to-check-device-distribution",
+              "website-editor/insights/how-to-check-geographic-distribution"
+            ]
+          },
+          {
+            "group": "Website Settings",
+            "pages": [
+              "website-editor/settings/what-is-website-settings",
+              "website-editor/how-to-change-theme",
+              "website-editor/how-to-connect-custom-domain",
+              "website-editor/how-to-setup-seo",
+              "website-editor/how-to-connect-integrations",
+              "website-editor/settings/how-to-set-social-links",
+              "website-editor/settings/how-to-enable-cookie-consent",
+              "website-editor/settings/how-to-enable-age-gate",
+              "website-editor/settings/how-to-change-subdomain",
+              "website-editor/settings/how-to-change-fonts",
+              "website-editor/settings/how-to-change-colors",
+              "website-editor/settings/how-to-style-buttons",
+              "website-editor/settings/how-to-configure-blog",
+              "website-editor/settings/how-to-manage-txt-files",
+              "website-editor/settings/how-to-add-custom-domain",
+              "website-editor/settings/how-to-check-dns-status",
+              "website-editor/settings/how-to-copy-dns-records",
+              "website-editor/settings/how-to-delete-custom-domain",
+              "website-editor/settings/how-to-crop-logo",
+              "website-editor/settings/how-to-configure-cookie-banner",
+              "website-editor/settings/how-to-configure-age-gate",
+              "website-editor/settings/how-to-disconnect-integration",
+              "website-editor/settings/how-to-view-integration-status",
+              "website-editor/settings/how-to-set-business-address",
+              "website-editor/settings/how-to-set-support-email",
+              "website-editor/settings/how-to-set-blog-heading",
+              "website-editor/settings/how-to-set-blog-subheading",
+              "website-editor/settings/how-to-set-blog-canonical",
+              "website-editor/settings/how-to-set-blog-menu-links"
+            ]
+          },
+          {
+            "group": "Website Workflows",
+            "pages": [
+              "website-editor/workflows/what-is-blog-pipeline",
+              "website-editor/workflows/how-to-create-blog-workflow",
+              "website-editor/workflows/how-to-create-page-workflow",
+              "website-editor/workflows/how-to-enable-notifications",
+              "website-editor/workflows/how-to-monitor-workflow"
+            ]
+          },
+          {
+            "group": "Website Team",
+            "pages": [
+              "website-editor/team/how-to-invite-member",
+              "website-editor/team/how-to-resend-invitation",
+              "website-editor/team/how-to-revoke-access"
+            ]
+          },
+          {
+            "group": "AI Agent",
+            "pages": [
+              "ai-agents/introduction",
+              "ai-agents/using-image-input"
+            ]
+          },
+          {
+            "group": "Getting Help",
+            "pages": [
+              "getting-started/getting-support",
+              "getting-started/submitting-feedback",
+              "getting-started/joining-community",
+              "workspace/how-to-get-support",
+              "workspace/how-to-submit-feedback",
+              "workspace/how-to-join-community",
+              "workspace/how-to-open-crm",
+              "workspace/how-to-view-client-details"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API",
+        "icon": "code",
+        "openapi": "https://api.lindo.ai/openapi.json",
+        "groups": [
+          {
+            "group": "Overview",
+            "icon": "book-open",
+            "pages": [
+              "api/introduction",
+              "api/errors",
+              "api/rate-limit",
+              "api/pagination",
+              "api/webhooks",
+              "api/sdks"
+            ]
+          },
+          {
+            "group": "Team and Product Reference",
+            "pages": [
+              "api-reference/website-management/add-team-member",
+              "api-reference/website-management/remove-team-member",
+              "api-reference/workspace-management/add-team-member",
+              "api-reference/workspace-management/remove-team-member",
+              "api-reference/product-management/get-a-website-product"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "MCP & Agents",
+        "icon": "cpu",
+        "groups": [
+          {
+            "group": "MCP Server",
+            "icon": "plug",
+            "pages": [
+              "mcp-agents/mcp-server"
+            ]
+          },
+          {
+            "group": "AI Chats",
+            "icon": "message-circle",
+            "pages": [
+              "mcp-agents/claude",
+              "mcp-agents/claude-plugin",
+              "mcp-agents/chatgpt",
+              "mcp-agents/codex-plugin",
+              "mcp-agents/perplexity"
+            ]
+          },
+          {
+            "group": "AI Agents",
+            "icon": "https://formbnb.com/logos/openclaw.svg",
+            "pages": [
+              "mcp-agents/ai-agents",
+              "mcp-agents/cli"
+            ]
+          },
+          {
+            "group": "Agent Skills",
+            "icon": "brain",
+            "pages": [
+              "mcp-agents/agent-skill"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Automations",
+        "icon": "zap",
+        "groups": [
+          {
+            "group": "n8n",
+            "icon": "https://www.google.com/s2/favicons?domain=n8n.io&sz=32",
+            "pages": [
+              "automations/n8n"
+            ]
+          },
+          {
+            "group": "Zapier",
+            "icon": "https://www.google.com/s2/favicons?domain=zapier.com&sz=32",
+            "pages": [
+              "automations/zapier"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Templates",
+        "href": "https://lindo.ai/templates"
+      },
+      {
+        "tab": "Tutorials",
+        "groups": [
+          {
+            "group": "Tutorials",
+            "pages": [
+              "tutorials/overview"
+            ]
+          },
+          {
+            "group": "Website Building",
+            "pages": [
+              "tutorials/build-saas-landing-page",
+              "tutorials/build-agency-website",
+              "tutorials/build-portfolio-website",
+              "tutorials/build-restaurant-website",
+              "tutorials/build-ecommerce-store",
+              "tutorials/build-real-estate-website",
+              "tutorials/build-fitness-website",
+              "tutorials/build-blog-website",
+              "tutorials/build-personal-website",
+              "tutorials/build-coming-soon-page"
+            ]
+          },
+          {
+            "group": "Feature Setup",
+            "pages": [
+              "tutorials/white-label-setup",
+              "tutorials/setting-up-custom-domain",
+              "tutorials/setting-up-analytics",
+              "tutorials/creating-blog-pipeline",
+              "tutorials/creating-product-catalog",
+              "tutorials/managing-multiple-clients",
+              "tutorials/team-collaboration-setup",
+              "tutorials/embedding-workspace"
+            ]
+          },
+          {
+            "group": "Advanced",
+            "pages": [
+              "tutorials/api-integration-guide",
+              "tutorials/webhook-integration-guide",
+              "tutorials/custom-code-injection",
+              "tutorials/exporting-website",
+              "tutorials/workflow-automation",
+              "tutorials/optimizing-for-seo",
+              "tutorials/setting-up-client-billing"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Use Cases",
+        "groups": [
+          {
+            "group": "Use Cases",
+            "pages": [
+              "use-cases/overview"
+            ]
+          },
+          {
+            "group": "Primary Audience",
+            "pages": [
+              "use-cases/digital-agencies",
+              "use-cases/freelancers",
+              "use-cases/saas-platforms",
+              "use-cases/web-hosting",
+              "use-cases/media-companies",
+              "use-cases/resellers"
+            ]
+          },
+          {
+            "group": "For Businesses",
+            "pages": [
+              "use-cases/businesses",
+              "use-cases/small-businesses",
+              "use-cases/ecommerce",
+              "use-cases/restaurants",
+              "use-cases/real-estate",
+              "use-cases/photographers",
+              "use-cases/coaches-consultants",
+              "use-cases/event-planners",
+              "use-cases/educators",
+              "use-cases/non-profits",
+              "use-cases/marketing-teams",
+              "use-cases/startups"
+            ]
+          },
+          {
+            "group": "For Clients",
+            "pages": [
+              "use-cases/client-role"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
+          {
+            "group": "Resources",
+            "pages": [
+              "resources/overview"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "resources/faq/getting-started",
+              "resources/faq/pricing-plans",
+              "resources/faq/ai-credits",
+              "resources/faq/ai-agents",
+              "resources/faq/workspace",
+              "resources/faq/website-editor",
+              "resources/faq/domains",
+              "resources/faq/white-label",
+              "resources/faq/seo",
+              "resources/faq/crm-billing",
+              "resources/faq/team-collaboration",
+              "resources/faq/api-integrations",
+              "resources/faq/reseller",
+              "resources/faq/security-privacy",
+              "resources/faq/support-help"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "resources/troubleshooting/dns-not-connecting",
+              "resources/troubleshooting/ssl-certificate-issues",
+              "resources/troubleshooting/subdomain-not-working",
+              "resources/troubleshooting/preview-not-loading",
+              "resources/troubleshooting/ai-not-responding",
+              "resources/troubleshooting/changes-not-appearing",
+              "resources/troubleshooting/editor-loading-slowly",
+              "resources/troubleshooting/website-not-publishing",
+              "resources/troubleshooting/mobile-layout-issues",
+              "resources/troubleshooting/stripe-issues",
+              "resources/troubleshooting/google-analytics-not-tracking",
+              "resources/troubleshooting/webhook-not-firing",
+              "resources/troubleshooting/api-authentication-errors",
+              "resources/troubleshooting/credit-balance-issues",
+              "resources/troubleshooting/plan-upgrade-issues",
+              "resources/troubleshooting/invoice-not-sending",
+              "resources/troubleshooting/team-invitation-issues",
+              "resources/troubleshooting/workflow-errors",
+              "resources/troubleshooting/images-not-loading",
+              "resources/troubleshooting/domain-propagation",
+              "resources/troubleshooting/save-publish-errors"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "resources/reference/agent-credit-costs",
+              "resources/reference/ai-tools",
+              "resources/reference/supported-languages",
+              "resources/reference/keyboard-shortcuts",
+              "resources/reference/plan-comparison",
+              "resources/reference/image-sizes",
+              "resources/reference/file-formats",
+              "resources/reference/dns-records",
+              "resources/reference/webhook-events",
+              "resources/reference/csv-import-format",
+              "resources/reference/schema-examples",
+              "resources/reference/robots-txt-examples",
+              "resources/reference/custom-code-examples",
+              "resources/reference/plan-limits",
+              "resources/reference/api-endpoints"
+            ]
+          },
+          {
+            "group": "Best Practices",
+            "pages": [
+              "resources/best-practices/effective-prompts",
+              "resources/best-practices/mobile-first",
+              "resources/best-practices/color-palette",
+              "resources/best-practices/typography",
+              "resources/best-practices/image-optimization",
+              "resources/best-practices/accessibility",
+              "resources/best-practices/seo-fundamentals",
+              "resources/best-practices/schema-markup",
+              "resources/best-practices/page-speed",
+              "resources/best-practices/content-strategy",
+              "resources/best-practices/client-credits",
+              "resources/best-practices/pricing-services",
+              "resources/best-practices/organizing-workspaces",
+              "resources/best-practices/workflow-automation",
+              "resources/best-practices/client-expectations"
+            ]
+          },
+          {
+            "group": "Glossary",
+            "pages": [
+              "resources/glossary/terms"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "integrations": {
+    "gtm": {
+      "tagId": "GTM-PJLCWF3"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/lindoagent",
+      "linkedin": "https://linkedin.com/company/lindoai"
+    }
+  },
+  "api": {
+    "baseUrl": "https://api.lindo.ai",
+    "playground": {
+      "display": "interactive"
+    }
+  },
+  "appearance": {
+    "default": "light"
+  }
+}
